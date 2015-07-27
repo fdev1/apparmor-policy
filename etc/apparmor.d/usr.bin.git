@@ -1,0 +1,4 @@
+/usr/bin/git {
+	#include <noexec-policy.d/capsall>
+	/** rwlkmix,
+}
