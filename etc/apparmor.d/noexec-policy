@@ -2,7 +2,7 @@
 
 # prevent all executables not matched by other profiles from
 # executing programs in the user's home directory
-profile base-policy /** {
+profile noexec-policy /** {
 	#include <noexec-policy.d/capsall>
 	/** rwlkmpx,
 	/ rwlkm,
