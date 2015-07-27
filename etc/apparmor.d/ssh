@@ -1,0 +1,10 @@
+profile ssh /usr/bin/{ssh,ssh-add,ssh-agent,ssh-copy-id,ssh-keygen,ssh-keyscan} {
+	#include <noexec-policy.d/capsall>
+	/** rwlkmpx,
+}
+
+profile sshd /usr/sbin/sshd {
+	#include <noexec-policy.d/capsall>
+	/** rwlkmpx,
+}
+

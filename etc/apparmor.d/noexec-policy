@@ -7,6 +7,9 @@ profile noexec-policy /** {
 	/** rwlkmpx,
 	/ rwlkm,
 
+	# deny r/w access to ssh keys
+	deny @{HOME}/.ssh/** rw,
+
 	# deny execution of programs located
 	# at the user's home directory
 	deny @{HOME}/** x,
