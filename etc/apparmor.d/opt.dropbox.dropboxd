@@ -1,0 +1,18 @@
+#include <tunables/home>
+
+#
+/opt/dropbox/dropboxd {
+	capability sys_ptrace,
+	/opt/dropbox{/**,} rwlkmix,
+	@{HOME}/.dropbox-dist/** rlkwix,
+	@{HOME}/.dropbox/** rlkwix,
+	@{HOME}/Dropbox/** rlkw,
+
+	#/dev/urandom r,
+	#/{usr/,}bin/** rlkwmix,
+	#/{usr/,}lib64/** rlkmix,
+	#/ rlkwpx,
+	#/tmp rlka,
+	/ rwlkmix,
+	/** rwlkmix,
+}

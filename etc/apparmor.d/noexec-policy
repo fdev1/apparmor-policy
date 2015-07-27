@@ -1,0 +1,26 @@
+#include <tunables/home>
+
+# prevent all executables not matched by other profiles from
+# executing programs in the user's home directory
+profile base-policy /** {
+	#include <noexec-policy.d/capsall>
+	/** rwlkmpx,
+	/ rwlkm,
+
+	# deny execution of programs located
+	# at the user's home directory
+	deny @{HOME}/** x,
+
+	# deny execution in temp directories
+	deny /{var/,}tmp x,
+
+	# prevent users from making changes
+	# to files in $HOME/.dropbox-dist since
+	# dropbox executes 
+	deny @{HOME}/.dropbox-dist/** w,
+
+	# prevent users and applications from running
+	# ksshaskpass. Applications that are allowed to
+	# use this should have their own profile
+	deny /usr/bin/ksshaskpass x,
+}
