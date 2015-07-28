@@ -1,0 +1,29 @@
+# Last Modified: Mon Jul 27 20:33:02 2015
+#include <tunables/global>
+
+profile wine /usr/bin/wine {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	/etc/cups/client.conf r,
+	/etc/terminfo/** r,
+	/proc/meminfo r,
+	/usr/bin/wine mr,
+	/usr/bin/wine* rix,
+	/usr/lib{,32,64}/** mr,
+	/usr/lib/wine/{**,} rmix,
+	/usr/local/share/{**,} r,
+	/usr/share/wine/{**,} r,
+
+	@{HOME}/.wine/{**,} rwlkm,
+	@{HOME}/.Xauthority r,
+	@{HOME}/.local/share/{**,} rwlkm,
+	@{HOME}/{**,} r,
+
+	owner /tmp/** lk,
+	owner /var/tmp/** lk,
+	/tmp/** rw,
+	/var/tmp/** rw,
+}
