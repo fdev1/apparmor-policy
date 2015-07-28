@@ -1,0 +1,68 @@
+# Last Modified: Mon Jul 27 18:37:59 2015
+#include <tunables/global>
+
+profile chromium /usr/lib64/chromium-browser/{chrome,chromedriver} {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+
+	#deny capability sys_admin,
+	#include <noexec-policy.d/capsall>
+
+	/dev/shm/{**,} rwlkm,
+	/dev/ati/{**,} rwlkm,
+	/usr/bin/kde4-config rix,
+	/usr/bin/lsb_release rix,
+	/usr/bin/xdg-settings rix,
+	/proc/{**,} rw,
+	/sys/devices/system/** r,
+	/sys/{**,} r,
+	/usr/lib64/chromium-browser/** mlkrix,
+	/usr/lib64/pango/** mlkr,
+	/usr/lib64/dri/{**,} mlkr,
+	/usr/share/{**,} r,
+	/usr/local/share/{**,} r,
+	deny @{HOME}/.config/oxygen-gtk/** w,
+
+
+	@{HOME}/{**,} rmlk,
+	@{HOME}/.AMD/{**,} rwmlk,
+	@{HOME}/.cache/chromium/{**,} rwmlk,
+	@{HOME}/.config/chromium/{**,} rwmlk,
+	@{HOME}/.pki/nssdb/{**,} rw,
+	@{HOME}/Downloads/{**,} rwmlk,
+	/mnt/shared/{**,} r,
+
+	/var/cache/fontconfig/{**,} rwmlk,
+	/etc/hosts r,
+	/etc/host.conf r,
+	/etc/resolv.conf r,
+	/etc/nsswitch.conf r,
+	/etc/fonts/{**,} r,
+	/etc/udev/{**,} r,
+	/etc/machine-id r,
+	/etc/pulse/{**,} r,
+	/etc/ati/{**,} r,
+	/etc/mdns.allow r,
+	/etc/gai.conf r,
+
+
+	owner /tmp/{**,} lk,
+	owner /var/tmp/{**,} lk,
+	/tmp/{**,} rw,
+	/var/tmp/{**,} rw,
+	/run/user/*/pulse/{**,} rw,
+
+	# these are used by xdg-settings
+	# maybe should be allowd?
+	deny /dev/ rwx,
+	deny /etc/passwd rwx,
+	deny /usr/bin/getopt rwx,
+	deny /etc/samba/{**,} rwx,
+	deny /bin/sed rwx,
+	deny /bin/cut rwx,
+	deny /bin/readlink rwx,
+	deny /bin/grep rwx,
+	deny /bin/basename rwx,
+	deny /usr/bin/which rwx,
+	deny @{HOME}/.ssh/** rwx,
+}
