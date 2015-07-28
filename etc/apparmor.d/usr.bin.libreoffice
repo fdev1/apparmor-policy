@@ -1,0 +1,59 @@
+# Last Modified: Tue Jul 28 18:11:21 2015
+#include <tunables/global>
+
+profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/fonts>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	
+	capability ipc_lock,
+
+	/dev/ati/** rwm,
+	/etc/ati/** r,
+	/dev/shm/** rwlk,
+	/sys/** r,
+	/bin/basename rpx,
+	/bin/bash rpx,
+	/bin/dirname rpx,
+	/bin/grep rpx,
+	/bin/sed rpx,
+	/bin/uname rpx,
+	/usr/bin/kde-open rpx,
+	/usr/bin/xdg-open rpx,
+	/usr/bin/testparm rpx,
+	/usr/bin/net rpx,
+
+
+	@{HOME}/{,**} rk,
+	@{HOME}/.exe* rwmkl,
+	@{HOME}/.xsession-errors w,
+	@{HOME}/.config/Trolltech.conf rw,
+	@{HOME}/.config/libreoffice/{**,} rw,
+	@{HOME}/.AMD/GLCache/** rw,
+	@{HOME}/.recently-used rw,
+	@{HOME}/.kde4/share/apps/RecentDocuments/** rw,
+	@{HOME}/.kde4/share/config/kdeglobals* rw,
+	@{HOME}/.kde4/share/config/LibreOfficerc* rw,
+
+	@{HOME}/Documents/** rw,
+
+	/usr/lib{,32,64}/** rmk,
+	/usr/lib{,32,64}/libreoffice/** rmix,
+	/opt/oracle-jdk-*/** rmix,
+	/usr/lib{,32,64}/libreoffice/share/uno_packages/cache/stamp.sys rwlmk,
+	/usr/share/** r,
+	/etc/cups/** r,
+	/etc/timezone r,
+	/etc/udev/udev.conf r,
+	/etc/fstab r,
+	@{PROC}/** r,
+
+	/var/tmp/kdecache-*/** rwmk,
+	/tmp/{**,} rwmk,
+	/run/user/*/ksocket-*/** rwmk,
+	/run/udev/** rwmk,
+
+	deny @{HOME}/.ssh/{**,} rwx,
+}
