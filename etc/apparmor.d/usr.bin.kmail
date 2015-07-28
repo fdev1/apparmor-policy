@@ -1,0 +1,31 @@
+# Last Modified: Mon Jul 27 23:09:15 2015
+#include <tunables/global>
+
+profile kmail /usr/bin/kmail {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	@{HOME}/** rmk,
+	@{HOME}/.config/{**,} rk,
+	@{HOME}/.kde4/share/apps/kmail2/{**,} rw,
+	@{HOME}/.kde4/share/config/kmail* rwk,
+	@{HOME}/.xsession-errors rwk,
+	@{HOME}/.gnupg/{.#*,trustdb.gpg} rwkl,
+	@{HOME}/Downloads rwm,
+	
+	/run/user/*/ksocket-*/kmail* rw,
+	/usr/bin/gpg2 rix,
+	/usr/bin/gpgconf rix,
+	/usr/bin/gpgsm rix,
+	/usr/bin/gpg-agent rix,
+	/usr/bin/pinentry-gtk-2 rix,
+	/usr/bin/kde4-config rix,
+	/usr/bin/kmail mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** r,
+	/usr/share/akonadi/agents/{**,} r,
+	/var/tmp/{**,} rw,
+
+	deny @{HOME}/.ssh/{**,} rwx,
+}

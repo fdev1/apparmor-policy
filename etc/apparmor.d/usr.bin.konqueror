@@ -1,0 +1,38 @@
+# Last Modified: Mon Jul 27 22:24:33 2015
+#include <tunables/global>
+
+profile konqueror /usr/bin/konqueror {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	@{HOME}/** r,
+	@{HOME}/.config/** rk,
+	@{HOME}/.kde4/share/** rw,
+	@{HOME}/.kde4/share/apps/konqueror/autosave/{**,} rw,
+	@{HOME}/.kde4/share/apps/konqueror/{**,} rw,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.xsession-errors rw,
+
+	@{HOME}/Downloads/{**,} rw,
+	/mnt/shared r,
+
+	/proc/** r,
+	/dev/shm/{**,} rwm,
+	/run/user/*/ksocket-*/konqueror* rw,
+	/usr/bin/konqueror mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/lib64/vlc/plugins/plugins.dat* rlkwm,
+	/etc/pulse/client.conf r,
+	/etc/asound.conf r,
+	/etc/machine-id r,
+
+	/usr/share/apps/khtml/{**,} r,
+	/usr/share/apps/konqueror/{**,} r,
+	/usr/share/{**,} r,
+	/var/tmp/{**,} rw,
+	/tmp/{**,} rw,
+	/run/user/*/pulse/{**,} rw,
+
+	deny @{HOME}/.ssh rwx,
+}
