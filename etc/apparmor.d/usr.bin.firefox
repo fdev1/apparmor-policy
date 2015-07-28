@@ -11,6 +11,8 @@ profile firefox /usr/lib64/firefox/firefox {
 
 	capability ipc_lock,
 
+	/dev/{**,} r,
+	/dev/video* rw,
 	/dev/ati/card0 rw,
 	/dev/shm/* rwl,
 	/etc/ati/* r,
@@ -24,17 +26,19 @@ profile firefox /usr/lib64/firefox/firefox {
 	@{HOME}/.cache/mozilla/** rwk,
 	@{HOME}/.config/pulse/* rk,
 	@{HOME}/.macromedia/Flash_Player/** rw,
+	@{HOME}/.adobe/Flash_Player/** rwm,
 	@{HOME}/.mozilla/** rwk,
 	@{HOME}/.xsession-errors w,
-	@{HOME}/ r,
-	@{HOME}/** r,
+
+	@{HOME}/{**,} r,
 	@{HOME}/Downloads rw,
 	/mnt/shared/{**,} r,
+	
 	/proc/** r,
 	/run/user/*/pulse/ r,
 	/sys/devices/system/** r,
 	/usr/bin/kde4-config rix,
-	/usr/lib64/firefox/** rmix,
+	/usr/lib{,32,64}/firefox/** rmix,
 	#/usr/lib64/firefox/firefox mr,
 	#/usr/lib64/firefox/plugin-container rix,
 	/usr/share/** r,

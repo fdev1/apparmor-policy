@@ -10,8 +10,10 @@ profile kmail /usr/bin/kmail {
 	@{HOME}/.config/{**,} rk,
 	@{HOME}/.kde4/share/apps/kmail2/{**,} rw,
 	@{HOME}/.kde4/share/config/kmail* rwk,
+	@{HOME}/.kde4/share/apps/RecentDocuments/{**,} rwk,
 	@{HOME}/.xsession-errors rwk,
 	@{HOME}/.gnupg/{.#*,trustdb.gpg} rwkl,
+	
 	@{HOME}/Downloads rwm,
 	
 	/run/user/*/ksocket-*/kmail* rw,
@@ -23,6 +25,7 @@ profile kmail /usr/bin/kmail {
 	/usr/bin/kde4-config rix,
 	/usr/bin/kmail mr,
 	/usr/lib{,32,64}/** mr,
+	/usr/lib{,64}/firefox/firefox rpx,
 	/usr/share/** r,
 	/usr/share/akonadi/agents/{**,} r,
 	/var/tmp/{**,} rw,
