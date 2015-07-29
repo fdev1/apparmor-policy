@@ -1,0 +1,24 @@
+# Last Modified: Tue Jul 28 13:35:53 2015
+#include <tunables/global>
+
+profile konverstation /usr/bin/konversation {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.kde4/share/apps/kabc/std.vcf rwk,
+	@{HOME}/.kde4/share/config/konversation* rwk,
+	@{HOME}/.kde4/share/config/kresources/contact/* rwk,
+	@{HOME}/.xsession-errors rw,
+	@{HOME}/{**,} rk,
+
+	@{HOME}/Downloads/{**,} rw,
+
+	/usr/bin/konversation mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/{**,} r,
+	/var/tmp/kdecache-*/** rw,
+
+	deny @{HOME}/.ssh/{**,} rwx,
+}

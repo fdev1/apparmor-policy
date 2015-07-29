@@ -31,7 +31,7 @@ profile firefox /usr/lib64/firefox/firefox {
 	@{HOME}/.xsession-errors w,
 
 	@{HOME}/{**,} r,
-	@{HOME}/Downloads rw,
+	@{HOME}/Downloads/{,**} rw,
 	/mnt/shared/{**,} r,
 	
 	/proc/** r,

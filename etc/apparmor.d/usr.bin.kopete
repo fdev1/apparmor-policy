@@ -1,0 +1,31 @@
+# Last Modified: Wed Jul 29 13:55:07 2015
+#include <tunables/global>
+
+profile kopete /usr/bin/kopete {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/Trolltech.conf rwk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.kde4/share/** r,
+	@{HOME}/.kde4/share/apps/kabc/std.vcf rw,
+	@{HOME}/.kde4/share/apps/kopete/{,**} rw,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.kde4/share/config/kopeterc* rw,
+	@{HOME}/.kde4/share/config/kresources/contact/stdrc* rw,
+	@{HOME}/.xsession-errors rw,
+	@{HOME}/{,**} r,
+	@{HOME}/Downloads/{,**} rw,
+	/mnt/shared/{,**} r,
+
+	/usr/bin/kopete mr,
+	/usr/bin/kde4-config rpx,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** r,
+	/run/user/*/ksocket-*/kopete* rw,
+	/var/tmp/kdecache-*/* rw,
+}

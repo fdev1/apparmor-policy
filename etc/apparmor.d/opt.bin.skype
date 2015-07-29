@@ -1,0 +1,46 @@
+# Last Modified: Wed Jul 29 13:22:30 2015
+#include <tunables/global>
+
+profile skype /opt/bin/skype {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+	#include <abstractions/consoles>
+
+	deny @{HOME}/.mozilla/{,**} rwx,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	/dev/ r,
+	/dev/video* rw,
+	/opt/bin/skype mr,
+	/etc/machine-id r,
+	
+	@{HOME}/.Skype/{,**} rwk,
+	@{HOME}/.Xauthority r,
+	@{HOME}/.cache/** r,
+	@{HOME}/.config/Skype/* rwk,
+	@{HOME}/.config/Trolltech.conf rwk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.config/pulse/cookie rk,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.mozilla/** r,
+	@{HOME}/.xsession-errors w,
+	@{HOME}/Downloads/{,**} rw,
+	@{HOME}/** r,
+	/proc/*/net/arp r,
+	/proc/*/net/route r,
+	/proc/sys/kernel/osrelease r,
+	/proc/sys/kernel/ostype r,
+	/sys/class/power_supply/ r,
+	/sys/devices/** r,
+	
+	/tmp/** rwk,
+	/usr/share/** r,
+	/var/cache/samba/gencache.tdb r,
+	/var/cache/samba/gencache_notrans.tdb r,
+	owner /{,var/}run/user/*/pulse/ w,
+	/{,var/}run/user/*/pulse/ r,
+	owner /{run,dev}/shm/pulse-shm* k,
+	/{run,dev}/shm/pulse-shm* rw,
+}

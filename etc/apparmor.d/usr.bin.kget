@@ -26,4 +26,5 @@ profile kget /usr/bin/kget {
 	/usr/share/** r,
 	/var/tmp/kdecache-*/** rw,
 
+	deny @{HOME}/.ssh/{,**} rwx,
 }

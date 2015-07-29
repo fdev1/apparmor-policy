@@ -1,0 +1,39 @@
+# Last Modified: Wed Jul 29 15:38:08 2015
+#include <tunables/global>
+
+profile pidgin /usr/bin/pidgin {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/freedesktop.org>
+	#include <abstractions/nameservice>
+
+	capability sys_ptrace,
+	deny /home/fernan/.config/oxygen-gtk/{,**} rwx,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/enchant/{,**} rwk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.config/pulse/cookie rk,
+	@{HOME}/.face.icon r,
+	@{HOME}/.purple/{,**} rw,
+	@{HOME}/.xsession-errors rw,
+	@{HOME}/{,**} r,
+	/proc/*/cmdline r,
+	/proc/*/fd/ r,
+	/proc/*/status r,
+	/proc/modules r,
+	/tmp/ r,
+	/usr/bin/kde4-config rpx,
+	/usr/bin/pidgin mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** r,
+	/var/tmp/ r,
+	/etc/machine-id r,
+
+	owner /{,var/}run/user/*/pulse/ w,
+	owner /{run,dev}/shm/pulse-shm* k,
+	/{,var/}run/user/*/pulse/ r,
+	/{run,dev}/shm/pulse-shm* rw,
+}

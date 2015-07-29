@@ -1,0 +1,46 @@
+
+#include <abstractions/base>
+#include <abstractions/audio>
+#include <abstractions/consoles>
+#include <abstractions/fonts>
+#include <abstractions/nameservice>
+
+capability ipc_lock,
+
+/usr/bin/update-desktop-database rpx,
+/usr/bin/wine rix,
+/usr/bin/wine-preloader rix,
+/usr/bin/xdg-open rpx,
+
+/dev/ati/card* rw,
+/dev/snd/** rw,
+/dev/shm/ParseLock* rw,
+/dev/shm/sem.* rwl,
+/dev/shm/pulse-shm-* rw,
+/sys/** r,
+/proc/** r,
+/etc/ati/** r,
+/etc/pulse/client.conf r,
+/etc/cups/client.conf r,
+/etc/terminfo/** r,
+/etc/machine-id r,
+/usr/bin/wine mr,
+/usr/bin/wine* rix,
+/usr/lib{,32,64}/** mr,
+/usr/lib/wine/{**,} rmix,
+/usr/local/share/{**,} r,
+/usr/share/** r,
+
+@{HOME}/.wine/{**,} rwlkm,
+@{HOME}/.Xauthority r,
+@{HOME}/.local/share/{**,} rwlkm,
+@{HOME}/.AMD/GLCache/{,**} rwmk,
+@{HOME}/{**,} r,
+@{HOME}/.xsession-errors w,
+@{HOME}/.config/pulse/cookie rk,
+
+owner /tmp/** lk,
+owner /var/tmp/** lk,
+/tmp/** rwm,
+/var/tmp/** rw,
+/run/user/*/pulse/ rw,

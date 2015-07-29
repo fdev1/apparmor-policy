@@ -1,7 +1,9 @@
 #include <tunables/home>
 
-#
-/opt/dropbox/dropboxd {
+# dropbox needs to execute code from the
+# user's home directory so it needs it's own
+# policy
+profile dropbox /opt/dropbox/dropboxd {
 	capability sys_ptrace,
 	/opt/dropbox{/**,} rwlkmix,
 	@{HOME}/.dropbox-dist/** rlkwix,
