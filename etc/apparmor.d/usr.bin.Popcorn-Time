@@ -1,0 +1,56 @@
+# Last Modified: Tue Jul 28 20:50:38 2015
+#include <tunables/global>
+
+profile Popcorn-Time /usr/lib{,32,64}/Popcorn-Time*/Popcorn-Time {
+	#include <abstractions/base>
+	#include <abstractions/nameservice>
+	#include <abstractions/fonts>
+	#include <abstractions/consoles>
+	
+	capability ipc_lock,
+
+	/dev/shm/ r,
+	/dev/shm/.org.chromium.* rw,
+	/dev/shm/pulse-shm-* rw,
+	/dev/shm/ParseLock* rwk,
+	/dev/shm/sem.* rwl,
+	/dev/ati/** rw,
+	@{HOME}/** r,
+	@{HOME}/.config/Popcorn-Time/{,**} rwk,
+	@{HOME}/.config/pulse/cookie rk,
+	@{HOME}/.Xauthority r,
+	@{HOME}/.xsession-errors w,
+	@{HOME}/.AMD/GLCache/** rwk,
+
+	/bin/bash rix,
+	/bin/df rpx,
+	/usr/bin/gawk rix,
+
+	/usr/bin/xdg-open rpx,
+	/usr/bin/kde4-config rpx,
+	/usr/lib{,32,64}/** mr,
+	/usr/lib{,32,64}/Popcorn-Time*/** mrix,
+	/usr/share/** r,
+	/etc/udev/udev.conf r,
+	/etc/pulse/client.conf r,
+	/etc/lsb_release r,
+	/etc/ati/** r,
+	/etc/machine-id r,
+
+	@{PROC}/{,**} r,
+	/sys/** r,
+	/var/tmp/{,**} rw,
+	/tmp/{,**} rw,
+	/tmp/.org.chromium.Chromium.*/{,**} rw,
+	/run/user/*/pulse/{,**} rw,
+
+	deny / r,
+	deny /usr/bin/ r,
+	deny /usr/local/bin/ r,
+	deny /usr/lib{,32,64}/Popcorn-Time*/** w,
+	deny @{HOME}/.ssh/{,**} rwx,
+	deny @{HOME}/.config/oxygen-gtk/** rwx,
+	deny @{HOME}/.pki/nssdb/** rwx,
+	deny @{PROC}/*/oom_* rwx,
+
+}

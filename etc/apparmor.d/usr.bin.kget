@@ -1,0 +1,29 @@
+# Last Modified: Tue Jul 28 20:04:07 2015
+#include <tunables/global>
+
+profile kget /usr/bin/kget {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+
+	/usr/bin/kde4-config rpx,
+
+	@{HOME}/** r,
+	@{HOME}/.config/Trolltech.conf rk,
+	@{HOME}/.kde4/share/apps/kget/** rw,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.kde4/share/config/kget* rw,
+	@{HOME}/.xsession-errors rw,
+
+	@{HOME}/Downloads/** ra,
+	@{HOME}/crypto/** ra,
+	/mnt/shared/ebooks/** ra,
+	/mnt/shared/** r,
+	/proc/** r,
+	/run/user/*/ksocket-*/kget* rw,
+	/usr/bin/kget mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** r,
+	/var/tmp/kdecache-*/** rw,
+
+}
