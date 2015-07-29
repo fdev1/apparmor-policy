@@ -1,0 +1,45 @@
+# Last Modified: Tue Jul 28 23:19:59 2015
+#include <tunables/global>
+
+profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+
+	capability sys_ptrace,
+
+	deny @{HOME}/.kde4/share/config/oxygenrc r,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/Trolltech.conf rk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.local/share/** r,
+	@{HOME}/.kde4/share/apps/ksysguard/ProcessTable.sgrd rw,
+	@{HOME}/.kde4/share/apps/ksysguard/SystemLoad2.sgrd rw,
+	@{HOME}/.kde4/share/config/kdebugrc r,
+	@{HOME}/.kde4/share/config/kdeglobals* rwk,
+	@{HOME}/.kde4/share/config/ksysguardrc* rw,
+	@{HOME}/.kde4/share/apps/knewstuff3/ksysguard.knsregistry rw,
+	@{HOME}/.xsession-errors w,
+	@{HOME}/{,**} r,
+	@{PROC}/{,**} r,
+
+	/usr/bin/testparm rpx,
+	/usr/bin/net rpx,
+	/usr/bin/kde4-config rpx,
+	/sys/** r,
+	/usr/bin/ksysguard mr,
+	/usr/bin/ksysguardd rix,
+	/usr/lib{,32,64}/kde4/kfilemodule.so rm,
+	/usr/share/** r,
+	/etc/udev/** r,
+	/etc/fstab r,
+	/etc/ksysguarddrc r,
+	owner /var/tmp/kdecache-*/* lk,
+	/var/tmp/kdecache-*/* rw,
+	/run/user/*/ksocket-*/ksysguard* rwk,
+	/run/udev/** r,
+
+}

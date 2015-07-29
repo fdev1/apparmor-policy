@@ -1,0 +1,32 @@
+# Last Modified: Wed Jul 29 00:31:10 2015
+#include <tunables/global>
+
+profile vlc /usr/bin/vlc {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+
+	deny /usr/lib{,32,64}/vlc/plugins/plugins.dat.* w,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	/** r,
+	/mnt/shared/** r,
+	
+	@{HOME}/.config/Trolltech.conf rk,
+	@{HOME}/.config/pulse/cookie rk,
+	@{HOME}/.config/vlc/** rwk,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.local/share/vlc/* rw,
+	@{HOME}/.xsession-errors w,
+	/usr/bin/vlc mr,
+	/usr/share/** rk,
+	owner /var/tmp/kdecache-*/* lk,
+	/var/tmp/kdecache-*/* rw,
+	owner /{,var/}run/user/*/pulse/ w,
+	/{,var/}run/user/*/pulse/ r,
+	owner /{run,dev}/shm/pulse-shm* k,
+	/{run,dev}/shm/pulse-shm* rw,
+
+}
