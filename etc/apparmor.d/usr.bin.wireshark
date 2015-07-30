@@ -55,7 +55,6 @@ profile wireshark /usr/bin/wireshark {
 	@{HOME}/.fonts.cache-* r,
 	@{HOME}/.wireshark/** rw,
 	@{HOME}/.config/gtk-*/** r,
-	@{HOME}/.xsession-errors w,
 	@{HOME}/{,**} r,
 	@{HOME}/Documents/{,**} rw,
 

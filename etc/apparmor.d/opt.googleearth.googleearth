@@ -1,0 +1,46 @@
+# Last Modified: Thu Jul 30 14:21:15 2015
+#include <tunables/global>
+
+profile googleearth /opt/googleearth/{googleearth,googleearth-bin} {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+	#include <abstractions/video>
+	#include <abstractions/X>
+	
+	deny @{HOME}/.pki/** rwx,
+
+	@{HOME}/.googleearth/{,**} rwk,
+	@{HOME}/.config/Trolltech.conf rwk,
+	@{HOME}/.config/Google/** rwk,
+	@{HOME}/.mozilla/plugins/{,*} rm,
+
+	@{PROC}/*/cmdline r,
+	@{PROC}/*/status r,
+	@{PROC}/*/statm r,
+	@{PROC}/modules r,
+	/sys/devices/** r,
+
+	@{PROC}/ati/** r,
+	@{HOME}/.AMD/GLCache/** rwk,
+	/dev/ati/card* rw,
+	/usr/bin/amd-console-helper rix,
+	/opt/nvidia-cg-toolkit/lib32/** rm,
+	/dev/shm/ParseLock* rwk,
+	/dev/shm/sem* rwkl,
+	/etc/ati/** r,
+
+
+	/bin/bash rix,
+	/bin/grep rix,
+	/bin/dirname rix,
+	/opt/googleearth/googleearth r,
+	/opt/googleearth/googleearth-bin ix,
+	/opt/googleearth/{,**} rm,
+	/usr/lib{,32,64}/** rm,
+	/usr/lib{,32,64}/firefox/firefox rpx,
+	/usr/share/** r,
+
+}

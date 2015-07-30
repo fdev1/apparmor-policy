@@ -7,6 +7,7 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	#include <abstractions/fonts>
 	#include <abstractions/consoles>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 	
 	capability ipc_lock,
 
@@ -28,7 +29,6 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 
 	@{HOME}/{,**} rk,
 	@{HOME}/.exe* rwmkl,
-	@{HOME}/.xsession-errors w,
 	@{HOME}/.config/Trolltech.conf rw,
 	@{HOME}/.config/libreoffice/{**,} rw,
 	@{HOME}/.AMD/GLCache/** rw,

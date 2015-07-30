@@ -7,6 +7,7 @@ profile pidgin /usr/bin/pidgin {
 	#include <abstractions/fonts>
 	#include <abstractions/freedesktop.org>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	capability sys_ptrace,
 	deny /home/fernan/.config/oxygen-gtk/{,**} rwx,
@@ -18,7 +19,6 @@ profile pidgin /usr/bin/pidgin {
 	@{HOME}/.config/pulse/cookie rk,
 	@{HOME}/.face.icon r,
 	@{HOME}/.purple/{,**} rw,
-	@{HOME}/.xsession-errors rw,
 	@{HOME}/{,**} r,
 	/proc/*/cmdline r,
 	/proc/*/fd/ r,

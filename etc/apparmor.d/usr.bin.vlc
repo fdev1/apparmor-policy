@@ -7,6 +7,7 @@ profile vlc /usr/bin/vlc {
 	#include <abstractions/fonts>
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	deny /usr/lib{,32,64}/vlc/plugins/plugins.dat.* w,
 	deny @{HOME}/.ssh/{,**} rwx,
@@ -19,7 +20,6 @@ profile vlc /usr/bin/vlc {
 	@{HOME}/.config/vlc/** rwk,
 	@{HOME}/.kde4/share/config/kdeglobals rk,
 	@{HOME}/.local/share/vlc/* rw,
-	@{HOME}/.xsession-errors w,
 	/usr/bin/vlc mr,
 	/usr/share/** rk,
 	owner /var/tmp/kdecache-*/* lk,

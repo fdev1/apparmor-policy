@@ -1,0 +1,9 @@
+# Last Modified: Thu Jul 30 17:12:29 2015
+#include <tunables/global>
+
+/bin/uname {
+  #include <abstractions/base>
+
+  /bin/uname mr,
+
+}

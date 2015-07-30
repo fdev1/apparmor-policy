@@ -6,6 +6,7 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	#include <abstractions/fonts>
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	capability sys_ptrace,
 
@@ -22,7 +23,6 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	@{HOME}/.kde4/share/config/kdeglobals* rwk,
 	@{HOME}/.kde4/share/config/ksysguardrc* rw,
 	@{HOME}/.kde4/share/apps/knewstuff3/ksysguard.knsregistry rw,
-	@{HOME}/.xsession-errors w,
 	@{HOME}/{,**} r,
 	@{PROC}/{,**} r,
 

@@ -7,6 +7,7 @@ profile ktorrent /usr/bin/ktorrent {
   #include <abstractions/consoles>
   #include <abstractions/fonts>
   #include <abstractions/nameservice>
+  #include <abstractions/X>
 
   /etc/machine-id r,
   @{HOME}/.Xauthority r,
@@ -14,7 +15,6 @@ profile ktorrent /usr/bin/ktorrent {
   @{HOME}/.config/fontconfig/fonts.conf r,
   @{HOME}/.config/kde.org/libphonon.conf rk,
   @{HOME}/.kde4/share/apps/ktorrent/{**,} rwk,
-  @{HOME}/.xsession-errors rwk,
   @{HOME}/.kde4/share/config/ktorrent* rwklm,
   @{HOME}/{**,} rk,
 

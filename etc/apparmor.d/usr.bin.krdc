@@ -1,0 +1,36 @@
+# Last Modified: Thu Jul 30 15:37:24 2015
+#include <tunables/global>
+
+profile krdc /usr/bin/krdc {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
+	#include <abstractions/kde>
+	#include <abstractions/X>
+
+	deny @{HOME}/.kde4/share/config/oxygenrc r,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/Trolltech.conf rk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.kde4/share/apps/krdc/{,**} rw,
+	@{HOME}/.kde4/share/config/kdebugrc r,
+	@{HOME}/.kde4/share/config/krdcrc* rw,
+	@{HOME}/.kde4/share/config/ktimezonedrc r,
+	@{HOME}/.kde4/share/config/servicetype_profilerc r,
+	@{HOME}/** r,
+	@{HOME}/Downloads/** rw,
+
+	/dev/shm/com.freerdp.xfreerdp* rwk,
+
+	/usr/bin/krdc mr,
+	/usr/bin/xfreerdp rix,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** r,
+	/var/cache/samba/** r,
+	/etc/mdns.allow r,
+	/etc/timezone r,
+	/var/tmp/kdecache-*/*.kcache rw,
+	/var/tmp/kdecache-*/ksycoca4 r,
+}

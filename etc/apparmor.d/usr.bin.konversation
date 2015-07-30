@@ -5,12 +5,12 @@ profile konverstation /usr/bin/konversation {
 	#include <abstractions/base>
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.kde4/share/apps/kabc/std.vcf rwk,
 	@{HOME}/.kde4/share/config/konversation* rwk,
 	@{HOME}/.kde4/share/config/kresources/contact/* rwk,
-	@{HOME}/.xsession-errors rw,
 	@{HOME}/{**,} rk,
 
 	@{HOME}/Downloads/{**,} rw,

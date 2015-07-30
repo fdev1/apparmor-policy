@@ -15,6 +15,8 @@
   # .ICEauthority files required for X authentication, per user
   @{HOME}/.ICEauthority r,
 
+  @{HOME}/.xsession-errors* rwk,
+
   # .Xauthority files required for X connections, per user
   @{HOME}/.Xauthority           r,
   owner /{,var/}run/gdm{,3}/*/database r,

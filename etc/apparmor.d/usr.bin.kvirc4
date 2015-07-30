@@ -1,0 +1,32 @@
+# Last Modified: Thu Jul 30 15:17:12 2015
+#include <tunables/global>
+
+profile kvirc4 /usr/bin/kvirc4 {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+
+	deny @{HOME}/.kde4/share/config/oxygenrc r,
+	deny @{HOME}/Desktop/kvirc.desktop w,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/KVIrc/{,**} rw,
+	@{HOME}/.config/Trolltech.conf rk,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.kde4/share/config/kdebugrc r,
+	@{HOME}/.kde4/share/config/kdeglobals rk,
+	@{HOME}/.kde4/share/config/kvirc* rw,
+
+	@{HOME}/** r,
+	@{HOME}/Downloads rw,
+
+	/usr/bin/kvirc4 mr,
+	/usr/share/** r,
+	/var/cache/samba/** r,
+	/etc/mdns.allow r,
+	owner /var/tmp/kdecache-*/*.kcache lk,
+	/var/tmp/kdecache-*/*.kcache rw,
+}

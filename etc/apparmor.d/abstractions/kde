@@ -27,7 +27,7 @@
 @{HOME}/.DCOPserver_* r,
 @{HOME}/.ICEauthority r,
 @{HOME}/.fonts.* lrw,
-@{HOME}/.kde{,4}/share/config/kdeglobals rw,
+@{HOME}/.kde{,4}/share/config/kdeglobals rwk,
 @{HOME}/.kde{,4}/share/config/*.lock rwl,
 @{HOME}/.qt/** rw,
 @{HOME}/.config/Trolltech.conf rwk,
@@ -55,6 +55,7 @@
 /usr/share/qt3/lib*/libqui*so* mr,
 
 # kde4
+/usr/bin/kde4-config rpx,
 /usr/lib*/kde4/plugins/*/*.so mr,
 /usr/lib*/kde4/plugins/*/ r,
 /usr/lib*/kde4/lib*so* mr,

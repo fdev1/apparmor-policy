@@ -7,6 +7,7 @@ profile skype /opt/bin/skype {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/consoles>
+	#include <abstractions/X>
 
 	deny @{HOME}/.mozilla/{,**} rwx,
 	deny @{HOME}/.ssh/{,**} rwx,
@@ -25,7 +26,6 @@ profile skype /opt/bin/skype {
 	@{HOME}/.config/pulse/cookie rk,
 	@{HOME}/.kde4/share/config/kdeglobals rk,
 	@{HOME}/.mozilla/** r,
-	@{HOME}/.xsession-errors w,
 	@{HOME}/Downloads/{,**} rw,
 	@{HOME}/** r,
 	/proc/*/net/arp r,

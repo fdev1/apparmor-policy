@@ -6,6 +6,7 @@ profile Popcorn-Time /usr/lib{,32,64}/Popcorn-Time*/Popcorn-Time {
 	#include <abstractions/nameservice>
 	#include <abstractions/fonts>
 	#include <abstractions/consoles>
+	#include <abstractions/X>
 	
 	capability ipc_lock,
 
@@ -19,7 +20,6 @@ profile Popcorn-Time /usr/lib{,32,64}/Popcorn-Time*/Popcorn-Time {
 	@{HOME}/.config/Popcorn-Time/{,**} rwk,
 	@{HOME}/.config/pulse/cookie rk,
 	@{HOME}/.Xauthority r,
-	@{HOME}/.xsession-errors w,
 	@{HOME}/.AMD/GLCache/** rwk,
 
 	/bin/bash rix,

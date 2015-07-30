@@ -5,6 +5,7 @@ profile kopete /usr/bin/kopete {
 	#include <abstractions/base>
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	deny @{HOME}/.ssh/{,**} rwx,
 
@@ -17,7 +18,6 @@ profile kopete /usr/bin/kopete {
 	@{HOME}/.kde4/share/config/kdeglobals rk,
 	@{HOME}/.kde4/share/config/kopeterc* rw,
 	@{HOME}/.kde4/share/config/kresources/contact/stdrc* rw,
-	@{HOME}/.xsession-errors rw,
 	@{HOME}/{,**} r,
 	@{HOME}/Downloads/{,**} rw,
 	/mnt/shared/{,**} r,

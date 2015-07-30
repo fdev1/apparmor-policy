@@ -1,0 +1,14 @@
+# Last Modified: Thu Jul 30 16:45:06 2015
+#include <tunables/global>
+
+profile vncviewer /usr/bin/vncviewer {
+	#include <abstractions/X>
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+
+	@{HOME}/.Xauthority r,
+	/usr/bin/vncviewer mr,
+	/usr/share/** r,
+
+}

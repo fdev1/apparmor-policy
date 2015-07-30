@@ -5,6 +5,7 @@ profile konqueror /usr/bin/konqueror {
 	#include <abstractions/base>
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
+	#include <abstractions/X>
 
 	@{HOME}/** r,
 	@{HOME}/.config/** rk,
@@ -12,7 +13,6 @@ profile konqueror /usr/bin/konqueror {
 	@{HOME}/.kde4/share/apps/konqueror/autosave/{**,} rw,
 	@{HOME}/.kde4/share/apps/konqueror/{**,} rw,
 	@{HOME}/.kde4/share/config/kdeglobals rk,
-	@{HOME}/.xsession-errors rw,
 
 	@{HOME}/Downloads/{**,} rw,
 	/mnt/shared r,

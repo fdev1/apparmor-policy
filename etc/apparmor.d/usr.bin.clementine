@@ -1,0 +1,60 @@
+# Last Modified: Thu Jul 30 01:21:48 2015
+#include <tunables/global>
+
+profile clementine /usr/bin/clementine {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/audio>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	
+	deny /var/vbox/** rwx,
+	deny /usr/local/** rwx,
+	deny @{HOME}/.ssh rwx,
+
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/Trolltech.conf rwk,
+	@{HOME}/.kde4/share/config/kdeglobals* rwk,
+	@{HOME}/.kde4/share/config/Clementinerc rw,
+	@{HOME}/.kde4/share/config/kfilemodulerc* rwk,
+	@{HOME}/.kde4/share/apps/RecentDocuments/* rwk,
+	@{HOME}/.config/Clementine/** rwk,
+	@{HOME}/.cache/{,**} rwk,
+
+	@{HOME}/{,**} r,
+	/mnt/shared/music/{,**} r,
+	/mnt/shared/music/M3u/{,**} rw,
+
+	/usr/bin/clementine mr,
+	/usr/bin/clementine-tagreader rpx,
+	/usr/bin/kfmclient rix,
+	/usr/bin/gsettings rpx,
+	/usr/bin/xdg-open rpx,
+	/usr/bin/net rix,
+	/usr/bin/testparm rix,
+
+	/usr/lib{,32,64}/** mr,
+	/usr/share/** rk,
+	/var/cache/fontconfig/** r,
+	/var/cache/samba/* r,
+	/etc/mdns.allow r,
+	/etc/ssl/certs/{,**} r,
+	/etc/lsb-release r,
+	/etc/machine-id r,
+	/etc/fstab r,
+	/etc/udev/udev.conf r,
+	/sys/devices/{,**} r,
+
+	/tmp/clementine* rwk,
+	/tmp/qtsingleapp-clemen-* rwk,
+	/var/tmp/** rwk,
+	/run/user/*/orcexec* rwm,
+	/run/user/*/ksocket-*/kfilemodule* rwkm,
+	/run/udev/** r,
+
+	/proc/*/mounts r,
+	/proc/*/cmdline r,
+
+
+}

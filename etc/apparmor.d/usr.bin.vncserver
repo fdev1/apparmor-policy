@@ -1,0 +1,28 @@
+# Last Modified: Thu Jul 30 17:14:18 2015
+#include <tunables/global>
+
+profile vncserver /usr/bin/vncserver {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/perl>
+	#include <abstractions/fonts>
+
+	/bin/bash rix,
+	/bin/cat rix,
+	/bin/uname rix,
+	/bin/kill rix,
+	/home/vnc/.Xauthority* rwkl,
+	/home/vnc/.vnc/** rwklm,
+	/home/vnc/.vnc/xstartup rpx,
+	/proc/meminfo r,
+	/usr/bin/Xvnc rix,
+	/usr/bin/perl ix,
+	/usr/bin/vncserver r,
+	/usr/bin/xauth rix,
+	/usr/share/X11/** r,
+	/etc/hosts.allow r,
+	/tmp/{.X*-lock,.tX*-lock,.X*-unix/,.X*-unix/**} rwlk,
+
+}

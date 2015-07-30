@@ -4,6 +4,7 @@
 #include <abstractions/consoles>
 #include <abstractions/fonts>
 #include <abstractions/nameservice>
+#include <abstractions/X>
 
 capability ipc_lock,
 
@@ -36,7 +37,6 @@ capability ipc_lock,
 @{HOME}/.local/share/{**,} rwlkm,
 @{HOME}/.AMD/GLCache/{,**} rwmk,
 @{HOME}/{**,} r,
-@{HOME}/.xsession-errors w,
 @{HOME}/.config/pulse/cookie rk,
 
 owner /tmp/** lk,

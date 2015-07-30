@@ -3,8 +3,4 @@
 
 profile wine /usr/bin/{wine,wine-preloader} {
 	#include <abstractions/wine>
-
-	/opt/jnes*/{,**} rm,
-	/etc/jnes.ini rw,
-	/mnt/shared/ROMs/** rm,
 }
