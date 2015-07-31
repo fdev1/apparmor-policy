@@ -33,6 +33,7 @@
   /usr/share/X11/                 r,
   /usr/share/X11/**               r,
   /usr/X11R6/**.so*               mr,
+  /usr/share/cursors/**		  r,
 
   # DRI
   /usr/lib{,32,64}/dri/**         mr,

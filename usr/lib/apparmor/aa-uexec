@@ -1,2 +1,27 @@
 #!/bin/sh
-/bin/bash -c "$@"
+
+# if this script was not invoked via sudo
+# then bail out (even if it's root)
+if [ "$(/usr/bin/id -gnr)" != "root" ] || [ "$SUDO_USER" == "" ]; then
+	echo "This program can only be executed via sudo!"
+	exit 1
+fi
+
+# if no command was specified bail out
+if [ $# == 0 ]; then
+	echo "Usage: sudo aa-uexec [COMMAND]"
+	exit 1
+fi
+
+# execute the command unconfined
+# note that we're setting the AA_STATUS environment
+# variable. This allows us to easily check if we're
+# running on an unconfined environment. A nice tip is
+# to add the following to ~/.bashrc to get a special
+# prompt to remind us that we're on an unconfined shell:
+#
+# if [ "$AA_STATUS" == "unconfined" ]; then
+# 	export PS1="\e[1;31m(unconfined) $PS1"
+# fi
+sudo -u $SUDO_USER AA_STATUS="unconfined" $@ || exit 1
+exit 0

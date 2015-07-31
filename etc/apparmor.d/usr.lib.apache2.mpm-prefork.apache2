@@ -72,7 +72,7 @@
   # This directory contains web application
   # package-specific apparmor files.
 
-  #include <apache2.d>
+  #no #include <apache2.d>
 
   # Site-specific additions and overrides. See local/README for details.
   #include <local/usr.lib.apache2.mpm-prefork.apache2>

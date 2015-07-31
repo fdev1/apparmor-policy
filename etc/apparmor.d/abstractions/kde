@@ -31,6 +31,9 @@
 @{HOME}/.kde{,4}/share/config/*.lock rwl,
 @{HOME}/.qt/** rw,
 @{HOME}/.config/Trolltech.conf rwk,
+@{HOME}/.kde4/share/config/kdebugrc r, 
+@{HOME}/.kde4/share/config/kdeglobals rk,
+deny @{HOME}/.kde4/share/config/oxygenrc r,
 
 /usr/share/icons/ r,
 /usr/share/icons/** r,
@@ -67,3 +70,6 @@
 /usr/lib/@{multiarch}/qt4/lib*/lib*so* mr,
 /usr/lib/@{multiarch}/qt4/plugins/**  mr,
 /usr/share/qt4/** r,
+/usr/share/config/kdebug.areas r, 
+/usr/share/config/kdebugrc r, 
+

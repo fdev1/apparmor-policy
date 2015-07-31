@@ -1,0 +1,20 @@
+# Last Modified: Fri Jul 31 02:25:00 2015
+#include <tunables/global>
+
+profile distccd /usr/bin/distccd flags=(complain) {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+
+
+	@{PROC}/meminfo r,
+
+	/bin/bash rix,
+	/usr/bin/distccd mr,
+	/usr/bin/{cc,gcc,g++,c++} rix,
+	/usr/bin/{*-gcc,*-cc,*-cpp,*-g++} rix,
+	/usr/*/gcc-bin/*/* rix,
+	/etc/env.d/gcc/* r,
+
+}

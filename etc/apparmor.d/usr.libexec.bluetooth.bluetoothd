@@ -1,0 +1,19 @@
+# Last Modified: Fri Jul 31 16:10:24 2015
+#include <tunables/global>
+
+profile bluetoothd /usr/libexec/bluetooth/bluetoothd {
+	#include <abstractions/base>
+
+	capability net_admin,
+	capability net_bind_service,
+
+	/dev/rfkill rw,
+	/sys/devices/virtual/dmi/id/chassis_type r,
+	/usr/libexec/bluetooth/bluetoothd mr,
+	/usr/lib{,32,64}/** mr,
+	/var/lib/bluetooth/** rw,
+	/etc/bluetooth/** r,
+	/etc/udev/udev.conf r,
+	/tmp/hogsuspend rw,
+
+}

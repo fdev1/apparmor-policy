@@ -44,6 +44,7 @@
   @{HOME}/.{,cache/}fontconfig/**     mrl,
   @{HOME}/.fonts.conf.d/                r,
   @{HOME}/.fonts.conf.d/**              r,
+  @{HOME}/.config/fontconfig/fonts.conf r,
   owner @{HOME}/.config/fontconfig/     r,
   owner @{HOME}/.config/fontconfig/**   r,
 

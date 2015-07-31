@@ -1,0 +1,24 @@
+# Last Modified: Fri Jul 31 15:34:55 2015
+#include <tunables/global>
+
+profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/freedesktop.org>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+	#include <abstractions/consoles>
+
+	@{HOME}/.kde{,4}/share/config/kcmshellrc* r,
+	@{HOME}/.kde{,4}/share/config/bluedevil* rw,
+
+	/usr/bin/kcmshell4 rix,
+	/usr/bin/bluedevil-wizard rix,
+	/usr/bin/bluedevil-monolithic mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/apps/bluedevil/** r,
+	/usr/share/apps/bluedevilwizard/** r,
+	/usr/share/cursors/** r,
+	/var/tmp/kdecache-*/*.kcache rw,
+}
