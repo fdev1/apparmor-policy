@@ -1,0 +1,4 @@
+profile unconfined /usr/local/bin/aa-ushell {
+	#include <noexec-policy.d/capsall>
+	/{,**} rwmklix,
+}

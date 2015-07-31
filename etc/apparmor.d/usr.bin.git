@@ -1,4 +1,35 @@
+#include <tunables/global>
+
 profile git /usr/bin/git {
-	#include <noexec-policy.d/capsall>
-	/** rwlkmix,
+	# #noclude <noexec-policy.d/capsall>
+	#include <abstractions/consoles>
+	
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	@{HOME}/{,**} rwlkmix,
+	/usr/src/linux-stable/** rwlkmix,
+	/usr/local/portage/** rwlkmix,
+	/** rmlk,
+
+	/usr/bin/vi rpx,
+	/usr/bin/vim rpx,
+	/usr/bin/emacs rpx,
+	/usr/bin/ed rpx,
+	/usr/bin/nano rpx,
+
+	/usr/bin/rev-list rix,
+	/usr/bin/git-cvsserver rix,
+	/usr/bin/git-receivepack rix,
+	/usr/bin/git-shell rix,
+	/usr/bin/git-upload-archive rix,
+	/usr/bin/git-upload-pack rix,
+	/usr/bin/diff-highlight rix,
+	/usr/bin/gitview rix,
+	/usr/bin/import-tars rix,
+	/usr/bin/less rix,
+	/usr/libexec/git-core/git rix,
+	/usr/libexec/git-core/git-* rix,
+	/usr/libexec/git-core/mergetools/** rix,
+
+	/dev/null rw,
 }

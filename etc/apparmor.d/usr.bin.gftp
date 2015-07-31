@@ -1,0 +1,44 @@
+# Last Modified: Thu Jul 30 19:34:32 2015
+#include <tunables/global>
+
+profile gftp /usr/bin/{gftp,gftp-gtk} {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/fonts>
+	#include <abstractions/gnome>
+	#include <abstractions/nameservice>
+	#include <abstractions/kde>
+	#include <abstractions/audio>
+	
+	deny @{HOME}/.ssh/{,**} rwx,
+	deny @{HOME}/.gnupg/{,**} rwx,
+
+	@{HOME}/ r,
+	@{HOME}/.Xauthority r,
+	@{HOME}/.config/fontconfig/fonts.conf r,
+	@{HOME}/.config/oxygen-gtk/argb-apps.conf rw,
+	@{HOME}/.gftp/{,**} rw,
+	@{HOME}/.gtkrc-2.0 r,
+	@{HOME}/.kde4/share/config/kdeglobals r,
+	@{HOME}/.kde4/share/config/oxygenrc r,
+	@{HOME}/.local/share/mime/mime.cache r,
+	@{HOME}/{,**} r,
+	@{HOME}/Downloads/{,**} rwklm,
+	/mnt/shared/{,**} r,
+	
+	@{PROC}/*/cmdline r,
+	@{PROC}/*/status r,
+	@{PROC}/*/fd/{,*} r,
+	@{PROC}/modules r,
+
+	/bin/bash rix,
+	/usr/bin/gftp r,
+	/usr/bin/gftp-gtk rix,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/cursors/** r,
+	/usr/share/gftp/{,**} r,
+	/usr/share/gtk-*/** r,
+	/etc/machine-id r,
+
+}
