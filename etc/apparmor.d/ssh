@@ -27,6 +27,8 @@ profile sshd /usr/sbin/sshd {
 	#
 	# ForceCommand /usr/bin/ssh-cmdexec
 	#
+	# See: https://github.com/fernando-rodriguez/misc/blob/master/ssh-cmdexec.c
+	#
 	/usr/bin/ssh-cmdexec rpx,
 }
 
