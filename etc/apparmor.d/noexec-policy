@@ -8,7 +8,8 @@ profile noexec-policy /** {
 	/ rwlkm,
 
 	# deny r/w access to ssh keys
-	deny @{HOME}/.ssh/** rw,
+	deny @{HOME}/.ssh/{,**} rwxm,
+	deny @{HOME}/.gnupg/{,**} rwxm,
 
 	# deny execution of programs located
 	# at the user's home directory

@@ -21,6 +21,8 @@ profile ping /bin/ping {
 
 	/bin/ping mixr,
 	/etc/modules.conf r,
+	/etc/mdns.allow r,
+	/var/cache/samba/* r,
 
 	# Site-specific additions and overrides. See local/README for details.
 	#include <local/bin.ping>

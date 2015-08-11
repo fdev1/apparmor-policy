@@ -33,6 +33,7 @@
 @{HOME}/.config/Trolltech.conf rwk,
 @{HOME}/.kde4/share/config/kdebugrc r, 
 @{HOME}/.kde4/share/config/kdeglobals rk,
+@{HOME}/.config/oxygen-gtk/argb-apps.conf rwk,
 deny @{HOME}/.kde4/share/config/oxygenrc r,
 
 /usr/share/icons/ r,

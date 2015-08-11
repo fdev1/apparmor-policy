@@ -9,19 +9,20 @@ profile kmail /usr/bin/kmail {
 
 	@{HOME}/** rmk,
 	@{HOME}/.config/{**,} rk,
+	@{HOME}/.config/enchant/{,**} rwklm,
 	@{HOME}/.kde4/share/apps/kmail2/{**,} rw,
 	@{HOME}/.kde4/share/config/kmail* rwk,
 	@{HOME}/.kde4/share/apps/RecentDocuments/{**,} rwk,
-	@{HOME}/.gnupg/{.#*,trustdb.gpg} rwkl,
+	@{HOME}/.local/share/akonadi/{,**} rwklm,
 	
 	@{HOME}/Downloads rwm,
 	
 	/run/user/*/ksocket-*/kmail* rw,
-	/usr/bin/gpg2 rix,
-	/usr/bin/gpgconf rix,
-	/usr/bin/gpgsm rix,
-	/usr/bin/gpg-agent rix,
-	/usr/bin/pinentry-gtk-2 rix,
+	/usr/bin/gpg2 rpx,
+	/usr/bin/gpgconf rpx,
+	/usr/bin/gpgsm rpx,
+	/usr/bin/gpg-agent rpx,
+	/usr/bin/pinentry-{gtk-2,qt4} rix,
 	/usr/bin/kde4-config rix,
 	/usr/bin/kmail mr,
 	/usr/lib{,32,64}/** mr,
@@ -30,5 +31,6 @@ profile kmail /usr/bin/kmail {
 	/usr/share/akonadi/agents/{**,} r,
 	/var/tmp/{**,} rw,
 
-	deny @{HOME}/.ssh/{**,} rwx,
+	deny @{HOME}/.ssh/{**,} rwmx,
+	deny @{HOME}/.gnupg/{,**} rwxm,
 }

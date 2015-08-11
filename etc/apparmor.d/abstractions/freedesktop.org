@@ -9,6 +9,8 @@
 #
 # ------------------------------------------------------------------
 
+  /usr/bin/xdg-open rpx,
+
   # system configuration
   /usr/share/applications/               r,
   /usr/share/applications/mimeinfo.cache r,

@@ -17,7 +17,11 @@ profile git /usr/bin/git {
 	/usr/bin/ed rpx,
 	/usr/bin/nano rpx,
 
-	/usr/bin/ksshaskpass rix,
+	/bin/sed rix,
+	/usr/bin/tr rix,
+	/usr/bin/basename rix,
+	/usr/bin/uname rix,
+	/usr/bin/ksshaskpass rpx,
 	/usr/bin/rev-list rix,
 	/usr/bin/git-cvsserver rix,
 	/usr/bin/git-receivepack rix,

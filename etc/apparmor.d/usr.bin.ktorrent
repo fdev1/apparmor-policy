@@ -21,7 +21,7 @@ profile ktorrent /usr/bin/ktorrent {
   @{HOME}/Downloads/{**,} rw,
   /mnt/shared/movies/{**,} rw,
 
-
+  / r,
   /run/user/*/ksocket-*/ktorrent* rw,
   /tmp/.ktorrent_kde4_*.lock rwk,
   /usr/bin/ktorrent mr,

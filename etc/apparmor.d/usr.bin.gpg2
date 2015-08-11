@@ -1,0 +1,14 @@
+# Last Modified: Mon Aug 10 20:27:57 2015
+#include <tunables/global>
+
+profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+
+	@{HOME}/.gnupg/{,**} rw,
+
+	/usr/bin/gpg2 mr,
+	/usr/bin/gpg-agent rix,
+	/usr/bin/pinentry-{curses,gtk-2,qt4,tty} rpx,
+
+}

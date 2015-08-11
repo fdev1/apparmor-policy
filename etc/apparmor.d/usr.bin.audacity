@@ -1,0 +1,53 @@
+# Last Modified: Fri Jul 31 21:14:59 2015
+#include <tunables/global>
+
+profile audacity /usr/bin/audacity {
+	#include <abstractions/X>
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/fonts>
+	#include <abstractions/freedesktop.org>
+	#include <abstractions/nameservice>
+
+	deny /usr/local/** rwx,
+	deny @{HOME}/.ssh/{,**} rwx,
+
+	# this is on abstractions/kde but it won't work???
+	deny @{HOME}/.config/oxygen-gtk/argb-apps.conf rwk,
+
+	@{HOME}/** r,
+	@{HOME}/Documents rw,
+	@{HOME}/.config/gtk-2.0/** rk,
+	@{HOME}/.config/gtk-2.0/gtkfilechooser.ini* rw,
+	@{HOME}/.audacity-data/** rwk,
+	/mnt/shared/** r,
+
+	/bin/bash rix,
+	/bin/uname rpx,
+	/etc/gnome-vfs-2.0/modules/{,**} r,
+	/etc/machine-id r,
+
+	/proc/*/cmdline r,
+	/proc/*/fd/ r,
+	/proc/*/status r,
+	/proc/meminfo r,
+	/proc/modules r,
+	
+	/usr/bin/audacity mr,
+	/usr/bin/kde4-config rpx,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/audacity/** r,
+	/usr/share/gtk-2.0/* r,
+	/usr/share/gvfs/** r,
+	/usr/share/themes/** r,
+	
+	owner /run/user/*/pulse/ w,
+	owner /dev/shm/pulse-shm* k,
+	/var/tmp/audacity-*/{,**} rwk,
+	/tmp/{,**} rw,
+	/run/user/*/pulse/ r,
+	/dev/shm/pulse-shm* rw,
+
+}
