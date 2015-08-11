@@ -6,6 +6,27 @@ profile ssh /usr/bin/{ssh,ssh-add,ssh-agent,ssh-copy-id,ssh-keygen,ssh-keyscan} 
 profile sshd /usr/sbin/sshd {
 	#include <noexec-policy.d/capsall>
 	/** rwlkmix,
-	/bin/bash rpx,
+	/bin/{bash,sh} rpx,
+
+	# This is a small suid program that:
+	#
+	# 1. Removes the client IP from the iptables
+	#    recent module "ssh_bad" list (actually need to
+	#    provide the list name at compile time)
+	#
+	# 2. Drops to use privilege and executes the user
+	#    shell or the command specified by the ssh client.
+	#
+	# It is necessary to ensure that any commands executed
+	# via ssh are executed on their own profile but sshd can
+	# still execute programs that inherit it's profile (to read
+	# ssh keys for example).
+	#
+	# In order for this to work the following needs to
+	# be added to sshd_config:
+	#
+	# ForceCommand /usr/bin/ssh-cmdexec
+	#
+	/usr/bin/ssh-cmdexec rpx,
 }
 
