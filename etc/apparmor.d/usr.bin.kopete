@@ -6,8 +6,7 @@ profile kopete /usr/bin/kopete {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
-
-	deny @{HOME}/.ssh/{,**} rwx,
+	#include <abstractions/confidential-deny>
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/Trolltech.conf rwk,

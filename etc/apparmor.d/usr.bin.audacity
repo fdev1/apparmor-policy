@@ -10,9 +10,9 @@ profile audacity /usr/bin/audacity {
 	#include <abstractions/fonts>
 	#include <abstractions/freedesktop.org>
 	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
 
 	deny /usr/local/** rwx,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	# this is on abstractions/kde but it won't work???
 	deny @{HOME}/.config/oxygen-gtk/argb-apps.conf rwk,

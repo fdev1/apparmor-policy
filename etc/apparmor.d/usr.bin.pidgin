@@ -8,10 +8,10 @@ profile pidgin /usr/bin/pidgin {
 	#include <abstractions/freedesktop.org>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	capability sys_ptrace,
 	deny /home/fernan/.config/oxygen-gtk/{,**} rwx,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/enchant/{,**} rwk,

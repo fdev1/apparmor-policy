@@ -4,6 +4,8 @@
 # user's home directory so it needs it's own
 # policy
 profile dropbox /opt/dropbox/dropboxd {
+	#include <abstractions/confidential-deny>
+
 	capability sys_ptrace,
 	/opt/dropbox{/**,} rwlkmix,
 	@{HOME}/.dropbox-dist/** rlkwix,

@@ -7,6 +7,7 @@ profile Popcorn-Time /usr/lib{,32,64}/Popcorn-Time*/Popcorn-Time {
 	#include <abstractions/fonts>
 	#include <abstractions/consoles>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 	
 	capability ipc_lock,
 
@@ -48,7 +49,6 @@ profile Popcorn-Time /usr/lib{,32,64}/Popcorn-Time*/Popcorn-Time {
 	deny /usr/bin/ r,
 	deny /usr/local/bin/ r,
 	deny /usr/lib{,32,64}/Popcorn-Time*/** w,
-	deny @{HOME}/.ssh/{,**} rwx,
 	deny @{HOME}/.config/oxygen-gtk/** rwx,
 	deny @{HOME}/.pki/nssdb/** rwx,
 	deny @{PROC}/*/oom_* rwx,

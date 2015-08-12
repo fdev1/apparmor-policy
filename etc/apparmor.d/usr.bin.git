@@ -1,11 +1,9 @@
 #include <tunables/global>
 
 profile git /usr/bin/git {
-	# #noclude <noexec-policy.d/capsall>
 	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
 	
-	deny @{HOME}/.ssh/{,**} rwx,
-
 	@{HOME}/{,**} rwlkmix,
 	/usr/src/linux-stable/** rwlkmix,
 	/usr/local/portage/** rwlkmix,

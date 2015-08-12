@@ -4,6 +4,7 @@
 profile chromium /usr/lib64/chromium-browser/{chrome,chromedriver} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
 
 	#deny capability sys_admin,
 	#include <noexec-policy.d/capsall>
@@ -64,5 +65,4 @@ profile chromium /usr/lib64/chromium-browser/{chrome,chromedriver} {
 	deny /bin/grep rwx,
 	deny /bin/basename rwx,
 	deny /usr/bin/which rwx,
-	deny @{HOME}/.ssh/** rwx,
 }

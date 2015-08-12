@@ -7,11 +7,11 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	capability sys_ptrace,
 
 	deny @{HOME}/.kde4/share/config/oxygenrc r,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/Trolltech.conf rk,

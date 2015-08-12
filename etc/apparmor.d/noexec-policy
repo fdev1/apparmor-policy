@@ -4,12 +4,10 @@
 # executing programs in the user's home directory
 profile noexec-policy /** {
 	#include <noexec-policy.d/capsall>
+	#include <abstractions/confidential-deny>
+
 	/** rwlkmpx,
 	/ rwlkm,
-
-	# deny r/w access to ssh keys
-	deny @{HOME}/.ssh/{,**} rwxm,
-	deny @{HOME}/.gnupg/{,**} rwxm,
 
 	# deny execution of programs located
 	# at the user's home directory

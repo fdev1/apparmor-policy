@@ -8,9 +8,9 @@ profile skype /opt/bin/skype {
 	#include <abstractions/nameservice>
 	#include <abstractions/consoles>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	deny @{HOME}/.mozilla/{,**} rwx,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	/dev/ r,
 	/dev/video* rw,

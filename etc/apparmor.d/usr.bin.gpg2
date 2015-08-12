@@ -6,6 +6,7 @@ profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	#include <abstractions/consoles>
 
 	@{HOME}/.gnupg/{,**} rw,
+	deny @{HOME}/.ssh/{,**} rwkmx,
 
 	/usr/bin/gpg2 mr,
 	/usr/bin/gpg-agent rix,

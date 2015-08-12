@@ -3,4 +3,5 @@
 
 profile wine /usr/bin/{wine,wine-preloader} {
 	#include <abstractions/wine>
+	#include <abstractions/confidential-deny>
 }

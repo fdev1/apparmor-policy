@@ -9,6 +9,7 @@ profile googleearth /opt/googleearth/{googleearth,googleearth-bin} {
 	#include <abstractions/nameservice>
 	#include <abstractions/video>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 	
 	deny @{HOME}/.pki/** rwx,
 

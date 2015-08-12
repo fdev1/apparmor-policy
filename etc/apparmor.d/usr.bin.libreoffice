@@ -8,6 +8,7 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	#include <abstractions/consoles>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 	
 	capability ipc_lock,
 

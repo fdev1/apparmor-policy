@@ -6,6 +6,7 @@ profile kmail /usr/bin/kmail {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	@{HOME}/** rmk,
 	@{HOME}/.config/{**,} rk,
@@ -30,7 +31,4 @@ profile kmail /usr/bin/kmail {
 	/usr/share/** r,
 	/usr/share/akonadi/agents/{**,} r,
 	/var/tmp/{**,} rw,
-
-	deny @{HOME}/.ssh/{**,} rwmx,
-	deny @{HOME}/.gnupg/{,**} rwxm,
 }

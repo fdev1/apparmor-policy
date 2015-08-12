@@ -11,18 +11,19 @@
 
 #include <tunables/global>
 profile traceroute /usr/bin/traceroute{,6} {
-  #include <abstractions/base>
-  #include <abstractions/consoles>
-  #include <abstractions/nameservice>
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
 
-  capability net_raw,
+	capability net_raw,
 
-  network inet raw,
-  network inet6 raw,
+	network inet raw,
+	network inet6 raw,
 
-  /usr/bin/traceroute rmix,
-  @{PROC}/net/route r,
+	/usr/bin/traceroute rmix,
+	@{PROC}/net/route r,
 
-  # Site-specific additions and overrides. See local/README for details.
-  #include <local/usr.sbin.traceroute>
-}
+	# Site-specific additions and overrides. See local/README for details.
+	#include <local/usr.sbin.traceroute>
+	}

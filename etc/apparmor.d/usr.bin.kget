@@ -6,6 +6,7 @@ profile kget /usr/bin/kget {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	/usr/bin/kde4-config rpx,
 
@@ -25,6 +26,4 @@ profile kget /usr/bin/kget {
 	/usr/lib{,32,64}/** mr,
 	/usr/share/** r,
 	/var/tmp/kdecache-*/** rw,
-
-	deny @{HOME}/.ssh/{,**} rwx,
 }

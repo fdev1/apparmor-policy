@@ -4,6 +4,7 @@ profile avahi-daemon /usr/sbin/avahi-daemon {
   #include <abstractions/consoles>
   #include <abstractions/dbus>
   #include <abstractions/nameservice>
+  #include <abstractions/confidential-deny>
 
   capability chown,
   capability dac_override,

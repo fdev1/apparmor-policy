@@ -8,6 +8,7 @@ profile vncserver /usr/bin/vncserver {
 	#include <abstractions/nameservice>
 	#include <abstractions/perl>
 	#include <abstractions/fonts>
+	#include <abstractions/confidential-deny>
 
 	/bin/bash rix,
 	/bin/cat rix,

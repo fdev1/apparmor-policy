@@ -10,10 +10,8 @@ profile gftp /usr/bin/{gftp,gftp-gtk} {
 	#include <abstractions/nameservice>
 	#include <abstractions/kde>
 	#include <abstractions/audio>
+	#include <abstractions/confidential-deny>
 	
-	deny @{HOME}/.ssh/{,**} rwx,
-	deny @{HOME}/.gnupg/{,**} rwx,
-
 	@{HOME}/ r,
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/fontconfig/fonts.conf r,

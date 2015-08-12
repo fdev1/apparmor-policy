@@ -8,10 +8,10 @@ profile clementine /usr/bin/clementine {
 	#include <abstractions/consoles>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 	
 	deny /var/vbox/** rwx,
 	deny /usr/local/** rwx,
-	deny @{HOME}/.ssh rwx,
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/Trolltech.conf rwk,
@@ -55,6 +55,4 @@ profile clementine /usr/bin/clementine {
 
 	/proc/*/mounts r,
 	/proc/*/cmdline r,
-
-
 }

@@ -6,6 +6,7 @@ profile konqueror /usr/bin/konqueror {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	@{HOME}/** r,
 	@{HOME}/.config/** rk,
@@ -33,6 +34,4 @@ profile konqueror /usr/bin/konqueror {
 	/var/tmp/{**,} rw,
 	/tmp/{**,} rw,
 	/run/user/*/pulse/{**,} rw,
-
-	deny @{HOME}/.ssh rwx,
 }

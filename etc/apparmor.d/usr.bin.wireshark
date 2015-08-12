@@ -21,6 +21,7 @@ profile wireshark /usr/bin/wireshark {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/user-write>
+	#include <abstractions/confidential-deny>
 
 	capability  net_raw,
 

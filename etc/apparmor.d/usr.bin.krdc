@@ -7,9 +7,9 @@ profile krdc /usr/bin/krdc {
 	#include <abstractions/nameservice>
 	#include <abstractions/kde>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	deny @{HOME}/.kde4/share/config/oxygenrc r,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.config/Trolltech.conf rk,

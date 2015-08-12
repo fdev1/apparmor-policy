@@ -8,9 +8,9 @@ profile vlc /usr/bin/vlc {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	deny /usr/lib{,32,64}/vlc/plugins/plugins.dat.* w,
-	deny @{HOME}/.ssh/{,**} rwx,
 
 	/** r,
 	/mnt/shared/** r,

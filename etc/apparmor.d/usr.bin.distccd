@@ -1,11 +1,12 @@
 # Last Modified: Fri Jul 31 02:25:00 2015
 #include <tunables/global>
 
-profile distccd /usr/bin/distccd flags=(complain) {
+profile distccd /usr/bin/distccd {
 	#include <abstractions/base>
 	#include <abstractions/bash>
 	#include <abstractions/consoles>
 	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
 
 
 	@{PROC}/meminfo r,

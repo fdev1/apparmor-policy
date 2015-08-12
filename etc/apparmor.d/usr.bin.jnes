@@ -3,6 +3,8 @@
 
 profile jnes /opt/jnes/jnes {
 	#include <abstractions/wine>
+	#include <abstractions/confidential-deny>
+
 	/bin/bash rmix,
 	/opt/jnes/{,**} rm,
 	/opt/jnes/browser.cache rw,

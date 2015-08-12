@@ -6,6 +6,7 @@ profile konverstation /usr/bin/konversation {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/confidential-deny>
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.kde4/share/apps/kabc/std.vcf rwk,
@@ -19,6 +20,4 @@ profile konverstation /usr/bin/konversation {
 	/usr/lib{,32,64}/** mr,
 	/usr/share/{**,} r,
 	/var/tmp/kdecache-*/** rw,
-
-	deny @{HOME}/.ssh/{**,} rwx,
 }

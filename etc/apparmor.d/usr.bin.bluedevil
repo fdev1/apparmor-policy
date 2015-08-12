@@ -9,6 +9,7 @@ profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
 
 	@{HOME}/.kde{,4}/share/config/kcmshellrc* r,
 	@{HOME}/.kde{,4}/share/config/bluedevil* rw,
