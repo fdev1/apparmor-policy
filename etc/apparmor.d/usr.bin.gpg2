@@ -11,4 +11,5 @@ profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	/usr/bin/gpg-agent rix,
 	/usr/bin/pinentry-{curses,gtk-2,qt4,tty} rpx,
 
+	/tmp/* rw,
 }
