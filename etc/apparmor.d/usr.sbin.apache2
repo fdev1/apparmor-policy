@@ -1,0 +1,61 @@
+# Last Modified: Tue Aug 11 23:53:35 2015
+#include <tunables/global>
+
+profile apache2 /usr/sbin/apache2 {
+	#include <abstractions/base>
+	#include <abstractions/nameservice>
+
+	capability sys_admin,
+	capability chown,
+	capability dac_override,
+	capability net_bind_service,
+	capability setgid,
+	capability setuid,
+	capability kill,
+	capability ipc_owner,
+
+	@{PROC}/*/task/*/comm rw,
+	@{PROC}/sys/kernel/ostype r,
+	@{PROC}/uptime r,
+
+	/{,*} r,
+	/usr/ r,
+	/usr/lib{,32,64}/ r,
+	/var/ r,
+
+	/usr/sbin/sendmail ix,
+	/usr/bin/mod-mono-* rix,
+	/usr/bin/{mono,mono-sgen} rix,
+	/usr/bin/xsp* rix,
+	/dev/tty rw,
+	/dev/{random,urandom} r,
+	/dev/shm/{,**} rwmk,
+	/etc/apache2/{,**} r,
+	/etc/mono/{,**} r,
+	/etc/mime.types r,
+	/etc/ssl/apache2/{,**} r,
+	/etc/php/apache2-*/{,**} r,
+	/etc/locales.conf r,
+	/run/apache2.pid rw,
+	/run/cgisock.* w,
+	/run/ssl_mutex w,
+	/usr/lib{,32,64}/** mr,
+	/usr/sbin/apache2 mr,
+	/var/log/apache2/{,**} w,
+	/var/www/{,**} r,
+	/var/www/*/data/{,**} rwm,
+	/var/run/mysqld/mysqld.sock rwm,
+	
+	/tmp/{,**} rwklm,
+
+
+	^DEFAULT_URI {
+
+
+	}
+
+	^HANDLING_UNTRUSTED_INPUT {
+
+
+	}
+}
