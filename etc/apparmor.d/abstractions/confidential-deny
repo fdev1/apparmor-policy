@@ -1,0 +1,3 @@
+deny @{HOME}/.ssh/{,**} rwkmx,
+deny @{HOME}/.gnupg/{,**} rwkmx,
+#deny @{HOME}/.mozilla/{,**} rwkmx,
