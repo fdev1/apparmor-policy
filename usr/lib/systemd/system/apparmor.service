@@ -6,8 +6,8 @@ Before=sysinit.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/lib/apparmor/apparmor-policy-load.sh
-ExecStop=/usr/lib/apparmor/apparmor-policy-unload.sh
+ExecStart=/usr/bin/aa-profiles-load
+ExecStop=/usr/bin/aa-profiles-unload
 RemainAfterExit=yes
 
 [Install]
