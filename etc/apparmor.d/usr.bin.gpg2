@@ -5,12 +5,22 @@ profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
 
-	@{HOME}/.gnupg/{,**} rw,
+	@{HOME}/.gnupg/{,**} rwlkm,
+	@{HOME}/{,**} r,
 	deny @{HOME}/.ssh/{,**} rwkmx,
 
 	/usr/bin/gpg2 mr,
 	/usr/bin/gpg-agent rix,
+	/usr/libexec/gpg2keys_* rix,
+	/usr/libexec/gpg-check-pattern rix,
+	/usr/libexec/gpg-preset-passphrase rix,
+	/usr/libexec/gpg-protect-tool rix,
 	/usr/bin/pinentry-{curses,gtk-2,qt4,tty} rpx,
-
+	/etc/hosts r,
+	/etc/resolv.conf r,
+	/etc/host.conf r,
+	/etc/nsswitch.conf r,
+	/etc/ssl/openssl.cnf r,
+	/etc/gai.conf r,
 	/tmp/* rw,
 }
