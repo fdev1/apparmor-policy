@@ -1,1 +1,2 @@
 etc/apparmor.d/cache
+etc/apparmor.d/tunables/git-repos

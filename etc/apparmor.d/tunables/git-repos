@@ -1,0 +1,4 @@
+# add any git repos outside of the users' home
+# directories here.
+
+/usr/local/portage/** rw,

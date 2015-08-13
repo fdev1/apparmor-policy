@@ -3,10 +3,9 @@
 profile git /usr/bin/git {
 	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
+	#include <tunables/git-repos>
 	
 	@{HOME}/{,**} rwlkmix,
-	/usr/src/linux-stable/** rwlkmix,
-	/usr/local/portage/** rwlkmix,
 	/** rmlk,
 
 	/usr/bin/vi rpx,
@@ -17,6 +16,7 @@ profile git /usr/bin/git {
 
 	/usr/bin/gpg{,2,-agent,conf,sm} rpx,
 
+	/{,usr/}bin/cat rix,
 	/{,usr/}bin/sed rix,
 	/{,usr/}bin/tr rix,
 	/{,usr/}bin/basename rix,
@@ -24,6 +24,7 @@ profile git /usr/bin/git {
 	/{,usr/}bin/less rix,
 	/{,usr/}bin/bash rix,
 
+	/usr/bin/perl rpx,
 	/usr/bin/ksshaskpass rpx,
 	/usr/bin/rev-list rix,
 	/usr/bin/git-cvsserver rix,
