@@ -23,5 +23,5 @@ fi
 # if [ "$AA_STATUS" == "unconfined" ]; then
 # 	export PS1="\e[1;31m(unconfined) $PS1"
 # fi
-sudo -u $SUDO_USER AA_STATUS="unconfined" $@ || exit 1
+sudo -u $SUDO_USER AA_STATUS="unconfined" "$@" || exit 1
 exit 0
