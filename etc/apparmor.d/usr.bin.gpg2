@@ -9,8 +9,7 @@ profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	@{HOME}/{,**} r,
 	deny @{HOME}/.ssh/{,**} rwkmx,
 
-	/usr/bin/gpg2 mr,
-	/usr/bin/gpg-agent rix,
+	/usr/bin/gpg{2,-agent,conf,sm} rmix,
 	/usr/libexec/gpg2keys_* rix,
 	/usr/libexec/gpg-check-pattern rix,
 	/usr/libexec/gpg-preset-passphrase rix,

@@ -6,7 +6,9 @@ profile kmail /usr/bin/kmail {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
-	#include <abstractions/confidential-deny>
+	#include <abstractions/consoles>
+	
+	deny @{HOME}/.ssh/{,**} rwx,
 
 	@{HOME}/** rmk,
 	@{HOME}/.config/{**,} rk,

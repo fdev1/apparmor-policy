@@ -14,6 +14,7 @@
   # there are three common ways to refer to consoles
   /dev/console rw,
   /dev/tty     rw,
+  /dev/tty*    rw,
   # this next entry is a tad unfortunate; /dev/tty will always be
   # associated with the controlling terminal by the kernel, but if a
   # program uses the /dev/pts/ interface, it actually has access to

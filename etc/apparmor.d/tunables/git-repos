@@ -2,3 +2,6 @@
 # directories here.
 
 /usr/local/portage/** rw,
+/usr/src/linux-stable/** rw,
+/usr/portage/distfiles/git*/{,**} rw,
+/usr/src/portage/** rw,

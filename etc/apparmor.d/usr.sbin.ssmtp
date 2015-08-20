@@ -1,0 +1,24 @@
+# Last Modified: Fri Aug 14 05:45:35 2015
+#include <tunables/global>
+
+profile ssmtp /usr/sbin/ssmtp {
+	#include <abstractions/base>
+	#include <abstractions/nameservice>
+	#include <abstractions/consoles>
+	#include <abstractions/kde>
+
+	/home/*/dead.letter w,
+	@{HOME}/.ssmtprc rw,
+	@{HOME}/.ssmtp-queue/* rwl,
+	@{HOME}/** r,
+
+	/usr/bin/ksshaskpass rix,
+	/usr/sbin/ssmtp mr,
+	/usr/lib{,32,64}/** rm,
+	/usr/share/{,**} r,
+	/var/lib/ssmtp/queue/{,**} rwlk,
+	
+	/etc/ssmtp/{,**} r,
+	/tmp/** rwlk,
+
+}
