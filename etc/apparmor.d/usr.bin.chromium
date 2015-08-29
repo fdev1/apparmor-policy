@@ -1,7 +1,7 @@
 # Last Modified: Mon Jul 27 18:37:59 2015
 #include <tunables/global>
 
-profile chromium /usr/lib64/chromium-browser/{chrome,chromedriver} {
+profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromedriver} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
@@ -18,17 +18,21 @@ profile chromium /usr/lib64/chromium-browser/{chrome,chromedriver} {
 	/sys/devices/system/** r,
 	/sys/{**,} r,
 	/usr/lib64/chromium-browser/** mlkrix,
+	/opt/google/chrome/** mlkrix,
 	/usr/lib64/pango/** mlkr,
 	/usr/lib64/dri/{**,} mlkr,
-	/usr/share/{**,} r,
-	/usr/local/share/{**,} r,
+	/usr/lib64/samba/** mlkr,
+	/usr/share/{**,} rm,
+	/usr/local/share/{**,} rm,
 	deny @{HOME}/.config/oxygen-gtk/** w,
 
 
 	@{HOME}/{**,} rmlk,
 	@{HOME}/.AMD/{**,} rwmlk,
 	@{HOME}/.cache/chromium/{**,} rwmlk,
+	@{HOME}/.cache/google-chrome/{**,} rwmlk,
 	@{HOME}/.config/chromium/{**,} rwmlk,
+	@{HOME}/.config/google-chrome/{**,} rwmlk,
 	@{HOME}/.pki/nssdb/{**,} rw,
 	@{HOME}/Downloads/{**,} rwmlk,
 	/mnt/shared/{**,} r,

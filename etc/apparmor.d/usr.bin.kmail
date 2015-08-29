@@ -7,10 +7,11 @@ profile kmail /usr/bin/kmail {
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/consoles>
+	#include <abstractions/kde>
 	
 	deny @{HOME}/.ssh/{,**} rwx,
 
-	@{HOME}/** rmk,
+	@{HOME}/{,**} rmk,
 	@{HOME}/.config/{**,} rk,
 	@{HOME}/.config/enchant/{,**} rwklm,
 	@{HOME}/.kde4/share/apps/kmail2/{**,} rw,
@@ -19,6 +20,8 @@ profile kmail /usr/bin/kmail {
 	@{HOME}/.local/share/akonadi/{,**} rwklm,
 	
 	@{HOME}/Downloads rwm,
+	/proc/*/mounts r,
+	/proc/28434/mounts r,
 	
 	/run/user/*/ksocket-*/kmail* rw,
 	/usr/bin/gpg2 rpx,
@@ -26,11 +29,11 @@ profile kmail /usr/bin/kmail {
 	/usr/bin/gpgsm rpx,
 	/usr/bin/gpg-agent rpx,
 	/usr/bin/pinentry-{gtk-2,qt4} rix,
-	/usr/bin/kde4-config rix,
 	/usr/bin/kmail mr,
 	/usr/lib{,32,64}/** mr,
 	/usr/lib{,64}/firefox/firefox rpx,
 	/usr/share/** r,
 	/usr/share/akonadi/agents/{**,} r,
 	/var/tmp/{**,} rw,
+	/tmp/** rwlmk,
 }
