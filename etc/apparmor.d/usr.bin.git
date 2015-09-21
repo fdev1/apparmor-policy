@@ -23,6 +23,13 @@ profile git /usr/bin/git {
 	/{,usr/}bin/uname rix,
 	/{,usr/}bin/less rix,
 	/{,usr/}bin/bash rix,
+	/{,usr/}bin/expr rix,
+	/{,usr/}bin/cut rix,
+	/{,usr/}bin/mkdir rix,
+	/{,usr/}bin/cp rix,
+	/{,usr/}bin/wc rix,
+	/{,usr/}bin/mv rix,
+	/{,usr/}bin/rm rix,
 
 	/usr/bin/perl rpx,
 	/usr/bin/ksshaskpass rpx,
