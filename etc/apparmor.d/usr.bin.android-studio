@@ -1,0 +1,93 @@
+#include <tunables/global>
+
+profile android-studio /usr/bin/android-studio {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	
+	capability sys_ptrace,
+
+	deny /usr/local/** rwx,
+	
+	@{HOME}/{,**} rwklm,
+	@{HOME}/.AndroidStudio*/{,**} rmklw,
+	@{HOME}/.java/{,**} rkw,
+	@{HOME}/.gradle/{,**} rlkmw,
+
+	# we don't really need execute permission for everything
+	# but does it makes a difference?
+	@{HOME}/{,AndroidStudio}Projects/{,**,**/} rwklmix,
+
+	# this needs to be looked at
+	@{HOME}/.gentoo/java-config-2/current-user-vm/bin/java rix,
+
+	# this is the SDK. We need to move this outside the
+	# home directory in a secure way
+	@{HOME}/Android/** rix,
+
+	# this is mostly ok because android studio will create the
+	# file before executing it.
+	@{HOME}/.AndroidStudio*/system/tmp/idea_tmp_check.sh rix,
+
+	/bin/bash rmkix,
+	/bin/uname rix,
+	/bin/dirname rix,
+	/bin/mktemp rix,
+	/bin/egrep rix,
+	/bin/grep rix,
+	/bin/rm rix,
+	/bin/cat rix,
+	/bin/tr rix,
+	/bin/ps rix,
+	/bin/cut rix,
+	/bin/head rix,
+	/bin/basename rix,
+	/bin/env rix,
+
+	/{usr/,}bin/which rix,
+	/{usr/,}bin/zenity rix,
+	/{usr/,}bin/xdg-mime rix,
+	/usr/bin/ktraderclient rix,
+
+	/usr/bin/android-studio r,
+	/opt/android-studio/** rml,
+	/opt/android-studio/bin/** rmix,
+	/opt/oracle-jdk-*/** rm,
+	/opt/oracle-jdk-*/bin/** rmix,
+
+	/usr/lib{,32,64}/* rm,
+	/usr/lib{,32,64}/pango/** rm,
+
+	/dev/bus/usb/{,**} rwm,
+
+	/sys/devices/** r,
+
+	/proc/ r,
+	/proc/*/net/** r,
+	/proc/*/fd/{,**} r,
+	/proc/*/cmdline r,
+	/proc/*/status r,
+	/proc/*/stat r,
+	/proc/modules r,
+	/proc/uptime r,
+	/proc/*/task/ r,
+	/proc/*/task/*/stat r,
+
+	/proc/sys/fs/inotify/* r,
+	/proc/sys/kernel/pid_max r,
+
+	/usr/share/** r,
+	/var/cache/fontconfig/** r,
+
+	/etc/passwd r,
+	/etc/nsswitch r,
+	/etc/fonts/fonts.conf r,
+	/etc/lsb-release r,
+	/etc/timezone r,
+	
+	/tmp/** rkw,
+}
