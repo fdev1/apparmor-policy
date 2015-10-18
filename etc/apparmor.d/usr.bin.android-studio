@@ -1,5 +1,48 @@
 #include <tunables/global>
 
+profile android-emulator /opt/android-sdk/tools/emulator* {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/X>
+	#include <abstractions/nameservice>
+	
+	capability ipc_lock,
+
+	deny @{HOME}/ rwmlk,
+	@{HOME}/.android/{,**} rwmlk,
+	@{HOME}/.AMD/{,**} rwmlk,
+	@{HOME}/.config/pulse/{,**} rwmlk,
+
+	/bin/bash rmix,
+	/{usr/,}bin/grep rmix,
+	/{usr/,}bin/file rmix,
+	/usr/bin/amd-console-helper rmix,
+
+	/usr/lib{,32,64}/** rm,
+	/usr/share/** r,
+	/etc/ati/{,**} r,
+	/etc/pulse/client.conf r,
+	/etc/machine-id r,
+
+	/opt/android-sdk/** rmlk,
+	/opt/android-sdk/tools/** rmlkix,
+	/opt/android-studio/plugins/** rm,
+
+	/dev/kvm rwmlk,
+	/dev/ati/{,**} rwmlk,
+	/dev/shm/{,**} rwmlk,
+	/proc/modules r,
+	/proc/ati/{,**} r,
+	/proc/*/cmdline r,
+	/proc/*/status r,
+	/sys/devices/{,**} r,
+
+	owner /tmp/android-*/{,**} rwmlk,
+	/tmp/android-*/{,**} rmlk,
+	/run/user/*/pulse/{,**} rwm,
+}
+
 profile android-studio /usr/bin/android-studio {
 	#include <abstractions/base>
 	#include <abstractions/bash>
@@ -10,6 +53,7 @@ profile android-studio /usr/bin/android-studio {
 	#include <abstractions/kde>
 	
 	capability sys_ptrace,
+	capability ipc_lock, #emul
 
 	deny /usr/local/** rwx,
 	
@@ -17,21 +61,26 @@ profile android-studio /usr/bin/android-studio {
 	@{HOME}/.AndroidStudio*/{,**} rmklw,
 	@{HOME}/.java/{,**} rkw,
 	@{HOME}/.gradle/{,**} rlkmw,
+	@{HOME}/.android-keys/{,**} rw,
 
 	# we don't really need execute permission for everything
 	# but does it makes a difference?
-	@{HOME}/{,AndroidStudio}Projects/{,**,**/} rwklmix,
+	@{HOME}/Projects/{,**,**/} rwklmix,
 
 	# this needs to be looked at
 	@{HOME}/.gentoo/java-config-2/current-user-vm/bin/java rix,
 
-	# this is the SDK. We need to move this outside the
-	# home directory in a secure way
-	@{HOME}/Android/** rix,
+	/opt/android-sdk/tools/emulator rpx,
+	/opt/android-sdk/** rwmix,
 
 	# this is mostly ok because android studio will create the
 	# file before executing it.
 	@{HOME}/.AndroidStudio*/system/tmp/idea_tmp_check.sh rix,
+
+	# Allow read access to the whole file system
+	# This is needed for dialogs like "Create git repo..." to
+	# work properly
+	/{,**} r,
 
 	/bin/bash rmkix,
 	/bin/uname rix,
@@ -51,18 +100,31 @@ profile android-studio /usr/bin/android-studio {
 	/{usr/,}bin/which rix,
 	/{usr/,}bin/zenity rix,
 	/{usr/,}bin/xdg-mime rix,
+	/{usr/,}bin/readlink rix,
+	/{usr/,}bin/file rix,
+	/{usr/,}bin/make rix,
+	/{usr/,}bin/mkdir rix,
+	/{usr/,}bin/install rix,
+	/{usr/,}bin/kill rix,
 	/usr/bin/ktraderclient rix,
+	/usr/bin/git rpx,
 
 	/usr/bin/android-studio r,
 	/opt/android-studio/** rml,
 	/opt/android-studio/bin/** rmix,
 	/opt/oracle-jdk-*/** rm,
 	/opt/oracle-jdk-*/bin/** rmix,
+	/opt/oracle-jdk-*/jre/bin/** rmix,
+	/usr/libexec/eselect-java/run-java-tool.bash rix,
 
 	/usr/lib{,32,64}/* rm,
 	/usr/lib{,32,64}/pango/** rm,
 
 	/dev/bus/usb/{,**} rwm,
+	/dev/kvm rwmlk,
+	/dev/ati/{,**} rwmlk,
+	/dev/shm/** rwmlk,
+	/run/user/*/pulse/{,**} rwm,
 
 	/sys/devices/** r,
 

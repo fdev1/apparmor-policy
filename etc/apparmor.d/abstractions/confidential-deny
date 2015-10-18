@@ -1,3 +1,6 @@
 deny @{HOME}/.ssh/{,**} rwkmx,
 deny @{HOME}/.gnupg/{,**} rwkmx,
 #deny @{HOME}/.mozilla/{,**} rwkmx,
+deny @{HOME}/.android-keys/{,**} rwkmx,
+deny /opt/android-sdk/{,**} w,
+

@@ -8,6 +8,7 @@ profile noexec-policy /** {
 
 	/** rwlkmpx,
 	/ rwlkm,
+	@{HOME}/.AndroidStudio1.3/{,**} rwlkmpx,
 
 	# deny execution of programs located
 	# at the user's home directory
