@@ -8,6 +8,7 @@ profile vlc /usr/bin/vlc {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
 
 	deny /usr/lib{,32,64}/vlc/plugins/plugins.dat.* w,
@@ -16,12 +17,19 @@ profile vlc /usr/bin/vlc {
 	/mnt/shared/** r,
 	
 	@{HOME}/.config/Trolltech.conf rk,
-	@{HOME}/.config/pulse/cookie rk,
+	@{HOME}/.config/pulse/{,**} rk,
 	@{HOME}/.config/vlc/** rwk,
 	@{HOME}/.kde4/share/config/kdeglobals rk,
-	@{HOME}/.local/share/vlc/* rw,
+	@{HOME}/.local/share/vlc/{,**} rw,
+	@{HOME}/.config/vlc/{,**} rw,
+
+	/dev/ati/{,**} rwlkm,
+
 	/usr/bin/vlc mr,
+	/usr/bin/pulseaudio rix,
+	/usr/lib{,32,64}/{,**} rm,
 	/usr/share/** rk,
+
 	owner /var/tmp/kdecache-*/* lk,
 	/var/tmp/kdecache-*/* rw,
 	owner /{,var/}run/user/*/pulse/ w,
