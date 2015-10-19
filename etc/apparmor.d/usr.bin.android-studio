@@ -25,7 +25,7 @@ profile android-emulator /opt/android-sdk/tools/emulator* {
 	/etc/pulse/client.conf r,
 	/etc/machine-id r,
 
-	/opt/android-sdk/** rmlk,
+	/opt/android-sdk/** rmlkw,
 	/opt/android-sdk/tools/** rmlkix,
 	/opt/android-studio/plugins/** rm,
 
