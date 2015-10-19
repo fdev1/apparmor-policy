@@ -8,12 +8,13 @@ profile bluetoothd /usr/libexec/bluetooth/bluetoothd {
 	capability net_bind_service,
 
 	/dev/rfkill rw,
-	/sys/devices/virtual/dmi/id/chassis_type r,
+	/sys/devices/{,**} r,
 	/usr/libexec/bluetooth/bluetoothd mr,
 	/usr/lib{,32,64}/** mr,
 	/var/lib/bluetooth/** rw,
 	/etc/bluetooth/** r,
 	/etc/udev/udev.conf r,
 	/tmp/hogsuspend rw,
+	/run/udev/{,**} r,
 
 }
