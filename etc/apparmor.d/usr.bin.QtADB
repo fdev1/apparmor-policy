@@ -1,0 +1,34 @@
+# Last Modified: Sun Oct 18 13:43:02 2015
+#include <tunables/global>
+
+/usr/bin/QtADB {
+  #include <abstractions/base>
+  #include <abstractions/fonts>
+	#include <abstractions/X>
+  #include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+
+  deny / r,
+
+  @{HOME}/.Xauthority r,
+  @{HOME}/.config/Bracia/{,**} rwmlk,
+  @{HOME}/tmp/{,**} rwk,
+  @{HOME}/{,**} rk,
+
+	/dev/bus/usb/{,**} rwm,
+	/sys/bus/usb/{,**} rwm,
+	/sys/devices/{,**} r,
+
+  /opt/android-sdk/platform-tools/** rix,
+  /opt/android-sdk/platform-tools/{,**} r,
+
+	/usr/bin/ r,
+  /usr/bin/QtADB mr,
+  /usr/lib{,32,64}/** mr,
+  /usr/share/{,**} r,
+
+	/var/tmp/kdecache-*/{,**} rw,
+	owner /tmp/{,**} rwm,
+	/tmp/{,**} rm,
+
+}
