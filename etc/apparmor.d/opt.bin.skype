@@ -15,6 +15,8 @@ profile skype /opt/bin/skype {
 	/dev/ r,
 	/dev/video* rw,
 	/opt/bin/skype mr,
+	/opt/bin/skype-bin rix,
+
 	/etc/machine-id r,
 	
 	@{HOME}/.Skype/{,**} rwk,
@@ -28,6 +30,8 @@ profile skype /opt/bin/skype {
 	@{HOME}/.mozilla/** r,
 	@{HOME}/Downloads/{,**} rw,
 	@{HOME}/** r,
+
+	/proc/*/task/{,**} r,
 	/proc/*/net/arp r,
 	/proc/*/net/route r,
 	/proc/sys/kernel/osrelease r,
@@ -35,6 +39,8 @@ profile skype /opt/bin/skype {
 	/sys/class/power_supply/ r,
 	/sys/devices/** r,
 	
+	/bin/bash rix,
+	/usr/bin/*-apulse rix,
 	/tmp/** rwk,
 	/usr/share/** r,
 	/var/cache/samba/gencache.tdb r,
