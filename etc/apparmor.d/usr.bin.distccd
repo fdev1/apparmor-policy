@@ -17,5 +17,7 @@ profile distccd /usr/bin/distccd {
 	/usr/bin/{*-gcc,*-cc,*-cpp,*-g++} rix,
 	/usr/*/gcc-bin/*/* rix,
 	/etc/env.d/gcc/* r,
+	owner /tmp/{,**} rwklm,
+	/tmp/{,**} rmlk,
 
 }
