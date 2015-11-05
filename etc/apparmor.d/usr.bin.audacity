@@ -17,8 +17,7 @@ profile audacity /usr/bin/audacity {
 	# this is on abstractions/kde but it won't work???
 	deny @{HOME}/.config/oxygen-gtk/argb-apps.conf rwk,
 
-	@{HOME}/** r,
-	@{HOME}/Documents rw,
+	@{HOME}/{,**} rw,
 	@{HOME}/.config/gtk-2.0/** rk,
 	@{HOME}/.config/gtk-2.0/gtkfilechooser.ini* rw,
 	@{HOME}/.audacity-data/** rwk,
