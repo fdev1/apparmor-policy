@@ -13,6 +13,7 @@ profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
 
 	@{HOME}/.kde{,4}/share/config/kcmshellrc* r,
 	@{HOME}/.kde{,4}/share/config/bluedevil* rw,
+	@{HOME}/.icons/{,**} r,
 
 	/usr/bin/kcmshell4 rix,
 	/usr/bin/bluedevil-wizard rix,
