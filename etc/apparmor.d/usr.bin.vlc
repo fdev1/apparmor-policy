@@ -26,6 +26,7 @@ profile vlc /usr/bin/vlc {
 	/dev/ati/{,**} rwlkm,
 
 	/usr/bin/vlc mr,
+	/usr/bin/proxy rix,
 	/usr/bin/pulseaudio rix,
 	/usr/lib{,32,64}/{,**} rm,
 	/usr/share/** rk,
