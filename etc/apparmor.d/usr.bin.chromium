@@ -11,6 +11,7 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 
 	/dev/shm/{**,} rwlkm,
 	/dev/ati/{**,} rwlkm,
+	/dev/snd/{**,} rwlkm,
 	/usr/bin/kde4-config rix,
 	/usr/bin/lsb_release rix,
 	/usr/bin/xdg-settings rix,
@@ -49,6 +50,8 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 	/etc/ati/{**,} r,
 	/etc/mdns.allow r,
 	/etc/gai.conf r,
+	/etc/asound.conf r,
+	/etc/group mr,
 
 
 	owner /tmp/{**,} lk,
@@ -69,4 +72,5 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 	deny /bin/grep rwx,
 	deny /bin/basename rwx,
 	deny /usr/bin/which rwx,
+	deny /opt/google/chrome/extensions/{,**} rwx,
 }
