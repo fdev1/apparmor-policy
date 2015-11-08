@@ -21,6 +21,7 @@ profile clementine /usr/bin/clementine {
 	@{HOME}/.kde4/share/apps/RecentDocuments/* rwk,
 	@{HOME}/.config/Clementine/** rwk,
 	@{HOME}/.cache/{,**} rwk,
+	@{HOME}/.alsaequal.bin rwklm,
 
 	@{HOME}/{,**} r,
 	/mnt/shared/music/{,**} r,

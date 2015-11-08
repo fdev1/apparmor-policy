@@ -42,6 +42,7 @@
 
 @{HOME}/.esd_auth  r,
 @{HOME}/.asoundrc  r,
+@{HOME}/.alsaequal.bin rwlkm,
 /etc/esound/esd.conf r,
 /etc/asound.conf r,
 
