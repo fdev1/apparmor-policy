@@ -16,14 +16,11 @@ profile vlc /usr/bin/vlc {
 	/** r,
 	/mnt/shared/** r,
 	
-	@{HOME}/.config/Trolltech.conf rk,
-	@{HOME}/.config/pulse/{,**} rk,
-	@{HOME}/.config/vlc/** rwk,
-	@{HOME}/.kde4/share/config/kdeglobals rk,
-	@{HOME}/.local/share/vlc/{,**} rw,
-	@{HOME}/.config/vlc/{,**} rw,
+	@{HOME}/{,**} rwklm,
 
 	/dev/ati/{,**} rwlkm,
+	/dev/video* rwmlk,
+	/dev/bus/{,**} rw,
 
 	/usr/bin/vlc mr,
 	/usr/bin/proxy rix,
