@@ -5,6 +5,7 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 	#include <abstractions/base>
 	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
+	#include <abstractions/audio>
 
 	#deny capability sys_admin,
 	#include <noexec-policy.d/capsall>
@@ -23,19 +24,13 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 	/usr/lib64/pango/** mlkr,
 	/usr/lib64/dri/{**,} mlkr,
 	/usr/lib64/samba/** mlkr,
+	/usr/lib{,32,64}/ladspa/* mlkr,
 	/usr/share/{**,} rm,
 	/usr/local/share/{**,} rm,
 	deny @{HOME}/.config/oxygen-gtk/** w,
 
 
-	@{HOME}/{**,} rmlk,
-	@{HOME}/.AMD/{**,} rwmlk,
-	@{HOME}/.cache/chromium/{**,} rwmlk,
-	@{HOME}/.cache/google-chrome/{**,} rwmlk,
-	@{HOME}/.config/chromium/{**,} rwmlk,
-	@{HOME}/.config/google-chrome/{**,} rwmlk,
-	@{HOME}/.pki/nssdb/{**,} rw,
-	@{HOME}/Downloads/{**,} rwmlk,
+	@{HOME}/{**,} rwmlk,
 	/mnt/shared/{**,} r,
 
 	/var/cache/fontconfig/{**,} rwmlk,
