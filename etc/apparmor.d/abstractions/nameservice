@@ -20,11 +20,13 @@
   /etc/gai.conf           r,
   /etc/passwd             r,
   /etc/protocols          r,
+	/etc/mdns.allow					r,
 
   # When using libnss-extrausers, the passwd and group files are merged from
   # an alternate path
   /var/lib/extrausers/group  r,
   /var/lib/extrausers/passwd r,
+	/var/cache/samba/gencache.tdb r,
 
   /etc/resolv.conf        r,
   # on systems using resolvconf, /etc/resolv.conf is a symlink to
