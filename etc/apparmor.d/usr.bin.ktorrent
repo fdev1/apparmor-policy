@@ -1,4 +1,3 @@
-# Last Modified: Tue Jul 28 02:32:03 2015
 #include <tunables/global>
 
 profile ktorrent /usr/bin/ktorrent {
@@ -9,34 +8,28 @@ profile ktorrent /usr/bin/ktorrent {
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/confidential-deny>
+	#include <tunables/extra-user-directories>
 
-	/etc/machine-id r,
-	@{HOME}/.Xauthority r,
-	@{HOME}/.config/Trolltech.conf rk,
-	@{HOME}/.config/fontconfig/fonts.conf r,
-	@{HOME}/.config/kde.org/libphonon.conf rk,
 	@{HOME}/.kde4/share/apps/ktorrent/{**,} rwk,
 	@{HOME}/.kde4/share/config/ktorrent* rwklm,
 	@{HOME}/{**,} rk,
-
 	@{HOME}/Downloads/{**,} rw,
-	/mnt/shared/movies/{**,} rw,
 
 	/ r,
-	/run/user/*/ksocket-*/ktorrent* rw,
-	/tmp/.ktorrent_kde4_*.lock rwk,
 	/usr/bin/ktorrent mr,
 	/usr/lib{,32,64}/** mr,
 	/usr/lib{,32,64}/vlc/plugins/{**,} mrw,
 	/usr/share/apps/ktorrent/{**,} r,
 	/usr/share/config/{**,} r,
 	/usr/share/{**,} r,
-	/var/tmp/kdecache-*/icon-cache.kcache rw,
-	/var/tmp/kdecache-*/{**,} r,
-	owner /{,var/}run/user/*/pulse/ w,
+	/etc/machine-id r,
+
+	/run/user/*/ksocket-*/ktorrent* rw,
+	/tmp/.ktorrent_kde4_*.lock rwk,
 	/{,var/}run/user/*/pulse/ r,
-	owner /{run,dev}/shm/pulse-shm* k,
 	/{run,dev}/shm/pulse-shm* rw,
 
+	owner /{,var/}run/user/*/pulse/ w,
+	owner /{run,dev}/shm/pulse-shm* k,
 	deny /proc/*/mounts rwx,
 }

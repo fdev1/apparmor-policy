@@ -74,3 +74,10 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 /usr/share/config/kdebug.areas r, 
 /usr/share/config/kdebugrc r, 
 
+# phonon
+@{HOME}/.config/kde.org/libphonon.conf rk,
+
+
+owner /var/tmp/kdecache-*/{**,} rwklm,
+/var/tmp/kdecache-*/{**,} r,
+

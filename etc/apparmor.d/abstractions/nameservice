@@ -85,3 +85,7 @@
 
   # interface details
   @{PROC}/*/net/route r,
+
+	# samba
+	/var/cache/samba/*.tdb r,
+
