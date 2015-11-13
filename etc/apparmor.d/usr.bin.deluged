@@ -1,0 +1,29 @@
+#include <tunables/global>
+
+profile deluged /usr/bin/deluged {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+
+	/usr/bin/ r,
+	/bin/bash ix,
+	/bin/uname rix,
+	/usr/bin/deluged rm,
+	/usr/lib64/python2.7/{,**/,**} rm,
+	
+	/mnt/{d,multimedia}/Movies/{,**} rw,
+	/mnt/{d,multimedia}/Torrents/{,**} rw,
+	/mnt/{d,multimedia}/Incoming/{,**} rw,
+
+	/proc/*/mounts r,
+	/proc/*/status r,
+
+	/etc/mdns.allow r,
+	/var/cache/samba/{,**} r,
+
+
+
+	/var/lib/deluge/{,**} rwklm,
+
+}
