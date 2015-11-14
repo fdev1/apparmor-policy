@@ -1,0 +1,33 @@
+#include <tunables/global>
+
+profile mediatomb /usr/bin/mediatomb {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+	
+	capability setgid,
+	capability setuid,
+
+	/proc/sys/fs/inotify/{,**} r,
+
+	/usr/bin/mediatomb rm,
+	/ r,
+	/**/ r,
+
+	/mnt/{d,multimedia}/Movies/{,**} rw,
+	/mnt/{d,multimedia}/Music/{,**} rw,
+	/mnt/{d,multimedia}/Torrents/{,**} rw,
+	/mnt/{d,multimedia}/Incoming/{,**} rw,
+
+	/usr/share/misc/magic.mgc r,
+	/usr/share/libquvi-scripts/** r,
+	/usr/share/mediatomb/{,**} r,
+
+	/etc/mediatomb/config.xml r,
+	/etc/ssl/openssl.cnf r,
+
+	/var/lib/mediatomb/{,**} rwmk,
+	owner /var/tmp/{,**} rwmkl,
+
+}
