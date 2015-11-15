@@ -1,0 +1,48 @@
+# Last Modified: Fri Jul 31 02:25:00 2015
+#include <tunables/global>
+
+profile cupsd /usr/sbin/cupsd {
+	#include <abstractions/base>
+	#include <abstractions/bash>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+	
+	capability chown,
+	capability fsetid,
+	capability dac_override,
+	capability setgid,
+	capability setuid,
+	capability kill,
+
+	/dev/ r,
+	/dev/bus/{,**} rwm,
+	/sys/bus/{,**} rwm,
+	/sys/devices/{,**} rwm,
+	/sys/class/ r,
+
+
+	/usr/sbin/cupsd rm,
+	/usr/bin/smbspool rix,
+	/usr/bin/gs rix,
+	/lib{,32,64}/** rm,
+	/usr/lib{,32,64}/** rm,
+	/usr/libexec/cups/{,**} rmix,
+	/usr/share/{,**} rm,
+
+	/var/log/cups/{,**} rwmlk,
+	/var/cache/cups/{,**/,**} rwmlk,
+	/var/spool/cups/{,**} rwmlk,
+	/run/cups/{,**} rwmlk,
+	/etc/cups{,**} r,
+	/etc/papersize r,
+	/etc/pam.d/* r,
+	/etc/login.defs r,
+	/etc/shadow r,
+	/etc/security/* r,
+	/etc/environment r,
+	/etc/udev/* r,
+	/etc/hp/* r,
+
+
+}
