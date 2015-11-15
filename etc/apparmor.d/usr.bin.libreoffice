@@ -9,8 +9,11 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/confidential-deny>
+	#include <abstractions/cups-client>
 	
 	capability ipc_lock,
+
+	@{HOME}/{,**} rwklm,
 
 	/dev/ati/** rwm,
 	/etc/ati/** r,
@@ -27,19 +30,7 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	/usr/bin/testparm rpx,
 	/usr/bin/net rpx,
 
-
-	@{HOME}/{,**} rk,
-	@{HOME}/.exe* rwmkl,
-	@{HOME}/.config/Trolltech.conf rw,
-	@{HOME}/.config/libreoffice/{**,} rw,
-	@{HOME}/.AMD/GLCache/** rw,
-	@{HOME}/.recently-used rw,
-	@{HOME}/.kde4/share/apps/RecentDocuments/** rw,
-	@{HOME}/.kde4/share/config/kdeglobals* rw,
-	@{HOME}/.kde4/share/config/LibreOfficerc* rw,
-
-	@{HOME}/Documents/** rw,
-
+	/{,**/} r,
 	/usr/lib{,32,64}/** rmk,
 	/usr/lib{,32,64}/libreoffice/** rmix,
 	/opt/oracle-jdk-*/** rmix,
@@ -52,6 +43,7 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	@{PROC}/** r,
 
 	/var/tmp/kdecache-*/** rwmk,
+	/var/cache/fontconfig/{,**} rwmlk,
 	/tmp/{**,} rwmk,
 	/run/user/*/ksocket-*/** rwmk,
 	/run/udev/** rwmk,
