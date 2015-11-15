@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/usr/sbin/nmbd flags=(complain) {
+profile nmbd /usr/sbin/nmbd {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/samba>
