@@ -73,6 +73,7 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 /usr/share/qt4/** r,
 /usr/share/config/kdebug.areas r, 
 /usr/share/config/kdebugrc r, 
+/usr/lib*/libproxy/*/modules/config_kde4.so rm,
 
 # phonon
 @{HOME}/.config/kde.org/libphonon.conf rk,
