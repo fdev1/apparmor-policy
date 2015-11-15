@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+profile tor /usr/bin/tor {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+	
+	capability setgid,
+	capability setuid,
+
+	/proc/sys/kernel/random/uuid r,
+	/sys/devices/system/cpu/ r,
+	
+	/usr/bin/tor rm,
+	/usr/share/tor/** rm,
+	/var/lib/tor/{,**} rwmkl,
+	/run/tor/** rwmlk,
+	/etc/tor/** r,
+}
