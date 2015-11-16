@@ -27,4 +27,3 @@ The above command starts an unconfined bash shell as root. To start
 an unconfined shell as yourself run:
 
 sudo aa-uexec /bin/bash
-
