@@ -3,6 +3,7 @@
 
 profile bluetoothd /usr/libexec/bluetooth/bluetoothd {
 	#include <abstractions/base>
+	#include <abstractions/confidential-deny>
 
 	capability net_admin,
 	capability net_bind_service,
