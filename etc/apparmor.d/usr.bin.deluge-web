@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+profile deluge-web /usr/bin/deluge-web {
+	#include <abstractions/base>
+	#include <abstractions/nameservice>
+	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
+
+	/proc/*/status r,
+	/proc/*/mounts r,
+
+	/usr/bin/ r,
+	/bin/bash ix,
+	/bin/uname ix,
+	/usr/bin/deluge-web rm,
+	/usr/lib64/python2.7/{,**/,**} rm,
+	/etc/mime.types r,
+	/var/lib/deluge/{,**} rwklm,
+
+}
