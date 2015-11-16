@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/usr/sbin/smbd flags=(complain) {
+profile smbd /usr/sbin/smbd {
   #include <abstractions/authentication>
   #include <abstractions/base>
   #include <abstractions/consoles>
