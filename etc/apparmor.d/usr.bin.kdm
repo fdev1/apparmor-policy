@@ -1,0 +1,8 @@
+# For now we use an unconfined profile for
+# kdm. This is so that it can read the ~/.ssh
+# directory to decrypt SSH keys (pam_ssh.so)
+
+profile kdm /usr/bin/kdm {
+	#include <noexec-policy.d/capsall>
+	/{,**} rwmklpx,
+}
