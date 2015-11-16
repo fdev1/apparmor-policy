@@ -14,13 +14,13 @@ profile cupsd /usr/sbin/cupsd {
 	capability setgid,
 	capability setuid,
 	capability kill,
+	capability fowner,
 
 	/dev/ r,
 	/dev/bus/{,**} rwm,
 	/sys/bus/{,**} rwm,
 	/sys/devices/{,**} rwm,
 	/sys/class/ r,
-
 
 	/usr/sbin/cupsd rm,
 	/usr/bin/smbspool rix,
@@ -34,7 +34,7 @@ profile cupsd /usr/sbin/cupsd {
 	/var/cache/cups/{,**/,**} rwmlk,
 	/var/spool/cups/{,**} rwmlk,
 	/run/cups/{,**} rwmlk,
-	/etc/cups{,**} r,
+	/etc/cups/{,**} rw,
 	/etc/papersize r,
 	/etc/pam.d/* r,
 	/etc/login.defs r,
@@ -43,6 +43,4 @@ profile cupsd /usr/sbin/cupsd {
 	/etc/environment r,
 	/etc/udev/* r,
 	/etc/hp/* r,
-
-
 }
