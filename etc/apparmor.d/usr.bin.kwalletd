@@ -1,0 +1,23 @@
+#include <tunables/global>
+
+profile kwalletd /usr/bin/kwalletd {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+
+	@{HOME}/.kde4/share/config/kwalletrc r,
+	@{HOME}/.kde4/share/config/kdebugrc r,
+	@{HOME}/.kde4/share/config/kdeglobals r,
+	@{HOME}/.kde4/share/apps/kwallet/{,**} rwm,
+
+	/usr/bin/kwalletd r,
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/share/config/kdebug.areas r,
+	/usr/share/config/kdebugrc r,
+	/usr/share/icons/{,**} r,
+
+	/var/tmp/kdecache-*/{,**} rwm,
+	/var/log/{,**} rwm,
+
+}
