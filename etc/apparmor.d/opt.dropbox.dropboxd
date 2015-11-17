@@ -1,22 +1,66 @@
 #include <tunables/home>
 
-# dropbox needs to execute code from the
-# user's home directory so it needs it's own
-# policy
 profile dropbox /opt/dropbox/dropboxd {
+	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
 
 	capability sys_ptrace,
-	/opt/dropbox{/**,} rwlkmix,
+
+	/proc/*/mounts r,
+	/proc/meminfo r,
+	/proc/stat r,
+	/proc/cpuinfo r,
+	/proc/modules r,
+	/proc/version r,
+	/proc/*/cmdline r,
+	/proc/*/status r,
+	/proc/*/stat r,
+	/proc/*/net/tcp{,6} r,
+	/proc/sys/vm/overcommit_memory r,
+	/sys/devices/system/cpu/online r,
+	/dev/urandom r,
+	/dev/null rwklm,
+
 	@{HOME}/.dropbox-dist/** rlkwix,
 	@{HOME}/.dropbox/** rlkwix,
 	@{HOME}/Dropbox/** rlkw,
 
-	#/dev/urandom r,
-	#/{usr/,}bin/** rlkwmix,
-	#/{usr/,}lib64/** rlkmix,
-	#/ rlkwpx,
-	#/tmp rlka,
-	/ rwlkmix,
-	/** rwlkmix,
+	/{,**/} r,
+	/opt/dropbox/{,**} rlkmix,
+	/bin/bash ix,
+	/bin/readlink ix,
+	/bin/dirname ix,
+	/bin/netstat ix,
+	/bin/uname ix,
+	/bin/sed ix,
+	/bin/head ix,
+	/bin/tr ix,
+	/bin/mount ix,
+	/usr/bin/lsb_release rix,
+	/usr/bin/getopt ix,
+	/usr/bin/find ix,
+	/lib{,32,64}/{,*} rm,
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/share/locale/{,**} r,
+	/etc/ld.so.cache r,
+	/etc/localtime r,
+	/etc/lsb-release r,
+	/etc/os-release r,
+
+	/tmp/{,**} rm,
+	/var/tmp/{,**} rm,
+	owner /tmp/{,**} rwm,
+	owner /var/tmp/{,**} rwm,
+
+	# wtf?
+	/sbin/ldconfig ix,
+	/usr/bin/gcc ix,
+	
+	# these belongs in abstractions/nameservice
+	/etc/hosts r,
+	/etc/resolv.conf r,
+	/etc/nsswitch.conf r,
+	/etc/passwd r,
+	/etc/gai.conf r,
+	/etc/host.conf r,
 }
