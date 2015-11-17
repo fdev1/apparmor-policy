@@ -2,5 +2,5 @@ deny @{HOME}/.ssh/** rwkmx,
 deny @{HOME}/.gnupg/{,**} rwkmx,
 #deny @{HOME}/.mozilla/{,**} rwkmx,
 deny @{HOME}/.android-keys/{,**} rwkmx,
+deny @{HOME}/.kde4/share/apps/kwallet/{,**} rwkmx,
 deny /opt/android-sdk/{,**} w,
-
