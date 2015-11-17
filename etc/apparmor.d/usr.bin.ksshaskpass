@@ -1,0 +1,27 @@
+#include <tunables/global>
+
+profile ksshaskpass /usr/bin/ksshaskpass {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/fonts>
+	#include <abstractions/confidential-deny>
+	
+	capability dac_override,
+	capability dac_read_search,
+
+	/proc/*/fd/ r,
+
+	@{HOME}/.local/share/mime/generic-icons r,
+	@{HOME}/.kde4/share/config/kwalletrc r,
+	
+	/usr/bin/ksshaskpass rm,
+	/usr/bin/kwalletd rpx,
+	/usr/bin/dbus-launch px,
+	/usr/lib{,32,64}/kde4/libexec/lnusertemp px,
+	/bin/bash ix,
+	/etc/machine-id r,
+
+	/var/tmp/kdecache-*/{,**} rwm,
+}
