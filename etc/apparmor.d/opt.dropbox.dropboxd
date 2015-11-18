@@ -1,4 +1,4 @@
-#include <tunables/home>
+#include <tunables/global>
 
 profile dropbox /opt/dropbox/dropboxd {
 	#include <abstractions/consoles>
