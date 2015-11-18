@@ -18,3 +18,4 @@
 #include <tunables/alias>
 #include <tunables/confidential>
 #include <tunables/multimedia>
+#include <tunables/apache-hosts>

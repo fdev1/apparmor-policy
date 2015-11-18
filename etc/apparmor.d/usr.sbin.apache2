@@ -1,9 +1,9 @@
-# Last Modified: Tue Aug 11 23:53:35 2015
 #include <tunables/global>
 
 profile apache2 /usr/sbin/apache2 {
 	#include <abstractions/base>
 	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
 
 	capability sys_admin,
 	capability chown,
@@ -18,12 +18,16 @@ profile apache2 /usr/sbin/apache2 {
 	@{PROC}/sys/kernel/ostype r,
 	@{PROC}/uptime r,
 
+	@{APACHE_RO} r,
+	@{APACHE_RW} rwm,
+
 	/{,*} r,
 	/usr/ r,
 	/usr/lib{,32,64}/ r,
 	/var/ r,
 
 	/usr/sbin/sendmail ix,
+	/usr/bin/mail ix,
 	/usr/bin/mod-mono-* rix,
 	/usr/bin/{mono,mono-sgen} rix,
 	/usr/bin/xsp* rix,
@@ -36,14 +40,13 @@ profile apache2 /usr/sbin/apache2 {
 	/etc/ssl/apache2/{,**} r,
 	/etc/php/apache2-*/{,**} r,
 	/etc/locales.conf r,
+	/etc/ssmtp/{,**} r,
 	/run/apache2.pid rw,
 	/run/cgisock.* w,
 	/run/ssl_mutex w,
 	/usr/lib{,32,64}/** mr,
 	/usr/sbin/apache2 mr,
 	/var/log/apache2/{,**} w,
-	/var/www/{,**} r,
-	/var/www/*/data/{,**} rwm,
 	/var/run/mysqld/mysqld.sock rwm,
 	
 	/tmp/{,**} rwklm,

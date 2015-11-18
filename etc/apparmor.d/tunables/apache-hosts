@@ -1,0 +1,2 @@
+@{APACHE_RO}=/var/www/{,**} /usr/share/mediatomb/web/{,**}
+@{APACHE_RW}=/var/www/*/data/{,**}
