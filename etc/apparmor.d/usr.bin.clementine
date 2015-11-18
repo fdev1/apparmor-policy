@@ -1,4 +1,3 @@
-# Last Modified: Thu Jul 30 01:21:48 2015
 #include <tunables/global>
 
 profile clementine /usr/bin/clementine {
@@ -8,24 +7,24 @@ profile clementine /usr/bin/clementine {
 	#include <abstractions/consoles>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/kde>
 	#include <abstractions/confidential-deny>
 	
 	deny /var/vbox/** rwx,
 	deny /usr/local/** rwx,
 
-	@{HOME}/.Xauthority r,
-	@{HOME}/.config/Trolltech.conf rwk,
-	@{HOME}/.kde4/share/config/kdeglobals* rwk,
+	@{HOME}/{,**} rwklm,
 	@{HOME}/.kde4/share/config/Clementinerc rw,
 	@{HOME}/.kde4/share/config/kfilemodulerc* rwk,
 	@{HOME}/.kde4/share/apps/RecentDocuments/* rwk,
 	@{HOME}/.config/Clementine/** rwk,
 	@{HOME}/.cache/{,**} rwk,
 	@{HOME}/.alsaequal.bin rwklm,
+	@{MUSIC}/** rwm,
 
-	@{HOME}/{,**} r,
-	/mnt/shared/music/{,**} r,
-	/mnt/shared/music/M3u/{,**} rw,
+	/proc/*/mounts r,
+	/proc/*/cmdline r,
+	/sys/devices/{,**} r,
 
 	/usr/bin/clementine mr,
 	/usr/bin/clementine-tagreader rpx,
@@ -45,7 +44,6 @@ profile clementine /usr/bin/clementine {
 	/etc/machine-id r,
 	/etc/fstab r,
 	/etc/udev/udev.conf r,
-	/sys/devices/{,**} r,
 
 	/tmp/clementine* rwk,
 	/tmp/qtsingleapp-clemen-* rwk,
@@ -53,7 +51,4 @@ profile clementine /usr/bin/clementine {
 	/run/user/*/orcexec* rwm,
 	/run/user/*/ksocket-*/kfilemodule* rwkm,
 	/run/udev/** r,
-
-	/proc/*/mounts r,
-	/proc/*/cmdline r,
 }

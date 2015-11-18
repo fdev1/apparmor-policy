@@ -84,7 +84,7 @@
   network inet6 dgram,
 
   # interface details
-  @{PROC}/*/net/route r,
+  /proc/*/net/route r,
 
 	# samba
 	/var/cache/samba/*.tdb r,

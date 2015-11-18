@@ -9,17 +9,10 @@ profile kmail /usr/bin/kmail {
 	#include <abstractions/consoles>
 	#include <abstractions/kde>
 	
-	deny @{HOME}/.ssh/{,**} rwx,
+	deny @{CONFIDENTIAL_EXCEPT_PGPKEYS} rwx,
 
-	@{HOME}/{,**} rmk,
-	@{HOME}/.config/{**,} rk,
-	@{HOME}/.config/enchant/{,**} rwklm,
-	@{HOME}/.kde4/share/apps/kmail2/{**,} rw,
-	@{HOME}/.kde4/share/config/kmail* rwk,
-	@{HOME}/.kde4/share/apps/RecentDocuments/{**,} rwk,
-	@{HOME}/.local/share/akonadi/{,**} rwklm,
+	@{HOME}/{,**} rwmlk,
 	
-	@{HOME}/Downloads rwm,
 	/proc/*/mounts r,
 	/proc/28434/mounts r,
 	

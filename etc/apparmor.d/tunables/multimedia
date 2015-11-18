@@ -1,0 +1,5 @@
+@{MUSIC}=@{HOME}/Music/ /mnt/shared/music/ /mnt/multimedia/Music/
+@{MOVIES}=@{HOME}/Movies/ /mnt/shared/movies/ /mnt/multimedia/Movies/
+@{PICTURES}=@{HOME}/Pictures/ /mnt/shared/pictures/ /mnt/multimedia/Pictures/
+@{VIDEO}=@{HOME}/Videos/ /mnt/shared/videos/ /mnt/multimedia/videos/
+@{MULTIMEDIA}=@{MUSIC} @{MOVIES} @{PICTURES} @{VIDEO}

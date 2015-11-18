@@ -1,4 +1,4 @@
-#include <tunables/home>
+#include <tunables/global>
 
 # prevent all executables not matched by other profiles from
 # executing programs in the user's home directory
