@@ -8,8 +8,6 @@ profile QtADB /usr/bin/QtADB {
   #include <abstractions/nameservice>
 	#include <abstractions/confidential-deny>
 
-  deny / r,
-
   @{HOME}/.Xauthority r,
   @{HOME}/.config/Bracia/{,**} rwmlk,
   @{HOME}/tmp/{,**} rwk,
@@ -22,7 +20,7 @@ profile QtADB /usr/bin/QtADB {
   /opt/android-sdk/platform-tools/** rix,
   /opt/android-sdk/platform-tools/{,**} r,
 
-	/usr/bin/ r,
+	/usr/bin/{,**} rix,
   /usr/bin/QtADB mr,
   /usr/lib{,32,64}/** mr,
   /usr/share/{,**} r,
