@@ -14,11 +14,13 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	capability ipc_lock,
 
 	@{HOME}/{,**} rwklm,
+	@{MULTIMEDIA}/{,**} rm,
+	@{PROC}/** r,
 
 	/dev/ati/** rwm,
-	/etc/ati/** r,
 	/dev/shm/** rwlk,
 	/sys/** r,
+
 	/bin/basename rpx,
 	/bin/bash rpx,
 	/bin/dirname rpx,
@@ -33,20 +35,18 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	/{,**/} r,
 	/usr/lib{,32,64}/** rmk,
 	/usr/lib{,32,64}/libreoffice/** rmix,
-	/opt/oracle-jdk-*/** rmix,
 	/usr/lib{,32,64}/libreoffice/share/uno_packages/cache/stamp.sys rwlmk,
 	/usr/share/** r,
+	/opt/oracle-jdk-*/** rmix,
 	/etc/cups/** r,
 	/etc/timezone r,
 	/etc/udev/udev.conf r,
 	/etc/fstab r,
-	@{PROC}/** r,
+	/etc/ati/** r,
 
 	/var/tmp/kdecache-*/** rwmk,
 	/var/cache/fontconfig/{,**} rwmlk,
 	/tmp/{**,} rwmk,
 	/run/user/*/ksocket-*/** rwmk,
 	/run/udev/** rwmk,
-
-	deny @{HOME}/.ssh/{**,} rwx,
 }
