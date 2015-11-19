@@ -7,6 +7,7 @@ profile ktorrent /usr/bin/ktorrent {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/kde>
 	#include <abstractions/confidential-deny>
 	#include <tunables/extra-user-directories>
 
@@ -16,6 +17,7 @@ profile ktorrent /usr/bin/ktorrent {
 	@{HOME}/Downloads/{**,} rw,
 
 	/ r,
+	/{,**/} r,
 	/usr/bin/ktorrent mr,
 	/usr/lib{,32,64}/** mr,
 	/usr/lib{,32,64}/vlc/plugins/{**,} mrw,
