@@ -15,7 +15,7 @@ profile firefox /usr/lib64/firefox/firefox {
 
 	@{HOME}/.cache/gstreamer-*/** rwklm,
 	@{HOME}/{,**} rwk,
-	@{MULTIMEDIA}/{,**} r,
+	@{MULTIMEDIA}/{,**} rwm,
 
 	/proc/** r,
 	/run/user/*/pulse/ r,
@@ -42,7 +42,6 @@ profile firefox /usr/lib64/firefox/firefox {
 	/usr/share/** r,
 	/opt/oracle-{jdk,jre}*/** rm,
 	/var/cache/samba/** r,
-	/etc/mdns.allow r,
 	/etc/udev/udev.conf r,
 	/etc/ati/* r,
 	/etc/mailcap r,
