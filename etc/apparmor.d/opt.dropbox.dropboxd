@@ -2,6 +2,7 @@
 
 profile dropbox /opt/dropbox/dropboxd {
 	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
 	#include <abstractions/confidential-deny>
 
 	capability sys_ptrace,
