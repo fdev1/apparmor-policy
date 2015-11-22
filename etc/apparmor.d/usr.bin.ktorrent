@@ -16,6 +16,10 @@ profile ktorrent /usr/bin/ktorrent {
 	@{HOME}/{**,} rk,
 	@{HOME}/Downloads/{**,} rw,
 
+	@{MULTIMEDIA}/{,**} rw,
+
+	/proc/*/mounts r,
+
 	/ r,
 	/{,**/} r,
 	/usr/bin/ktorrent mr,
@@ -33,5 +37,4 @@ profile ktorrent /usr/bin/ktorrent {
 
 	owner /{,var/}run/user/*/pulse/ w,
 	owner /{run,dev}/shm/pulse-shm* k,
-	deny /proc/*/mounts rwx,
 }
