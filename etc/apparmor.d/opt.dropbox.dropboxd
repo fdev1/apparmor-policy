@@ -28,18 +28,18 @@ profile dropbox /opt/dropbox/dropboxd {
 
 	/{,**/} r,
 	/opt/dropbox/{,**} rlkmix,
-	/bin/bash ix,
-	/bin/readlink ix,
-	/bin/dirname ix,
-	/bin/netstat ix,
-	/bin/uname ix,
-	/bin/sed ix,
-	/bin/head ix,
-	/bin/tr ix,
-	/bin/mount ix,
+	/bin/bash rix,
+	/bin/readlink rix,
+	/bin/dirname rix,
+	/bin/netstat rix,
+	/bin/uname rix,
+	/bin/sed rix,
+	/bin/head rix,
+	/bin/tr rix,
+	/bin/mount rix,
 	/usr/bin/lsb_release rix,
-	/usr/bin/getopt ix,
-	/usr/bin/find ix,
+	/usr/bin/getopt rix,
+	/usr/bin/find rix,
 	/lib{,32,64}/{,*} rm,
 	/usr/lib{,32,64}/{,**} rm,
 	/usr/share/locale/{,**} r,
@@ -56,7 +56,7 @@ profile dropbox /opt/dropbox/dropboxd {
 	# wtf?
 	/sbin/ldconfig ix,
 	/usr/bin/gcc ix,
-	
+
 	# these belongs in abstractions/nameservice
 	/etc/hosts r,
 	/etc/resolv.conf r,
