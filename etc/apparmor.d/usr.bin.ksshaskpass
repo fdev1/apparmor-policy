@@ -6,6 +6,7 @@ profile ksshaskpass /usr/bin/ksshaskpass {
 	#include <abstractions/X>
 	#include <abstractions/kde>
 	#include <abstractions/fonts>
+	#include <abstractions/nameservice>
 	#include <abstractions/confidential-deny>
 	
 	capability dac_override,
