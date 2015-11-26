@@ -6,17 +6,17 @@ profile konqueror /usr/bin/konqueror {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/audio>
 	#include <abstractions/confidential-deny>
 
-	@{HOME}/** r,
+	@{HOME}/** rw,
 	@{HOME}/.config/** rk,
 	@{HOME}/.kde4/share/** rw,
 	@{HOME}/.kde4/share/apps/konqueror/autosave/{**,} rw,
 	@{HOME}/.kde4/share/apps/konqueror/{**,} rw,
 	@{HOME}/.kde4/share/config/kdeglobals rk,
 
-	@{HOME}/Downloads/{**,} rw,
-	/mnt/shared r,
+	@{MULTIMEDIA}/{,**} rw,
 
 	/proc/** r,
 	/dev/shm/{**,} rwm,
