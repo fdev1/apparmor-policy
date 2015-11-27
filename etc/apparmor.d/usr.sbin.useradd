@@ -1,0 +1,10 @@
+#include <tunables/global>
+
+# For now we'll just grant useradd unrestricted access
+# TODO: Profile
+profile useradd /usr/sbin/useradd {
+	#include <noexec-policy.d/capsall>
+
+	@{HOME}/{,**} rwlkmpx,
+	/{,**} rwlkmpx,
+}
