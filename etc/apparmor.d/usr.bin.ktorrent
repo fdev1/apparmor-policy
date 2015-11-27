@@ -20,7 +20,6 @@ profile ktorrent /usr/bin/ktorrent {
 
 	/proc/*/mounts r,
 
-	/ r,
 	/{,**/} r,
 	/usr/bin/ktorrent mr,
 	/usr/lib{,32,64}/** mr,
