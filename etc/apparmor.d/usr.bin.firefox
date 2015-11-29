@@ -27,7 +27,7 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 	/dev/shm/* rwl,
 
 	/{,**/} r,
-	/usr/bin/okular rix,
+	/usr/bin/okular rpx,
 	/usr/bin/ktorrent rpx,
 	/usr/bin/ksshaskpass rpx,
 	/usr/bin/* rix,
@@ -35,12 +35,9 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 	/usr/bin/kmail rpx,
 	/usr/bin/kde4-config rix,
 	/opt/oracle-{jdk-*/jre,jre-*}/bin/* rmix,
+	/usr/lib{,32,64}/{,**} rm,
 	/usr/lib{,32,64}/firefox{,-*}/** rmix,
-	/usr/lib{,32,64}/nsbrowser/{,**} rm,
-	/usr/lib{,32,64}/mesa/** rm,
 	/usr/lib{,32,64}/gstreamer-*/gst-plugin-scanner rix,
-	/usr/lib{,32,64}/ladspa/{,**} rm,
-	/usr/lib{,32,64}/libproxy/*/modules/config_kde4.so rm,
 	/usr/share/** r,
 	/opt/oracle-{jdk,jre}*/** rm,
 	/var/cache/samba/** r,
@@ -53,9 +50,6 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 	/etc/vdpau_wrapper.cfg r,
 	/etc/asound.conf r,
 
-	# deny execution of bash (by some plugin)
-	# and write access to oxygen-gtk directory
-	deny /bin/bash x,
 	deny @{HOME}/.config/oxygen-gtk/* w,
 
 	owner /tmp/** lk,
