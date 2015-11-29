@@ -22,6 +22,8 @@ profile cupsd /usr/sbin/cupsd {
 	/sys/devices/{,**} rwm,
 	/sys/class/ r,
 
+	/bin/{,*} rix,
+	/usr/bin/{,*} rix,
 	/usr/sbin/cupsd rm,
 	/usr/bin/smbspool rix,
 	/usr/bin/gs rix,
