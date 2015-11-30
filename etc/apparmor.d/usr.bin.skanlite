@@ -1,0 +1,42 @@
+#include <tunables/global>
+
+profile skanlite /usr/bin/skanlite {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
+
+	@{HOME}/{,**} rwklm,
+	@{MULTIMEDIA}/{,**} rwklm,
+
+	# dont list cams!
+	deny /dev/video* rw,
+
+	/dev/* r,
+	/dev/bus/{,**} r,
+	/dev/bus/usb/{,**} rw,
+	/sys/bus/{,**} r,
+	/sys/devices/{,**} r,
+	/sys/class/{,**} r,
+	/proc/*/loginuid r,
+	/proc/*/mounts r,
+
+	/{,**/} r,
+	/{,**}/.directory r,
+	/usr/bin/* rmix,
+	/usr/bin/skanlite rmix,
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/share/** rk,
+	/etc/sane.d/** r,
+	/etc/udev/** r,
+	/etc/hp/** r,
+	/etc/fstab r,
+
+	/var/tmp/kdecache-*/* rw,
+	/run/utmp r,
+	/run/udev/{,**} r,
+	/run/user/*/ksocket-*/Skanlite* rwm,
+}
