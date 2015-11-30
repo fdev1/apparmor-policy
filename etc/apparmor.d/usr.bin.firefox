@@ -30,6 +30,7 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 	/usr/bin/okular rpx,
 	/usr/bin/ktorrent rpx,
 	/usr/bin/ksshaskpass rpx,
+	/bin/* rix,
 	/usr/bin/* rix,
 	/usr/lib{,32,64}/libreoffice/program/* px,
 	/usr/bin/kmail rpx,
