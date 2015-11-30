@@ -10,7 +10,7 @@
 # ------------------------------------------------------------------
 
 #include <tunables/global>
-/usr/sbin/nscd flags=(complain) {
+profile nscd /usr/sbin/nscd {
   #include <abstractions/base>
   #include <abstractions/consoles>
   #include <abstractions/nameservice>
@@ -24,9 +24,13 @@
   network inet dgram,
   network inet stream,
 
-  /etc/netgroup r,
-  /etc/nscd.conf r,
-  /tmp/.winbindd/pipe rw,
+  @{PROC}/[0-9]*/fd/ r,
+  @{PROC}/[0-9]*/fd/* r,
+  @{PROC}/[0-9]*/maps r,
+  @{PROC}/[0-9]*/mounts r,
+  @{PROC}/filesystems r,
+  @{PROC}/sys/vm/overcommit_memory r,
+
   /usr/sbin/nscd rmix,
   /var/lib/samba/winbindd_privileged/pipe rw,
   /{,var/}run/.nscd_socket wl,
@@ -37,12 +41,9 @@
   /var/{cache,run}/nscd/{passwd,group,services,hosts,netgroup} rw,
   /{,var/}run/{nscd/,}nscd.pid rwl,
   /var/log/nscd.log rw,
-  @{PROC}/[0-9]*/fd/ r,
-  @{PROC}/[0-9]*/fd/* r,
-  @{PROC}/[0-9]*/maps r,
-  @{PROC}/[0-9]*/mounts r,
-  @{PROC}/filesystems r,
-  @{PROC}/sys/vm/overcommit_memory r,
+  /etc/netgroup r,
+  /etc/nscd.conf r,
+  /tmp/.winbindd/pipe rw,
 
   # Site-specific additions and overrides. See local/README for details.
   #include <local/usr.sbin.nscd>
