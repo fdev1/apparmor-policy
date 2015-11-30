@@ -1,0 +1,22 @@
+#include <tunables/global>
+
+profile dhcpd /usr/sbin/dhcpd {
+  #include <abstractions/base>
+  #include <abstractions/consoles>
+  #include <abstractions/cups-client>
+  #include <abstractions/nameservice>
+	
+	capability dac_override,
+	capability net_raw,
+	capability chown,
+	capability setgid,
+	capability setuid,
+
+	/proc/*/net/{,**} r,
+
+	/usr/sbin/dhcpd rmix,
+	/etc/dhcp/{,**} r,
+	/var/lib/dhcp/{,**} rwklm,
+	/run/dhcp/{,**} rwklm,
+
+}
