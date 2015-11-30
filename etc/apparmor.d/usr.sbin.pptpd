@@ -1,0 +1,32 @@
+#include <tunables/global>
+
+profile pptpd /usr/sbin/pptpd {
+  #include <abstractions/base>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+
+	capability net_raw,
+	capability setuid,
+	capability setgid,
+	capability net_admin,
+
+	/dev/ptmx rw,
+	/dev/ppp rw,
+	/proc/*/loginuid r,
+
+	/bin/* rix,
+	/usr/bin/* rix,
+	/usr/sbin/pptpd rmix,
+	/usr/sbin/pptpctrl rmix,
+	/usr/sbin/pppd rmix,
+	/usr/lib{,32,64}/pptpd/** rm,
+	/etc/ppp/{,**} rix,
+	/etc/pptpd.conf r,
+	/etc/hosts.allow r,
+	/var/log/wtmp wk,
+	/run/pptpd.pid rw,
+	/run/utmp rwk,
+
+	owner /run/pppd*.tdb rwlk,
+	owner /run/ppp*.pid rwlk,
+}
