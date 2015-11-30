@@ -1,0 +1,24 @@
+#include <tunables/global>
+
+profile saned /usr/sbin/saned {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+
+	/dev/ r,
+	/dev/bus/usb/{,**} rwm,
+	/sys/bus/{,**} r,
+	/sys/devices/{,**} r,
+	/sys/class/{,**} r,
+	/proc/scsi/{,**} r,
+	
+	/bin/{,*} rix,
+	/usr/bin/{,*} rix,
+	/usr/sbin/saned rm,
+	/usr/share/hp/** r,
+	/usr/share/hplip/** r,
+	/etc/sane.d/** r,
+	/etc/udev/** r,
+	/etc/hp/** r,
+}
