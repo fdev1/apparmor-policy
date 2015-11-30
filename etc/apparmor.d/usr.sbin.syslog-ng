@@ -29,18 +29,31 @@ profile syslog-ng /usr/sbin/syslog-ng {
   capability sys_tty_config,
   capability sys_resource,
   capability syslog,
+	capability sys_ptrace,
+
+  @{PROC}/kmsg r,
+	@{PROC}/uptime r,
+	@{PROC}/*/cgroup r,
+	@{PROC}/*/cmdline r,
+	@{PROC}/*/loginuid r,
+	@{PROC}/*/sessionid r,
 
   /dev/log w,
   /dev/syslog w,
   /dev/tty10 rw,
   /dev/xconsole rw,
+	/dev/kmsg r,
+
   /etc/syslog-ng/* r,
-  @{PROC}/kmsg r,
   /etc/hosts.deny r,
   /etc/hosts.allow r,
-  /sbin/syslog-ng mr,
+  /usr/sbin/syslog-ng mr,
   /sys/devices/system/cpu/online r,
   /usr/share/syslog-ng/** r,
+
+	# /usr/share/include/scl ???
+	/usr/share/include/{,**} r,
+
   # chrooted applications
   @{CHROOT_BASE}/var/lib/*/dev/log w,
   @{CHROOT_BASE}/var/lib/syslog-ng/syslog-ng.persist* rw,
