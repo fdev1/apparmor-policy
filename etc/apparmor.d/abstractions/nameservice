@@ -87,5 +87,5 @@
   /proc/*/net/route r,
 
 	# samba
-	/var/cache/samba/*.tdb r,
+	/var/cache/samba/*.tdb rw,
 
