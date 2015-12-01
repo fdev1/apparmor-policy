@@ -1,0 +1,17 @@
+#include <tunables/global>
+
+profile /usr/sbin/miniupnpd {
+  #include <abstractions/base>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+	
+	capability net_raw,
+	capability net_admin,
+	
+	@{PROC}/uptime r,
+
+	/usr/sbin/miniupnpd rmix,
+	/sbin/{iptables,ip6tables} rix,
+	/etc/miniupnpd/miniupnpd.conf r,
+	/run/miniupnpd.pid rw,
+}
