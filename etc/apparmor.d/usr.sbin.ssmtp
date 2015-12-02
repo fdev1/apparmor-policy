@@ -9,7 +9,7 @@ profile ssmtp /usr/sbin/ssmtp {
 
 	@{HOME}/dead.letter w,
 	@{HOME}/.ssmtprc rw,
-	@{HOME}/.ssmtp-queue/* rwl,
+	@{HOME}/.ssmtp-queue/** rwlkm,
 	@{HOME}/** r,
 
 	/usr/bin/ksshaskpass rix,
