@@ -17,12 +17,10 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	@{HOME}/.config/Trolltech.conf rk,
 	@{HOME}/.config/fontconfig/fonts.conf r,
 	@{HOME}/.local/share/** r,
-	@{HOME}/.kde4/share/apps/ksysguard/ProcessTable.sgrd rw,
-	@{HOME}/.kde4/share/apps/ksysguard/SystemLoad2.sgrd rw,
+	@{HOME}/.kde4/share/apps/{,**} rw,
 	@{HOME}/.kde4/share/config/kdebugrc r,
 	@{HOME}/.kde4/share/config/kdeglobals* rwk,
 	@{HOME}/.kde4/share/config/ksysguardrc* rw,
-	@{HOME}/.kde4/share/apps/knewstuff3/ksysguard.knsregistry rw,
 	@{HOME}/{,**} r,
 	@{PROC}/{,**} r,
 
