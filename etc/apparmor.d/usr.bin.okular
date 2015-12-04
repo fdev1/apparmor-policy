@@ -1,0 +1,24 @@
+#include <tunables/global>
+
+profile okular /usr/bin/okular {
+	#include <abstractions/base>
+	#include <abstractions/dbus-session>
+	#include <abstractions/gnome>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/consoles>
+	#include <abstractions/cups-client>
+	#include <abstractions/confidential-deny>
+
+	@{HOME}/{,**} rwk,
+	@{MULTIMEDIA}/{,**} rwm,
+
+	/{,**/} r,
+	/usr/bin/okular rmix,
+	/usr/bin/* rix,
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/share/** r,
+
+	/run/user/*/ksocket-*/* rwklm,
+}
