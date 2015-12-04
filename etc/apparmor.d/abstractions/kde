@@ -16,6 +16,14 @@
 #include <abstractions/xdg-desktop>
 #include <abstractions/user-tmp>
 
+/{**/.directory,.directory} r,
+
+# file dialogs
+/sys/devices/{,**} r,
+/etc/fstab r,
+/etc/udev/{,**} r,
+/run/udev/{,**} r,
+
 /etc/qt3/kstylerc r,
 /etc/qt3/qt_plugins_3.3rc r,
 /etc/qt3/qtrc r,
