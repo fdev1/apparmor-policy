@@ -2,4 +2,5 @@
 @{MOVIES}=@{HOME}/Movies/ /mnt/shared/movies/ /mnt/multimedia/Movies/
 @{PICTURES}=@{HOME}/Pictures/ /mnt/shared/pictures/ /mnt/multimedia/Pictures/ /mnt/shared/wallpaper
 @{VIDEO}=@{HOME}/Videos/ /mnt/shared/videos/ /mnt/multimedia/videos/
-@{MULTIMEDIA}=@{MUSIC} @{MOVIES} @{PICTURES} @{VIDEO}
+@{EBOOKS}=@{HOME}/Ebooks /mnt/shared/ebooks/ /mnt/multimedia/ebooks/
+@{MULTIMEDIA}=@{MUSIC} @{MOVIES} @{PICTURES} @{VIDEO} @{EBOOKS}
