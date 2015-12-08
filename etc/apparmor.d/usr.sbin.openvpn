@@ -1,0 +1,28 @@
+#include <tunables/global>
+
+profile openvpn /usr/sbin/openvpn {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+	#include <abstractions/consoles>
+
+	capability dac_override,
+	capability dac_read_search,
+	capability setuid,
+	capability setgid,
+	capability net_admin,
+
+	/dev/net/{,**} rwklm,
+
+  /usr/sbin/openvpn mrix,
+	/bin/* rix,
+	/usr/bin/* rix,
+	/etc/openvpn/** r,
+	/etc/openvpn/ipp.txt rw,
+	/var/log/openvpn/** rwlkm,
+	/run/openvpn.pid rwklm,
+
+	# client
+	@{HOME}/.openvpn/{,**} rwklm,
+	/run/NetworkManager/** rwklm,
+	/usr/libexec/nm-openvpn-service-openvpn-helper rix,
+}
