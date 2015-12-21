@@ -17,9 +17,9 @@ profile openvpn /usr/sbin/openvpn {
 	/bin/* rix,
 	/usr/bin/* rix,
 	/etc/openvpn/** r,
-	/etc/openvpn/ipp.txt rw,
+	/var/lib/openvpn/** rwlkm,
 	/var/log/openvpn/** rwlkm,
-	/run/openvpn.pid rwklm,
+	/run/openvpn* rwklm,
 
 	# client
 	@{HOME}/.openvpn/{,**} rwklm,
