@@ -21,9 +21,8 @@ profile deluged /usr/bin/deluged {
 
 	/etc/mdns.allow r,
 	/var/cache/samba/{,**} r,
-
-
-
 	/var/lib/deluge/{,**} rwklm,
+	/tmp/** rwklm,
+	/var/tmp/** rwklm,
 
 }
