@@ -17,6 +17,9 @@ profile kmail /usr/bin/kmail {
 	/proc/28434/mounts r,
 	
 	/run/user/*/ksocket-*/kmail* rw,
+	/bin/bash rix,
+	/usr/bin/clamscan rpx,
+	/usr/bin/clamdscan rpx,
 	/usr/bin/gpg2 rpx,
 	/usr/bin/gpgconf rpx,
 	/usr/bin/gpgsm rpx,
