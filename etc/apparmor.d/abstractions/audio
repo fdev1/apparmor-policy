@@ -74,3 +74,6 @@ owner @{HOME}/.alsoftrc r,
 
 # wildmidi
 /etc/wildmidi/wildmidi.cfg r,
+
+/usr/lib{,32,64}/alsa-lib/** rm,
+/usr/lib{,32,64}/ladspa/** rm,

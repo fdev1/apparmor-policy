@@ -12,6 +12,12 @@ profile skype /opt/bin/skype {
 
 	deny @{HOME}/.mozilla/{,**} rwx,
 
+	# skype does not work correctly with
+	# alsaequal, so we deny it access to the
+	# asound.conf file so it cannot load it
+	deny @{HOME}/.alsaequal.bin rwx,
+	/etc/asound-skype.conf rm,
+
 	/dev/ r,
 	/dev/video* rw,
 	/opt/bin/skype mr,
@@ -21,7 +27,7 @@ profile skype /opt/bin/skype {
 	
 	@{HOME}/.Skype/{,**} rwk,
 	@{HOME}/.Xauthority r,
-	@{HOME}/.cache/** r,
+	@{HOME}/.cache/** rw,
 	@{HOME}/.config/Skype/* rwk,
 	@{HOME}/.config/Trolltech.conf rwk,
 	@{HOME}/.config/fontconfig/fonts.conf r,
@@ -43,8 +49,7 @@ profile skype /opt/bin/skype {
 	/usr/bin/*-apulse rix,
 	/tmp/** rwk,
 	/usr/share/** r,
-	/var/cache/samba/gencache.tdb r,
-	/var/cache/samba/gencache_notrans.tdb r,
+	/var/cache/** rw,
 	owner /{,var/}run/user/*/pulse/ w,
 	/{,var/}run/user/*/pulse/ r,
 	owner /{run,dev}/shm/pulse-shm* k,
