@@ -1,10 +1,35 @@
 #include <tunables/global>
 
-# For now we'll just grant useradd unrestricted access
-# TODO: Profile
 profile useradd /usr/sbin/useradd {
-	#include <noexec-policy.d/capsall>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+
+	capability dac_override,
+	capability chown,
+	capability fowner,
+	capability fsetid,
 
 	@{HOME}/{,**} rwlkmpx,
-	/{,**} rwlkmpx,
+
+	/proc/sys/kernel/ngroups_max r,
+	/usr/sbin/useradd rm,
+	/usr/sbin/nscd rpx,
+	/lib{,32,64}/* rm,
+	/lib{,32,64}/security/* rm,
+	/usr/lib{,32,64}/locale/* r,
+	/usr/lib{,32,64}/* r,
+	/usr/share/locale/* r,
+	/etc/ rw,
+	/etc/passwd* rwklm,
+	/etc/.pwd.lock rwklm,
+	/etc/group* rwlkm,
+	/etc/shadow* rwlkm,
+	/etc/gshadow* rwlkm,
+	/etc/ld.so.cache r,
+	/etc/default/useradd r,
+	/etc/login.defs r,
+	/etc/localtime r,
+	/etc/pam.d/* r,
+	/etc/skel/{,**} r,
+	/var/log/** rw,
 }
