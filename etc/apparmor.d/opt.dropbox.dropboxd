@@ -13,10 +13,15 @@ profile dropbox /opt/dropbox/dropboxd {
 	/proc/cpuinfo r,
 	/proc/modules r,
 	/proc/version r,
+	/proc/vmstat r,
 	/proc/*/cmdline r,
 	/proc/*/status r,
 	/proc/*/stat r,
 	/proc/*/net/tcp{,6} r,
+	/proc/*/net/udp{,6} r,
+	/proc/*/mountinfo r,
+	/proc/*/statm r,
+	/proc/*/io r,
 	/proc/sys/vm/overcommit_memory r,
 	/sys/devices/system/cpu/online r,
 	/dev/urandom r,
@@ -53,7 +58,7 @@ profile dropbox /opt/dropbox/dropboxd {
 	owner /tmp/{,**} rwm,
 	owner /var/tmp/{,**} rwm,
 
-	# wtf?
+	# it compiles itself?
 	/sbin/ldconfig ix,
 	/usr/bin/gcc ix,
 
