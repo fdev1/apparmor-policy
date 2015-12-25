@@ -12,6 +12,7 @@ profile saned /usr/sbin/saned {
 	/sys/devices/{,**} r,
 	/sys/class/{,**} r,
 	/proc/scsi/{,**} r,
+	/proc/sys/dev/parport/{,**} r,
 	
 	/bin/{,*} rix,
 	/usr/bin/{,*} rix,
@@ -21,4 +22,5 @@ profile saned /usr/sbin/saned {
 	/etc/sane.d/** r,
 	/etc/udev/** r,
 	/etc/hp/** r,
+	/run/udev/** r,
 }
