@@ -6,7 +6,7 @@ profile kwalletd /usr/bin/kwalletd {
 	#include <abstractions/X>
 	#include <abstractions/kde>
 
-	@{HOME}/.kde4/share/config/kwalletrc r,
+	@{HOME}/.kde4/share/config/kwalletrc* rwklm,
 	@{HOME}/.kde4/share/config/kdebugrc r,
 	@{HOME}/.kde4/share/config/kdeglobals r,
 	@{HOME}/.kde4/share/apps/kwallet/{,**} rwm,
