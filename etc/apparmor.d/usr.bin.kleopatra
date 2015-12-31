@@ -1,0 +1,17 @@
+#include <tunables/global>
+
+profile kleopatra /usr/bin/kleopatra {
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/consoles>
+
+	deny @{CONFIDENTIAL_EXCEPT_PGPKEYS} rwx,
+	@{HOME}/** rwklm,
+
+	/{,**/} r,
+	/usr/bin/kleopatra rmix,
+	/usr/bin/gpg* rpx,
+	/usr/lib{,32,64}/{,**} rmk,
+	/usr/share/** r,
+}
