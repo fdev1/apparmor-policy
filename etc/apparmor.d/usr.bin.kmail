@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-profile kmail /usr/bin/{kmail,akonadictl} {
+profile kmail /usr/bin/{kmail,akonadi*} {
 	#include <abstractions/base>
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
@@ -18,6 +18,7 @@ profile kmail /usr/bin/{kmail,akonadictl} {
 	/proc/*/mounts r,
 	/proc/*/loginuid r,
 	/proc/28434/mounts r,
+	/proc/*/stat r,
 	
 	/{,**/} r,
 	/bin/* rix,
@@ -40,6 +41,5 @@ profile kmail /usr/bin/{kmail,akonadictl} {
 	/var/tmp/{**,} rw,
 	/etc/mysql/** rm,
 	/tmp/** rwlmk,
-	/run/user/*/ksocket-*/accountwizard*.slave-socket rwklm,
-	/run/user/*/ksocket-*/kmail* rw,
+	/run/user/*/ksocket-*/** rw,
 }
