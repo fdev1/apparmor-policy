@@ -1,25 +1,21 @@
-# Last Modified: Mon Aug 10 20:27:57 2015
 #include <tunables/global>
 
 profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
 
+	deny @{CONFIDENTIAL_EXCEPT_PGPKEYS}/** rwx,
 	@{HOME}/.gnupg/{,**} rwlkm,
-	@{HOME}/{,**} r,
-	deny @{HOME}/.ssh/{,**} rwkmx,
+	@{HOME}/{,**} rwklm,
 
+  /{,**} r,
+	/bin/bash rix,
+	/usr/bin/xloadimage rpx,
 	/usr/bin/gpg{2,-agent,conf,sm} rmix,
 	/usr/libexec/gpg2keys_* rix,
 	/usr/libexec/gpg-check-pattern rix,
 	/usr/libexec/gpg-preset-passphrase rix,
 	/usr/libexec/gpg-protect-tool rix,
 	/usr/bin/pinentry-{curses,gtk-2,qt4,tty} rpx,
-	/etc/hosts r,
-	/etc/resolv.conf r,
-	/etc/host.conf r,
-	/etc/nsswitch.conf r,
-	/etc/ssl/openssl.cnf r,
-	/etc/gai.conf r,
-	/tmp/* rw,
+	/tmp/** rw,
 }
