@@ -1,0 +1,35 @@
+#include <tunables/global>
+
+profile wpsd /usr/bin/wpsd {
+	#include <abstractions/nameservice>
+	#include <abstractions/confidential-deny>
+	#include <abstractions/consoles>
+
+	capability dac_override,
+	capability net_admin,
+
+	deny /root/** rwx,
+
+	/sys/devices/** r,
+	/sys/class/net/{,**} r,
+	/sys/class/power_supply/ r,
+	/proc/meminfo r,
+	/proc/sys/vm/overcommit_memory r,
+	/proc/*/net/dev r,
+	/dev/urandom r,
+	/dev/random r,
+
+	/proc/net/wireless rwk,
+	/proc/*/net/wireless rwk,
+
+	/usr/bin/wpsd rm,
+	/lib{,32,64}/** rm,
+	/usr/lib{,32,64}/** rm,
+	/usr/lib/gcc/** rm,
+	/usr/x86_64-pc-linux-gnu/** rm,
+	/etc/ld.so.cache r,
+	/etc/ssl/** r,
+	/etc/os-release r,
+	/etc/localtime r,
+	/tmp/wpsd.socket rwklm,
+}
