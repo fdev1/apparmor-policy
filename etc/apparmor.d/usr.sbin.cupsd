@@ -45,4 +45,5 @@ profile cupsd /usr/sbin/cupsd {
 	/etc/environment r,
 	/etc/udev/* r,
 	/etc/hp/* r,
+	/run/udev/** r,
 }
