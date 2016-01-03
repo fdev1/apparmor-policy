@@ -29,19 +29,17 @@ profile googleearth /opt/googleearth/{googleearth,googleearth-bin} {
 	/dev/ati/card* rw,
 	/usr/bin/amd-console-helper rix,
 	/opt/nvidia-cg-toolkit/lib32/** rm,
-	/dev/shm/ParseLock* rwk,
-	/dev/shm/sem* rwkl,
+	/dev/shm/** rwkl,
 	/etc/ati/** r,
 
 
-	/bin/bash rix,
-	/bin/grep rix,
-	/bin/dirname rix,
+	/bin/* rix,
+	/usr/bin/* rix,
 	/opt/googleearth/googleearth r,
 	/opt/googleearth/googleearth-bin ix,
 	/opt/googleearth/{,**} rm,
 	/usr/lib{,32,64}/** rm,
 	/usr/lib{,32,64}/firefox/firefox rpx,
-	/usr/share/** r,
+	/usr/share/** rk,
 
 }
