@@ -17,8 +17,9 @@ profile kmail /usr/bin/{kmail,akonadi*} {
 	
 	/proc/*/mounts r,
 	/proc/*/loginuid r,
-	/proc/28434/mounts r,
+	/proc/*/uptime r,
 	/proc/*/stat r,
+	/proc/uptime r,
 	
 	/{,**/} r,
 	/bin/* rix,
