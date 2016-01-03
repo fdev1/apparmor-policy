@@ -31,5 +31,6 @@ profile wpsd /usr/bin/wpsd {
 	/etc/ssl/** r,
 	/etc/os-release r,
 	/etc/localtime r,
+	/etc/wpsd.conf r,
 	/tmp/wpsd.socket rwklm,
 }
