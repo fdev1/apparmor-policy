@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-profile wpsd /usr/bin/wpsd {
+profile wpsd /usr/bin/{wpsd,uppd} {
 	#include <abstractions/nameservice>
 	#include <abstractions/confidential-deny>
 	#include <abstractions/consoles>
@@ -22,15 +22,16 @@ profile wpsd /usr/bin/wpsd {
 	/proc/net/wireless rwk,
 	/proc/*/net/wireless rwk,
 
-	/usr/bin/wpsd rm,
+	/usr/bin/uppd rm,
 	/lib{,32,64}/** rm,
 	/usr/lib{,32,64}/** rm,
 	/usr/lib/gcc/** rm,
 	/usr/x86_64-pc-linux-gnu/** rm,
+	/var/lib/upp/* rw,
 	/etc/ld.so.cache r,
 	/etc/ssl/** r,
 	/etc/os-release r,
 	/etc/localtime r,
-	/etc/wpsd.conf r,
-	/tmp/wpsd.socket rwklm,
+	/etc/uppd.conf r,
+	/tmp/uppd.socket rwklm,
 }
