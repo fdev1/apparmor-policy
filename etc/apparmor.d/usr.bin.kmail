@@ -19,6 +19,7 @@ profile kmail /usr/bin/{kmail,akonadi*} {
 	/proc/*/loginuid r,
 	/proc/*/uptime r,
 	/proc/*/stat r,
+	/proc/*/status r,
 	/proc/uptime r,
 	
 	/{,**/} r,
