@@ -26,7 +26,7 @@
   # an alternate path
   /var/lib/extrausers/group  r,
   /var/lib/extrausers/passwd r,
-	/var/cache/samba/gencache.tdb rwklm,
+	/var/cache/samba/** rwklm,
 
   /etc/resolv.conf        r,
   # on systems using resolvconf, /etc/resolv.conf is a symlink to
