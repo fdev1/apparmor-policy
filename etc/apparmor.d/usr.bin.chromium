@@ -4,11 +4,13 @@
 profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromedriver} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
-	#include <abstractions/confidential-deny>
 	#include <abstractions/audio>
+	#include <abstractions/cups-client>
 
 	#deny capability sys_admin,
 	#include <noexec-policy.d/capsall>
+	
+	deny @{CONFIDENTIAL_EXCEPT_CHROME} rwx,
 
 	/dev/shm/{**,} rwlkm,
 	/dev/ati/{**,} rwlkm,
