@@ -13,7 +13,7 @@ profile vlc /usr/bin/vlc {
 
 	deny /usr/lib{,32,64}/vlc/plugins/plugins.dat.* w,
 
-	/** r,
+	/{,**/,**} r,
 	/mnt/shared/{,**,**/} rwlkm,
 	
 	@{HOME}/{,**} rwklm,
