@@ -17,6 +17,8 @@ profile QtADB /usr/bin/QtADB {
 	/sys/bus/usb/{,**} rwm,
 	/sys/devices/{,**} r,
 
+	/usr/bin/* rix,
+	/usr/bin/adb rix,
   /opt/android-sdk/platform-tools/** rix,
   /opt/android-sdk/platform-tools/{,**} r,
 
