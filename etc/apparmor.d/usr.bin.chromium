@@ -12,14 +12,18 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 	
 	deny @{CONFIDENTIAL_EXCEPT_CHROME} rwx,
 
+	/dev/ r,
 	/dev/shm/{**,} rwlkm,
 	/dev/ati/{**,} rwlkm,
 	/dev/snd/{**,} rwlkm,
+	/dev/video* rwlkm,
 	/usr/bin/kde4-config rix,
 	/usr/bin/lsb_release rix,
-	/usr/bin/xdg-settings rix,
+	/usr/bin/xdg-settings rpx,
 	/proc/{**,} rw,
 	/sys/devices/system/** r,
+	/usr/bin/xdg-open rpx,
+
 	/sys/{**,} r,
 	/usr/lib64/chromium-browser/** mlkrix,
 	/opt/google/chrome/** mlkrix,
@@ -59,7 +63,6 @@ profile chromium /{usr/lib64/chromium-browser,opt/google/chrome}/{chrome,chromed
 
 	# these are used by xdg-settings
 	# maybe should be allowd?
-	deny /dev/ rwx,
 	deny /etc/passwd rwx,
 	deny /usr/bin/getopt rwx,
 	deny /etc/samba/{**,} rwx,
