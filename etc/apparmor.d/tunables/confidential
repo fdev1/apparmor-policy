@@ -5,7 +5,7 @@
 @{ANDROIDKEYS}=@{USERHOME}/.android-keys/{,**}
 @{KWALLET}=@{USERHOME}/.kde4/share/apps/kwallet/{,**}
 @{MOZILLA}=@{USERHOME}/.mozilla/{,**}
-@{CHROME}=@{USERHOME}/.config/google-chrome/{,**}
+@{CHROME}=@{USERHOME}/.config/google-chrome/{,**} @{USERHOME}/.encrypted-volume/google-chrome/{,**}
 
 @{CONFIDENTIAL}=@{SSHKEYS} @{PGPKEYS} @{KWALLET} @{ANDROIDKEYS} @{MOZILLA} @{CHROME}
 @{CONFIDENTIAL_EXCEPT_SSHKEYS}=@{PGPKEYS} @{KWALLET} @{ANDROIDKEYS} @{MOZILLA}
