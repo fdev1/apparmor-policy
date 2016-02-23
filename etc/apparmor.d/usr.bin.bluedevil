@@ -1,4 +1,3 @@
-# Last Modified: Fri Jul 31 15:34:55 2015
 #include <tunables/global>
 
 profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
@@ -13,6 +12,7 @@ profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
 
 	@{HOME}/.kde{,4}/share/config/kcmshellrc* r,
 	@{HOME}/.kde{,4}/share/config/bluedevil* rw,
+	@{HOME}/.kde{,4}/share/apps/RecentDocuments/{,**} rw,
 	@{HOME}/.icons/{,**} r,
 
 	/usr/bin/kcmshell4 rix,
