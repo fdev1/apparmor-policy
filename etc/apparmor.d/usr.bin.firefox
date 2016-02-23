@@ -64,4 +64,9 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 	/run/user/*/** rwm,
 	/run/udev/** r,
 	/var/tmp/** rw,
+
+	# This is for using the TorButton addon with system-wide
+	# firefox and tor. It allows the TorButton to read the tor
+	# control port access cookie.
+	/var/run/tor/control-cookie r,
 }
