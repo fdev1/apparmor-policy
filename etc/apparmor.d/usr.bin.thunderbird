@@ -1,0 +1,68 @@
+#include <tunables/global>
+
+profile thunderbird /usr/lib64/thunderbird/thunderbird {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/dbus-session>
+	#include <abstractions/gnome>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+
+	deny @{CONFIDENTIAL} rwklmx,
+
+	capability ipc_lock,
+	capability sys_ptrace,
+
+	@{HOME}/.thunderbird/{,**} rwklm,
+	@{HOME}/.cache/gstreamer-*/** rwklm,
+	@{HOME}/{,**} rwk,
+	@{MULTIMEDIA}/{,**} rwm,
+
+	/proc/** r,
+	/run/user/*/pulse/ r,
+	/sys/devices/system/** r,
+	/sys/devices/**/uevent r,
+	/dev/{**,} r,
+	/dev/video* rw,
+	/dev/ati/card0 rw,
+	/dev/shm/* rwl,
+
+	/usr/lib64/kde4/libexec/** rmix,
+
+	/usr/bin/{gpg,gpg2,gpgconf,gpgsm,gpg-agent} rpx,
+
+	/{,**/} r,
+	/usr/bin/okular rpx,
+	/usr/bin/ktorrent rpx,
+	/usr/bin/ksshaskpass rpx,
+	/bin/* rix,
+	/usr/bin/* rix,
+	/usr/lib{,32,64}/libreoffice/program/* px,
+	/usr/bin/kmail rpx,
+	/usr/bin/kde4-config rix,
+	/opt/oracle-{jdk-*/jre,jre-*}/bin/* rmix,
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/lib{,32,64}/firefox{,-*}/** rmix,
+	/usr/lib{,32,64}/gstreamer-*/gst-plugin-scanner rix,
+	/usr/share/** r,
+	/opt/oracle-{jdk,jre}*/** rm,
+	/var/cache/samba/** r,
+	/etc/udev/udev.conf r,
+	/etc/ati/* r,
+	/etc/mailcap r,
+	/etc/mime.types r,
+	/etc/adobe/{**,} r,
+	/etc/ssl/openssl.cnf r,
+	/etc/vdpau_wrapper.cfg r,
+	/etc/asound.conf r,
+
+	deny @{HOME}/.config/oxygen-gtk/* w,
+
+	owner /tmp/** lk,
+	owner /var/tmp/** lk,
+	/tmp/** rwm,
+	/run/user/*/** rwm,
+	/run/udev/** r,
+	/var/tmp/** rw,
+}
