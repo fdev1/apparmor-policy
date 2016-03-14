@@ -20,12 +20,15 @@ profile vlc /usr/bin/vlc {
 
 	/dev/ati/{,**} rwlkm,
 	/dev/video* rwmlk,
+	/dev/fb* rwmlk,
 	/dev/bus/{,**} rw,
 
 	/usr/bin/vlc mr,
 	/usr/bin/* rix,
 	/usr/lib{,32,64}/{,**} rm,
 	/usr/share/** rk,
+
+	/etc/{,directfbrc*} r,
 
 	owner /var/tmp/kdecache-*/* lk,
 	/var/tmp/kdecache-*/* rw,
