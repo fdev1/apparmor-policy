@@ -1,0 +1,21 @@
+#include <tunables/global>
+
+profile avmount /usr/bin/avmount {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+
+	capability sys_nice,
+	capability sys_admin,
+
+	# mount points
+	/media/upnp/ rw,
+	@{HOME}/{,**/} rw,
+
+	/dev/fuse rw,
+	/sys/{,**} r,
+
+	/usr/bin/avmount mr,
+	/usr/bin/fusermount ix,
+	/var/log/avmount.log rw,
+	/etc/fuse.conf r,
+}
