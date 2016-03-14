@@ -24,7 +24,7 @@ profile mediatomb /usr/bin/mediatomb {
 	/usr/share/libquvi-scripts/** r,
 	/usr/share/mediatomb/{,**} r,
 
-	/etc/mediatomb/config.xml r,
+	/etc/mediatomb/** rix,
 	/etc/ssl/openssl.cnf r,
 
 	/var/lib/mediatomb/{,**} rwmk,
