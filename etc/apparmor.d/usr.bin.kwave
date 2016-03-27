@@ -1,0 +1,25 @@
+#include <tunables/global>
+
+profile kwave /usr/bin/kwave {
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/audio>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/confidential-deny>
+	
+	deny /var/vbox/** rwx,
+	deny /usr/local/** rwx,
+
+	@{HOME}/{,**} rwklm,
+	@{HOME}/.cache/{,**} rwk,
+	@{HOME}/.alsaequal.bin rwklm,
+	@{MUSIC}/{,**} rwm,
+	/{,**/}** rm,
+
+	/usr/bin/* rix,
+	/usr/lib{,32,64}/** mr,
+	/run/user/*/ksocket-*/** rwklm,
+}
