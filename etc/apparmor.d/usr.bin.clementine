@@ -20,7 +20,8 @@ profile clementine /usr/bin/clementine {
 	@{HOME}/.config/Clementine/** rwk,
 	@{HOME}/.cache/{,**} rwk,
 	@{HOME}/.alsaequal.bin rwklm,
-	@{MUSIC}/** rwm,
+	@{MUSIC}/{,**} rwm,
+	/{,**/}** rm,
 
 	/proc/*/mounts r,
 	/proc/*/cmdline r,
