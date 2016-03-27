@@ -21,7 +21,7 @@ profile audacity /usr/bin/audacity {
 	@{HOME}/.config/gtk-2.0/** rk,
 	@{HOME}/.config/gtk-2.0/gtkfilechooser.ini* rw,
 	@{HOME}/.audacity-data/** rwk,
-	/mnt/shared/** r,
+	/{,**/}** r,
 
 	/bin/bash rix,
 	/bin/uname rpx,
