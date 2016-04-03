@@ -12,16 +12,10 @@ profile nmbd /usr/sbin/nmbd {
   /usr/sbin/nmbd mr,
 
   #/var/cache/samba/gencache.tdb rwklmix,
-  /var/cache/samba/* rwk,
   /var/nmbd/* rwk,
-  /var/{cache,lib}/samba/browse.dat* rw,
-  /var/{cache,lib}/samba/gencache.dat rw,
-  /var/{cache,lib}/samba/wins.dat* rw,
-  /var/{cache,lib}/samba/smb_krb5/ rw,
-  /var/{cache,lib}/samba/smb_krb5/krb5.conf* rw,
-  /var/{cache,lib}/samba/smb_tmp_krb5.* rw,
-  /var/{cache,lib}/samba/sync.* rw,
-  /var/{cache,lib}/samba/unexpected rw,
+  /var/lib/samba/{,**} rwklm,
+  /var/cache/samba/{,**} rwklm,
+  /run/lock/samba/{,**} rwklm,
 
   /{,var/}run/samba/** rwk,
 

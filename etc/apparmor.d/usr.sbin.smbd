@@ -39,6 +39,7 @@ profile smbd /usr/sbin/smbd {
   /var/lib/samba/printers/** rw,
   /var/lib/sss/mc/passwd r,
   /var/lib/sss/pubconf/kdcinfo.* r,
+  /run/lock/samba/{,**} rwklm,
   /{,var/}run/cups/cups.sock rw,
   /{,var/}run/dbus/system_bus_socket rw,
   /{,var/}run/samba/** rk,
