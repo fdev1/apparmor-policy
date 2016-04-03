@@ -11,15 +11,10 @@ profile mediatomb /usr/bin/mediatomb {
 
 	/proc/sys/fs/inotify/{,**} r,
 
-	/usr/bin/mediatomb rm,
 	/ r,
-	/**/ r,
+	/**/{,**} r,
 
-	/mnt/{d,multimedia}/Movies/{,**} rw,
-	/mnt/{d,multimedia}/Music/{,**} rw,
-	/mnt/{d,multimedia}/Torrents/{,**} rw,
-	/mnt/{d,multimedia}/Incoming/{,**} rw,
-
+	/usr/bin/mediatomb rm,
 	/usr/share/misc/magic.mgc r,
 	/usr/share/libquvi-scripts/** r,
 	/usr/share/mediatomb/{,**} r,
