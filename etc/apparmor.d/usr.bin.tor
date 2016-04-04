@@ -17,4 +17,5 @@ profile tor /usr/bin/tor {
 	/var/lib/tor/{,**} rwmkl,
 	/run/tor/** rwmlk,
 	/etc/tor/** r,
+	/tmp/* rw,
 }
