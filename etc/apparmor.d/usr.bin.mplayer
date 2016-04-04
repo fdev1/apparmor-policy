@@ -1,0 +1,15 @@
+#include <tunables/global>
+
+profile mplayer /usr/bin/mplayer {
+  #include <abstractions/X>
+  #include <abstractions/audio>
+  #include <abstractions/base>
+  #include <abstractions/fonts>
+  #include <abstractions/nameservice>
+  #include <abstractions/confidential-deny>
+
+  /{,**,**/} r,
+  /home/** rw,
+  /usr/bin/mplayer mr,
+
+}
