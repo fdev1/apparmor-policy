@@ -30,6 +30,7 @@ profile git /usr/bin/git {
 	/{,usr/}bin/wc rix,
 	/{,usr/}bin/mv rix,
 	/{,usr/}bin/rm rix,
+	/{,usr/}bin/grep rix,
 
 	/usr/bin/perl rpx,
 	/usr/bin/ssh rpx,
