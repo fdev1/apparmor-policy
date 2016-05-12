@@ -6,6 +6,8 @@ profile avmount /usr/bin/avmount {
 
 	capability sys_nice,
 	capability sys_admin,
+	capability net_admin,
+	capability sys_module,
 
 	# mount points
 	/media/UPnP/ rw,
