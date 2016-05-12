@@ -1,0 +1,18 @@
+#include <tunables/global>
+
+profile haveged /usr/sbin/haveged {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
+
+	/proc/** r,
+	/sys/** r,
+
+	/proc/sys/kernel/random/write_wakeup_threshold rwkl,
+	/dev/random rw,
+
+	/usr/sbin/haveged rmix,
+	/etc/haveged.conf r,
+
+	/run/haveged.pid rwklm,
+}
