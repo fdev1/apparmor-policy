@@ -1,0 +1,24 @@
+#include <tunables/global>
+
+profile smplayer /usr/bin/smplayer {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/fonts>
+	#include <abstractions/kde>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
+
+	/{,**/,**} r,
+	@{HOME}/{,**} rwklm,
+
+	/usr/bin/ r,
+	/usr/bin/mplayer mrpx,
+	/usr/bin/mpv mrpx,
+	/usr/bin/* rix,
+	/usr/lib*/** mr,
+
+	/usr/share/** rkm,
+	/run/user/*/ksocket-*/kfilemodule* rwklm,
+}
