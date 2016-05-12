@@ -55,6 +55,7 @@ profile dropbox /opt/dropbox/dropboxd {
 
 	/tmp/{,**} rm,
 	/var/tmp/{,**} rm,
+	/run/lock/samba/** rl,
 	owner /tmp/{,**} rwm,
 	owner /var/tmp/{,**} rwm,
 
