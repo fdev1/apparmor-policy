@@ -8,14 +8,24 @@ profile avmount /usr/bin/avmount {
 	capability sys_admin,
 
 	# mount points
-	/media/upnp/ rw,
-	@{HOME}/{,**/} rw,
+	/media/UPnP/ rw,
+	@{HOME}/**/ rw,
+	/tmp/**/ rw,
 
 	/dev/fuse rw,
 	/sys/{,**} r,
 
 	/usr/bin/avmount mr,
-	/usr/bin/fusermount ix,
+	/usr/bin/fusermount rix,
 	/var/log/avmount.log rw,
 	/etc/fuse.conf r,
+
+	# these are needed for user mounts
+	/etc/mtab r,
+	/etc/passwd r,
+	/etc/ssl/openssl.cnf r,
+	/proc/*/mounts r,
+	/proc/*/net/** r,
+	/etc/nsswitch.conf r,
+
 }
