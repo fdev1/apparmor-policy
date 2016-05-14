@@ -5,6 +5,8 @@ profile haveged /usr/sbin/haveged {
 	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
 
+	capability sys_admin,
+
 	/proc/** r,
 	/sys/** r,
 
