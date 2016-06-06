@@ -1,0 +1,59 @@
+#include <tunables/global>
+
+profile sddm /usr/bin/sddm {
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <noexec-policy.d/capsall>
+
+	/dev/dri/{,**} rwm,
+	/dev/urandom r,
+	/dev/random r,
+	/dev/null rw,
+	/proc/** r,
+	/sys/** r,
+	/proc/*/loginuid rw,
+
+	@{HOME}/.Xauthority rwklm,
+	@{HOME}/.ssh/{,**} r,
+	@{HOME}/.ssh/agent* rwklm,
+	@{HOME}/.kde4/share/apps/kwallet/** rwklm,
+
+	/usr/sbin/pmvarrun rpx,
+	/usr/bin/sddm rix,
+	/bin/bash rpx,
+	/bin/mount rpx,
+	/usr/bin/Xorg rpx,
+	/uss/bin/Xsession rpx,
+	/usr/bin/{,**} rpx,
+
+	/lib*/{,**} rm,
+	/usr/lib*/{,**} rm,
+	/usr/libexec/sddm* rmix,
+	/usr/share/sddm/** rpx,
+	/usr/share/** r,
+	/etc/sddm.conf r,
+	/etc/ld.so.cache r,
+	/etc/localtime r,
+	/etc/locale.conf r,
+	/etc/nsswitch.conf r,
+	/etc/passwd r,
+	/etc/pam.d/* r,
+	/etc/security/** r,
+	/etc/login.defs r,
+	/etc/environment r,
+	/etc/X11/{,**} r,
+	/etc/shadow r,
+	/etc/shells r,
+
+	/run/utmp rwk,
+	/run/sddm/{,**} rwklm,
+	/run/mount/utab r,
+	/var/log/tallylog rwk,
+	/var/log/lastlog rwk,
+	/var/log/wtmp rwk,
+	/var/lib/sddm/{,**} rwklm,
+	/var/run/sddm/{,**} rwklm,
+	/var/log/sddm* rwklm,
+	/tmp/** rwklm,
+}
