@@ -6,6 +6,7 @@ profile mplayer /usr/bin/mplayer {
   #include <abstractions/base>
   #include <abstractions/fonts>
   #include <abstractions/nameservice>
+  #include <abstractions/consoles>
   #include <abstractions/confidential-deny>
 
   /{,**,**/} r,
