@@ -8,12 +8,14 @@ profile git /usr/bin/git {
 	@{HOME}/{,**} rwlkmix,
 	/** rmlk,
 
+	# text editors
 	/usr/bin/vi rpx,
 	/usr/bin/vim rpx,
 	/usr/bin/emacs rpx,
 	/usr/bin/ed rpx,
 	/usr/bin/nano rpx,
 	/usr/bin/man rpx,
+	/usr/bin/qvim rpx,
 
 	/usr/bin/gpg{,2,-agent,conf,sm} rpx,
 
