@@ -6,10 +6,13 @@ profile deluged /usr/bin/deluged {
 	#include <abstractions/nameservice>
 	#include <abstractions/confidential-deny>
 
+	@{HOME}/.config/deluge/deluged.log rwklm,
+
 	/usr/bin/ r,
 	/bin/bash ix,
 	/bin/uname rix,
 	/usr/bin/deluged rm,
+	/usr/bin/python2.7 rm,
 	/usr/lib64/python2.7/{,**/,**} rm,
 	
 	/mnt/{d,multimedia}/Movies/{,**} rw,
