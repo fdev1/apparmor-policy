@@ -1,0 +1,19 @@
+#include <tunables/global>
+
+profile kgpg /usr/bin/kgpg {
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/consoles>
+
+	deny @{CONFIDENTIAL_EXCEPT_PGPKEYS} rwx,
+	@{HOME}/** rwklm,
+
+	/{,**/} r,
+	/bin/bash rmpx,
+	/usr/bin/gwenview rpx,
+	/usr/bin/kgpg rmix,
+	/usr/bin/gpg* rpx,
+	/usr/lib{,32,64}/{,**} rmk,
+	/usr/share/** r,
+}
