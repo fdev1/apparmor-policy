@@ -21,6 +21,13 @@ profile krdc /usr/bin/krdc {
 	@{HOME}/.kde4/share/config/servicetype_profilerc r,
 	@{HOME}/** r,
 	@{HOME}/Downloads/** rw,
+	
+	# for kf5 version
+	@{HOME}/.local/** rwklm,
+	@{HOME}/.cache/** rwklm,
+	@{HOME}/.config/** rwklm,
+	/etc/xdg/** r,
+
 
 	/dev/shm/com.freerdp.xfreerdp* rwk,
 
