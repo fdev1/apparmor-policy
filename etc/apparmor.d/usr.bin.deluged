@@ -14,6 +14,7 @@ profile deluged /usr/bin/deluged {
 	/usr/bin/deluged rm,
 	/usr/bin/python2.7 rm,
 	/usr/lib64/python2.7/{,**/,**} rm,
+	/usr/share/GeoIP/GeoIP.dat rm,
 	
 	/mnt/{d,multimedia}/Movies/{,**} rw,
 	/mnt/{d,multimedia}/Torrents/{,**} rw,
@@ -28,4 +29,7 @@ profile deluged /usr/bin/deluged {
 	/tmp/** rwklm,
 	/var/tmp/** rwklm,
 
+	# for mediabox
+	/var/lib/mediabox/deluge/{,**} rwklm,
+	/media/** rwklm,
 }
