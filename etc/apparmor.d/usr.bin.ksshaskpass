@@ -17,6 +17,7 @@ profile ksshaskpass /usr/bin/ksshaskpass {
 	@{HOME}/.local/share/mime/generic-icons r,
 	@{HOME}/.kde4/share/config/kwalletrc r,
 	@{HOME}/.config/kwalletrc rw,
+	@{HOME}/.cache/** rwmlk,
 	
 	/usr/bin/ksshaskpass rm,
 	/usr/bin/kwalletd rpx,

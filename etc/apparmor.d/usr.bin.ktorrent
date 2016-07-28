@@ -16,6 +16,12 @@ profile ktorrent /usr/bin/ktorrent {
 	@{HOME}/{**,} rk,
 	@{HOME}/Downloads/{**,} rw,
 
+	# kf5
+	@{HOME}/.config/** rwklm,
+	@{HOME}/.local/share/ktorrent/{,**} rwklm,
+	@{HOME}/.cache/{,**} rwklm,
+	/etc/xdg/{,**} r,
+
 	@{MULTIMEDIA}/{,**} rw,
 
 	/proc/*/mounts r,

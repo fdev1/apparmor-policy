@@ -18,6 +18,7 @@ profile sddm /usr/bin/sddm {
 	@{HOME}/.ssh/{,**} r,
 	@{HOME}/.ssh/agent* rwklm,
 	@{HOME}/.kde4/share/apps/kwallet/** rwklm,
+	@{HOME}/.local/share/kwalletd/** rwklm,
 
 	/usr/sbin/pmvarrun rpx,
 	/usr/bin/sddm rix,

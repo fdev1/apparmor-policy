@@ -1,23 +1,32 @@
 #include <tunables/global>
 
-profile kwalletd /usr/bin/kwalletd {
+profile kwalletd /usr/bin/{kwalletd,kwalletd5} {
 	#include <abstractions/base>
 	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/kde>
 
+	# for kde4
 	@{HOME}/.kde4/share/config/kwalletrc* rwklm,
 	@{HOME}/.kde4/share/config/kdebugrc r,
 	@{HOME}/.kde4/share/config/kdeglobals r,
 	@{HOME}/.kde4/share/apps/kwallet/{,**} rwm,
 
-	/usr/bin/kwalletd r,
-	/usr/lib{,32,64}/{,**} rm,
+	# for kf5
+	@{HOME}/.local/share/kwalletd/{,**} rwmlk,
+	@{HOME}/.config/kwalletrc rwmlk,
+	@{HOME}/.cache/** rwklm,
+
+	/usr/bin/kwalletd rm,
+	/usr/bin/kwalletd5 rm,
+	/usr/lib*/{,**} rm,
 	/usr/share/config/kdebug.areas r,
 	/usr/share/config/kdebugrc r,
 	/usr/share/icons/{,**} r,
+	/etc/machine-id  r,
+	/etc/passwd r,
 
 	/var/tmp/kdecache-*/{,**} rwm,
 	/var/log/{,**} rwm,
-
 }

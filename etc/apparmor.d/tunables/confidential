@@ -3,7 +3,7 @@
 @{PGPKEYS}=@{USERHOME}/.gnupg/{,**}
 @{BROWSER}=@{USERHOME}/.mozilla/{,**}
 @{ANDROIDKEYS}=@{USERHOME}/.android-keys/{,**}
-@{KWALLET}=@{USERHOME}/.kde4/share/apps/kwallet/{,**}
+@{KWALLET}=@{USERHOME}/.kde4/share/apps/kwallet/{,**} @{USERHOME}/.local/share/kwalletd/{,**}
 @{MOZILLA}=@{USERHOME}/.mozilla/{,**}
 @{CHROME}=@{USERHOME}/.config/google-chrome/{,**} @{USERHOME}/.encrypted-volume/google-chrome/{,**}
 
