@@ -16,11 +16,13 @@ profile ksshaskpass /usr/bin/ksshaskpass {
 
 	@{HOME}/.local/share/mime/generic-icons r,
 	@{HOME}/.kde4/share/config/kwalletrc r,
+	@{HOME}/.config/kwalletrc rw,
 	
 	/usr/bin/ksshaskpass rm,
 	/usr/bin/kwalletd rpx,
 	/usr/bin/dbus-launch px,
 	/usr/lib{,32,64}/kde4/libexec/lnusertemp px,
+	/usr/lib*/** rm,
 	/bin/bash ix,
 	/etc/machine-id r,
 

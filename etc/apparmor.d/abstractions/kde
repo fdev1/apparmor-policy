@@ -38,9 +38,9 @@
 @{HOME}/.kde{,4}/share/config/kdeglobals rwk,
 @{HOME}/.kde{,4}/share/config/*.lock rwl,
 @{HOME}/.qt/** rw,
-@{HOME}/.config/Trolltech.conf rwk,
-@{HOME}/.kde4/share/config/kdebugrc r, 
-@{HOME}/.kde4/share/config/kdeglobals rk,
+@{HOME}/.config/Trolltech.conf* rwkm,
+@{HOME}/.kde4/share/config/kdebugrc* rwkm, 
+@{HOME}/.kde4/share/config/kdeglobals* rwkm,
 @{HOME}/.config/oxygen-gtk/argb-apps.conf rwk,
 deny @{HOME}/.kde4/share/config/oxygenrc r,
 
@@ -83,6 +83,10 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 /usr/share/config/kdebugrc r, 
 /usr/lib*/libproxy/*/modules/config_kde4.so rm,
 @{HOME}/.kde4/share/apps/RecentDocuments/** rw,
+
+# kf5
+@{HOME}/.config/kdeglobals rw,
+/usr/lib*/qt5/** rm,
 
 # phonon
 @{HOME}/.config/kde.org/libphonon.conf rk,
