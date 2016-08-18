@@ -22,6 +22,7 @@ profile vlc /usr/bin/vlc {
 	/dev/video* rwmlk,
 	/dev/fb* rwmlk,
 	/dev/bus/{,**} rw,
+	/dev/shm/{,**} rwklm,
 
 	/usr/bin/vlc mr,
 	/usr/bin/* rix,
@@ -35,6 +36,7 @@ profile vlc /usr/bin/vlc {
 	owner /run/user/*/pulse/ w,
 	/run/user/*/pulse/ r,
 	/run/user/*/ksocket-*/{,**} rwklm,
+	/run/user/*/vlc* rwklm,
 	owner /{run,dev}/shm/pulse-shm* k,
 	/{run,dev}/shm/pulse-shm* rw,
 
