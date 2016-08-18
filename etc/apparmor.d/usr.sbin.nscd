@@ -38,6 +38,7 @@ profile nscd /usr/sbin/nscd {
   /{,var/}run/nscd/ rw,
   /{,var/}run/nscd/db* rwl,
   /{,var/}run/nscd/socket wl,
+  /{,var/}run/lock/samba/gencache_notrans.tdb rwklm,
   /var/{cache,run}/nscd/{passwd,group,services,hosts,netgroup} rw,
   /{,var/}run/{nscd/,}nscd.pid rwl,
   /var/log/nscd.log rw,
