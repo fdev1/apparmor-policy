@@ -11,16 +11,7 @@ profile ktorrent /usr/bin/ktorrent {
 	#include <abstractions/confidential-deny>
 	#include <tunables/extra-user-directories>
 
-	@{HOME}/.kde4/share/apps/ktorrent/{**,} rwk,
-	@{HOME}/.kde4/share/config/ktorrent* rwklm,
-	@{HOME}/{**,} rk,
-	@{HOME}/Downloads/{**,} rw,
-
-	# kf5
-	@{HOME}/.config/** rwklm,
-	@{HOME}/.local/share/ktorrent/{,**} rwklm,
-	@{HOME}/.cache/{,**} rwklm,
-	/etc/xdg/{,**} r,
+	@{HOME}/** rwklm,
 
 	@{MULTIMEDIA}/{,**} rw,
 
@@ -34,6 +25,7 @@ profile ktorrent /usr/bin/ktorrent {
 	/usr/share/config/{**,} r,
 	/usr/share/{**,} r,
 	/etc/machine-id r,
+	/etc/xdg/{,**} r,
 
 	/run/user/*/ksocket-*/ktorrent* rw,
 	/tmp/.ktorrent_kde4_*.lock rwk,
