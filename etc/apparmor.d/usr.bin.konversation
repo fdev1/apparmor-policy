@@ -1,4 +1,3 @@
-# Last Modified: Tue Jul 28 13:35:53 2015
 #include <tunables/global>
 
 profile konverstation /usr/bin/konversation {
@@ -6,7 +5,11 @@ profile konverstation /usr/bin/konversation {
 	#include <abstractions/fonts>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/audio>
 	#include <abstractions/confidential-deny>
+
+	deny /usr/lib*/vlc/plugins/plugins.dat.* rwklmx,
 
 	@{HOME}/.Xauthority r,
 	@{HOME}/.kde4/share/apps/kabc/std.vcf rwk,
@@ -14,10 +17,27 @@ profile konverstation /usr/bin/konversation {
 	@{HOME}/.kde4/share/config/kresources/contact/* rwk,
 	@{HOME}/{**,} rk,
 
+	# for KF5
+	@{HOME}/.cache/** rwklm,
+	@{HOME}/.config/** rwklm,
+	@{HOME}/.local/share/** rwklm,
+	@{HOME}/*.log rwklm,
+	@{HOME}/logs/** rwklm,
+
+	/sys/devices/{,**} rklm,
+
 	@{HOME}/Downloads/{**,} rw,
 
 	/usr/bin/konversation mr,
-	/usr/lib{,32,64}/** mr,
+	/usr/lib*/** mr,
 	/usr/share/{**,} r,
+	/etc/xdg/** r,
+	/etc/udev/** r,
+	/etc/machine-id r,
+	/etc/ssl/openssl.cnf r,
+
 	/var/tmp/kdecache-*/** rw,
+	/run/udev/** rwklm,
+
+	/tmp/** rwklm,
 }
