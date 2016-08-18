@@ -42,6 +42,9 @@
   /etc/drirc                      r,
   owner @{HOME}/.drirc            r,
 
+  # flgrx
+  /dev/ati/{,**} rwklm,
+
   # Xcompose
   owner @{HOME}/.XCompose         r,
 

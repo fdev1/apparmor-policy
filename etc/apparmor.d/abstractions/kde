@@ -83,10 +83,13 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 /usr/share/config/kdebugrc r, 
 /usr/lib*/libproxy/*/modules/config_kde4.so rm,
 @{HOME}/.kde4/share/apps/RecentDocuments/** rw,
+/usr/share/plasma/** rm,
+/run/user/*/ksocket-*/{,**} rwklm,
 
 # kf5
 @{HOME}/.config/kdeglobals rw,
 /usr/lib*/qt5/** rm,
+/run/user/*/*.slave-socket rwklm,
 
 # phonon
 @{HOME}/.config/kde.org/libphonon.conf rk,
