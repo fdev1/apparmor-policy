@@ -7,6 +7,8 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	#include <abstractions/kde>
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/audio>
 	#include <abstractions/confidential-deny>
 
 	capability sys_ptrace,
@@ -24,17 +26,27 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	@{HOME}/{,**} r,
 	@{PROC}/{,**} r,
 
+	# for KF5
+	@{HOME}/.cache/** rwklm,
+	@{HOME}/.config/** rwklm,
+	@{HOME}/.local/share/ksysguard* rwklm,
+	@{HOME}/.local/share/ksysguard/{,**} rwklm,
+
 	/usr/bin/testparm rpx,
 	/usr/bin/net rpx,
 	/usr/bin/kde4-config rpx,
 	/sys/** r,
 	/usr/bin/ksysguard mr,
 	/usr/bin/ksysguardd rix,
-	/usr/lib{,32,64}/kde4/kfilemodule.so rm,
+	/usr/lib*/kde4/kfilemodule.so rm,
+	/usr/lib*/** mr,
 	/usr/share/** r,
 	/etc/udev/** r,
 	/etc/fstab r,
+	/etc/machine-id r,
 	/etc/ksysguarddrc r,
+	/etc/xdg/** r,
+
 	owner /var/tmp/kdecache-*/* lk,
 	/var/tmp/kdecache-*/* rw,
 	/run/user/*/ksocket-*/ksysguard* rwk,
