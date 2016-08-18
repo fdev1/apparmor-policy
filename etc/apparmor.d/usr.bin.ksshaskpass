@@ -13,6 +13,9 @@ profile ksshaskpass /usr/bin/ksshaskpass {
 	capability dac_read_search,
 
 	/proc/*/fd/ r,
+	/proc/*/cmdline r,
+	/proc/*/status r,
+	/proc/modules r,
 
 	@{HOME}/.local/share/mime/generic-icons r,
 	@{HOME}/.kde4/share/config/kwalletrc r,
