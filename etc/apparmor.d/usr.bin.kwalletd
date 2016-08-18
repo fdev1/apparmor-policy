@@ -18,6 +18,10 @@ profile kwalletd /usr/bin/{kwalletd,kwalletd5} {
 	@{HOME}/.config/kwalletrc rwmlk,
 	@{HOME}/.cache/** rwklm,
 
+	/proc/*/cmdline r,
+	/proc/*/status r,
+	/proc/modules r,
+
 	/usr/bin/kwalletd rm,
 	/usr/bin/kwalletd5 rm,
 	/usr/lib*/{,**} rm,
