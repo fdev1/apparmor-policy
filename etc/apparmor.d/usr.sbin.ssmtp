@@ -6,6 +6,8 @@ profile ssmtp /usr/sbin/ssmtp {
 	#include <abstractions/consoles>
 	#include <abstractions/kde>
 	#include <abstractions/confidential-deny>
+	
+	capability setuid,
 
 	@{HOME}/dead.letter w,
 	@{HOME}/.ssmtprc rw,
