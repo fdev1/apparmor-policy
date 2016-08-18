@@ -46,6 +46,7 @@ profile ksysguard /usr/bin/{ksysguard,ksysguardd} {
 	/etc/machine-id r,
 	/etc/ksysguarddrc r,
 	/etc/xdg/** r,
+	/etc/ati/{,**} r,
 
 	owner /var/tmp/kdecache-*/* lk,
 	/var/tmp/kdecache-*/* rw,
