@@ -88,4 +88,5 @@
 
 	# samba
 	/var/cache/samba/*.tdb rw,
+	/run/lock/samba/*.tdb rw,
 
