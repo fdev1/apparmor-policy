@@ -90,6 +90,9 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 @{HOME}/.config/kdeglobals rw,
 /usr/lib*/qt5/** rm,
 /run/user/*/*.slave-socket rwklm,
+/proc/*/cmdline r,
+/proc/*/status r,
+/proc/modules r,
 
 # phonon
 @{HOME}/.config/kde.org/libphonon.conf rk,

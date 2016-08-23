@@ -44,6 +44,9 @@
 
   # flgrx
   /dev/ati/{,**} rwklm,
+  /proc/ati/** r,
+  /usr/bin/amd-console-helper rix,
+  /etc/ati/** r,
 
   # Xcompose
   owner @{HOME}/.XCompose         r,
