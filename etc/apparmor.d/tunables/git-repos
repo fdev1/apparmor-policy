@@ -5,3 +5,5 @@
 /usr/src/linux-stable/** rw,
 /usr/portage/distfiles/git*/{,**} rw,
 /usr/src/portage/** rw,
+/var/tmp/portage/** rw,
+/var/lib/layman/** rw,
