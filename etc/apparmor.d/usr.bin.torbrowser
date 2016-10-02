@@ -1,0 +1,68 @@
+# Last Modified: Mon Jul 27 15:49:00 2015
+#include <tunables/global>
+
+profile torbrowser /usr/lib64/torbrowser/torbrowser/torbrowser {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+
+	deny @{CONFIDENTIAL_EXCEPT_MOZILLA} rwklmx,
+	deny @{HOME}/.config/oxygen-gtk/* w,
+	deny @{HOME}/.config/gtkrc-2.0 r,
+	deny @{HOME}/.config/mimeapps.list r,
+	deny /dev/video* rw,
+	deny /usr/local/{,**} r,
+	deny /usr/share/applications/kde4/ r,
+	deny /usr/share/myspell/ r,
+	deny /usr/share/mime/{,**} r,
+	deny /usr/share/applications/ r,
+	deny /usr/share/applications/mimeinfo.cache r,
+	deny /proc/*/cmdline r,
+	deny /proc/*/status r,
+	deny /proc/*/stat r,
+	deny /proc/*/task/*/stat r,
+	deny /proc/*/mountinfo r,
+	deny /proc/modules r,
+	deny /etc/resolv.conf r,
+	deny /etc/passwd r,
+	deny /etc/nsswitch.conf r,
+	deny /etc/group r,
+	deny /etc/mime.types r,
+	deny /etc/mailcap r,
+
+	capability ipc_lock,
+	capability sys_ptrace,
+
+	@{HOME}/{,**} r,
+	@{HOME}/.mozilla/{,**} rwklm,
+	@{HOME}/.AMD/{,**} rwk,
+	@{HOME}/.cache/mozilla/torbrowser/{,**} rw,
+	@{HOME}/Temp/{,**} rw,
+	@{HOME}/Encrypted/{,**} rw,
+
+	/run/user/*/pulse/ r,
+	/sys/devices/system/cpu/{,**} r,
+	/dev/ati/card* rw,
+	/dev/shm/* rwl,
+
+	/usr/lib{,32,64}/{,**} rm,
+	/usr/lib{,32,64}/torbrowser/** rmix,
+	/usr/share/fonts/{,**} r,
+	/usr/share/icons/{,**} r,
+	/usr/share/pixmaps/{,**} r,
+	/usr/share/themes/{,**} r,
+	/var/cache/fontconfig/{,**} rwklm,
+	/etc/ati/* r,
+	/etc/fonts/{,**} r,
+	/etc/ssl/openssl.cnf r,
+	/etc/vdpau_wrapper.cfg r,
+	/etc/asound.conf r,
+	/tmp/ r,
+	/tmp/xauth* r,
+	/var/tmp/ r,
+
+	owner /tmp/** lk,
+	owner /var/tmp/** lk,
+	/run/user/*/** rwm,
+}
