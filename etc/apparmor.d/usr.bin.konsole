@@ -1,0 +1,53 @@
+#include <tunables/global>
+
+profile konsole /usr/bin/konsole {
+	#include <abstractions/audio>
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/fonts>
+	#include <abstractions/X>
+	#include <abstractions/kde>
+	#include <abstractions/cups-client>
+	#include <abstractions/confidential-deny>
+	#include <tunables/extra-user-directories>
+
+	capability sys_ptrace,
+
+	@{HOME}/{,**,**/} rw,
+	@{HOME}/.config/{,**} rwk,
+	@{HOME}/.local/{,**} rwk,
+	@{HOME}/.cache/{,**} rwk,
+
+	/dev/ptmx rw,
+	/proc/*/stat r,
+	/proc/*/mounts r,
+	/run/utmp rwk,
+	/var/log/wtmp wk,
+
+	/usr/lib64/misc/utempter/utempter ix,
+
+	/bin/bash mrpx,
+	/usr/bin/testparm rpx,
+	/usr/bin/net rpx,
+	/usr/bin/konsole mr,
+	/usr/lib{,32,64}/** mr,
+	/usr/share/konsole/{,**} r,
+	/usr/share/kxmlgui5/konsole/{,**} r,
+	/usr/share/kservices5/{,**} r,
+	/usr/share/knotifications5/{,**} r,
+	/usr/share/mime/{,**} r,
+	/usr/share/fonts/{,**} r,
+	/usr/share/locale/{,**} r,
+	/etc/fonts/{,**} r,
+	/etc/xdg/{,**} r,
+
+	/etc/machine-id r,
+	/etc/nsswitch.conf r,
+	/etc/passwd r,
+	/etc/group r,
+
+	/tmp/ r,
+	/var/tmp/ r,
+	owner /tmp/** rwklm,
+	owner /var/tmp/** rwklm,
+}
