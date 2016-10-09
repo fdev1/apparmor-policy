@@ -67,6 +67,6 @@ profile dropbox /opt/dropbox/dropboxd {
 	/lib{,32,64}/* rm,
 	/usr/lib{,32,64}/* rm,
 
-	owner /tmp/{,**} rwm,
-	owner /var/tmp/{,**} rwm,
+	owner /tmp/{,**} rwmlk,
+	owner /var/tmp/{,**} rwmlk,
 }
