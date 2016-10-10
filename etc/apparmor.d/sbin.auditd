@@ -1,0 +1,26 @@
+#include <tunables/global>
+
+profile auditd /sbin/auditd {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+
+	capability sys_nice,
+	capability sys_resource,
+	capability audit_control,
+
+	/proc/*/attr/current r,
+	/proc/*/loginuid r,
+	/proc/*/oom_score_adj rw,
+
+	/var/log/audit/{,**} rwklm,
+
+	/sbin/auditd rm,
+	/sbin/audispd rix,
+	/usr/libexec/initscripts/legacy-actions/auditd/{,**} r,
+	/etc/audit/{,**} r,
+	/etc/audisp/{,**} r,
+
+	/run/auditd.pid rwkl,
+
+}
