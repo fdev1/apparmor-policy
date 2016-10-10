@@ -1,8 +1,7 @@
 [Unit]
 Description=AppArmor Policy Loader
 DefaultDependencies=no
-After=local-fs.target
-Before=sysinit.target
+Before=basic.target systemd-udevd.service
 
 [Service]
 Type=oneshot
