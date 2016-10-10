@@ -1,0 +1,32 @@
+#include <tunables/global>
+
+profile pulseaudio /usr/bin/pulseaudio {
+	#include <abstractions/base>
+	#include <abstractions/audio>
+	#include <abstractions/dbus>
+	#include <abstractions/dbus-session>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+	#include <abstractions/confidential-deny>
+
+	capability sys_ptrace,
+	capability sys_nice,
+	capability setuid,
+	capability setgid,
+
+	@{HOME}/.config/pulse/{,**} rw,
+
+	/proc/*/fd/ r,
+	/proc/*/stat r,
+	/sys/devices/{,**} r,
+
+	/usr/bin/pulseaudio rix,
+	/usr/lib*/** rm,
+	/usr/share/applications/{,**} r,
+	/etc/pulse/{,**} r,
+	/etc/machine-id r,
+
+	/run/user/*/{,**} rwklm,
+	/run/systemd/users/** rwklm,
+}
