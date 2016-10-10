@@ -8,6 +8,7 @@ profile dolphin /usr/bin/dolphin {
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/kde>
+	#include <abstractions/dbus-session>
 	#include <abstractions/confidential-deny>
 	#include <tunables/extra-user-directories>
 
@@ -27,14 +28,17 @@ profile dolphin /usr/bin/dolphin {
 	/usr/bin/testparm rpx,
 	/usr/bin/net rpx,
 	/usr/bin/khelpcenter rpx,
+	/usr/bin/bluedevil-* rpx,
 	/usr/bin/baloo_filemetadata_temp_extractor rpx,
 	/usr/lib64/misc/utempter/utempter rpx,
 	/usr/lib*/** mr,
 	/usr/share/kde4/services/{,**} r,
 	/usr/share/kxmlgui5/{,**} r,
 	/usr/share/kservices5/{,**} r,
+	/usr/share/knotifications5/{,**} r,
 	/usr/share/konsole/{,**} r,
 	/usr/share/config/{,**} r,
+	/usr/share/templates/{,**} r,
 	/etc/machine-id r,
 	/etc/xdg/{,**} r,
 
