@@ -17,7 +17,6 @@ profile android-emulator /opt/android-sdk/tools/emulator* {
 	/bin/bash rmix,
 	/{usr/,}bin/grep rmix,
 	/{usr/,}bin/file rmix,
-	/usr/bin/amd-console-helper rmix,
 
 	/usr/lib{,32,64}/** rm,
 	/usr/share/** r,
@@ -51,6 +50,7 @@ profile android-studio /usr/bin/android-studio {
 	#include <abstractions/nameservice>
 	#include <abstractions/fonts>
 	#include <abstractions/kde>
+	#include <abstractions/confidential-deny>
 	
 	capability sys_ptrace,
 	capability ipc_lock, #emul
@@ -82,6 +82,8 @@ profile android-studio /usr/bin/android-studio {
 	# work properly
 	/{,**} r,
 
+	/dev/ptmx rw,
+
 	/bin/bash rmkix,
 	/bin/uname rix,
 	/bin/dirname rix,
@@ -106,7 +108,10 @@ profile android-studio /usr/bin/android-studio {
 	/{usr/,}bin/mkdir rix,
 	/{usr/,}bin/install rix,
 	/{usr/,}bin/kill rix,
-	/usr/bin/ktraderclient rix,
+	/usr/bin/{make,gmake} rix,
+	/usr/bin/{awk,gawk} rix,
+	/usr/bin/amd-console-helper rmix,
+	/usr/bin/ktraderclient{,5} rpx,
 	/usr/bin/git rpx,
 
 	/usr/bin/android-studio r,
@@ -117,8 +122,8 @@ profile android-studio /usr/bin/android-studio {
 	/opt/oracle-jdk-*/jre/bin/** rmix,
 	/usr/libexec/eselect-java/run-java-tool.bash rix,
 
-	/usr/lib{,32,64}/* rm,
-	/usr/lib{,32,64}/pango/** rm,
+	/usr/lib*/* rm,
+	/usr/lib*/pango/** rm,
 
 	/dev/bus/usb/{,**} rwm,
 	/dev/kvm rwmlk,
