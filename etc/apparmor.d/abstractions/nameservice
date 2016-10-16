@@ -90,3 +90,6 @@
 	/var/cache/samba/*.tdb rw,
 	/run/lock/samba/*.tdb rw,
 
+	# networkmanager
+	/run/NetworkManager/resolv.conf r,
+
