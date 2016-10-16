@@ -1,0 +1,31 @@
+#include <tunables/global>
+
+profile dbus-daemon /usr/bin/dbus-daemon {
+	#include <abstractions/base>
+	#include <abstractions/dbus>
+	#include <abstractions/dbus-session>
+	#include <abstractions/nameservice>
+	#include <abstractions/X>
+	#include <abstractions/consoles>
+
+	capability sys_resource,
+	capability setgid,
+	capability setuid,
+
+	/proc/*/cmdline r,
+
+	/usr/bin/dbus-daemon rix,
+	/usr/bin/* rpx,
+	/usr/bin/kuiserver5 rpx,
+	/usr/bin/kglobalaccel5 rpx,
+	/usr/lib*/{,**} rm,
+	/usr/lib*/libexec/{,**} rpx,
+	/usr/libexec/{,**} rpx,
+	/usr/share/dbus-1/{,**} r,
+	/etc/dbus-1/{,**} r,
+	/etc/machine-id r,
+	/etc/at-spi2/** r,
+
+	/run/user/*/{,**} rwklm,
+	/run/systemd/users/{,**} r,
+}
