@@ -1,0 +1,70 @@
+#include <tunables/global>
+
+profile virtualbox /usr/lib*/virtualbox/* {
+	#include <abstractions/base>
+	#include <abstractions/nameservice>
+	#include <abstractions/consoles>
+	#include <abstractions/X>
+	#include <abstractions/audio>
+	#include <abstractions/confidential-deny>
+
+	deny /usr/local/{,**} rwklm,
+
+	capability sys_admin,
+
+	@{HOME}/** r,
+	@{HOME}/.config/VirtualBox/{,**} rwklm,
+	owner @{HOME}/.cache/{,**} rwklm,
+	owner @{HOME}/.AMD/{,**} rwklm,
+	/var/vbox/{,**} rwklm,
+	/var/cache/{,**} rwklm,
+
+	/dev/null rw,
+	/dev/vboxusb/{,**} rwklm,
+	/dev/vboxnetctl rwklm,
+	/dev/vboxdrv rwklm,
+	/dev/vboxdrvu rwklm,
+	/dev/video* rwklm,
+	/dev/shm/{,**} rwklm,
+
+	/sys/devices/{,**} r,
+	/sys/block/{,**} r,
+	/sys/bus/usb/devices/{,**} r,
+	/sys/class/power_supply/{,**} r,
+	/sys/module/** r,
+
+	/proc/ r,
+	/proc/*/mounts r,
+	/proc/*/net/{,**} r,
+	/proc/*/cmdline r,
+	/proc/*/stat r,
+	/proc/*/status r,
+
+	/proc/sys/kernel/osrelease r,
+	/proc/sys/kernel/pid_max r,
+	/proc/modules r,
+	/proc/cmdline r,
+	/proc/uptime r,
+
+	/bin/bash rpx,
+	/bin/ps rpx,
+	/usr/bin/xdg-open rpx,
+
+	/bin/* rix,
+	/usr/bin/* rix,
+	/usr/lib*/virtualbox/* rklmpx,
+	/usr/lib*/virtualbox/{,**} rklm,
+	/usr/lib*/qt5/{,**} rklm,
+	/lib*/* rm,
+	/usr/lib*/* rm,
+	/usr/share/plasma/look-and-feel/{,**} r,
+	/usr/share/virtualbox/{,**} r,
+	/usr/share/fonts/{,**} r,
+	/usr/share/icons/{,**} r,
+	/usr/share/mime/{,**} r,
+	/etc/vbox/{,**} r,
+	/etc/fonts/{,**} r,
+	/etc/machine-id r,
+
+	owner /tmp/** rwklm,
+}
