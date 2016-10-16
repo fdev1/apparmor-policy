@@ -22,6 +22,7 @@ profile dbus-daemon /usr/bin/dbus-daemon {
 	/usr/lib*/libexec/{,**} rpx,
 	/usr/libexec/{,**} rpx,
 	/usr/share/dbus-1/{,**} r,
+	/usr/share/defaults/{,**} r,
 	/etc/dbus-1/{,**} r,
 	/etc/machine-id r,
 	/etc/at-spi2/** r,
