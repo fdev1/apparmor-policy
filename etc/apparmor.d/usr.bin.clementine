@@ -14,12 +14,6 @@ profile clementine /usr/bin/clementine {
 	deny /usr/local/** rwx,
 
 	@{HOME}/{,**} rwklm,
-	@{HOME}/.kde4/share/config/Clementinerc rw,
-	@{HOME}/.kde4/share/config/kfilemodulerc* rwk,
-	@{HOME}/.kde4/share/apps/RecentDocuments/* rwk,
-	@{HOME}/.config/Clementine/** rwk,
-	@{HOME}/.cache/{,**} rwk,
-	@{HOME}/.alsaequal.bin rwklm,
 	@{MUSIC}/{,**} rwm,
 	/{,**/}** rm,
 
@@ -34,6 +28,7 @@ profile clementine /usr/bin/clementine {
 	/usr/bin/xdg-open rpx,
 	/usr/bin/net rix,
 	/usr/bin/testparm rix,
+	/usr/bin/kdeinit4 rpx,
 
 	/usr/lib{,32,64}/** mr,
 	/usr/share/** rk,
