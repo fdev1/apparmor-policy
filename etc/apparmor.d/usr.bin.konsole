@@ -38,6 +38,7 @@ profile konsole /usr/bin/konsole {
 	/usr/share/mime/{,**} r,
 	/usr/share/fonts/{,**} r,
 	/usr/share/locale/{,**} r,
+	/usr/share/sounds/{,**} r,
 	/etc/fonts/{,**} r,
 	/etc/xdg/{,**} r,
 
