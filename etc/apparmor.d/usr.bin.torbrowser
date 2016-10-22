@@ -62,7 +62,7 @@ profile torbrowser /usr/lib64/torbrowser/torbrowser/torbrowser {
 	/tmp/xauth* r,
 	/var/tmp/ r,
 
-	owner /tmp/** lk,
-	owner /var/tmp/** lk,
+	owner /tmp/** rwmlk,
+	owner /var/tmp/** rwmlk,
 	/run/user/*/** rwm,
 }
