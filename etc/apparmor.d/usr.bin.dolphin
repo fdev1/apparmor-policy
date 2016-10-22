@@ -30,6 +30,7 @@ profile dolphin /usr/bin/dolphin {
 	/usr/bin/khelpcenter rpx,
 	/usr/bin/bluedevil-* rpx,
 	/usr/bin/baloo_filemetadata_temp_extractor rpx,
+	/usr/bin/kbuildsycoca{4,5} rpx,
 	/usr/lib64/misc/utempter/utempter rpx,
 	/usr/lib*/** mr,
 	/usr/share/kde4/services/{,**} r,
