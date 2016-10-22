@@ -8,15 +8,20 @@ profile gpg /usr/bin/gpg{2,-agent,conf,sm} {
 	@{HOME}/.gnupg/{,**} rwlkm,
 	@{HOME}/{,**} rwklm,
 
-  /{,**} r,
+	/proc/*/task/*/comm rw,
+
+	/{,**} r,
 	/bin/bash rix,
 	/usr/bin/xloadimage rpx,
 	/usr/bin/gwenview rpx,
+	/usr/bin/dirmngr rix,
 	/usr/bin/gpg{2,-agent,conf,sm} rmix,
 	/usr/libexec/gpg2keys_* rix,
 	/usr/libexec/gpg-check-pattern rix,
 	/usr/libexec/gpg-preset-passphrase rix,
 	/usr/libexec/gpg-protect-tool rix,
 	/usr/bin/pinentry-{curses,gtk-2,qt4,tty} rpx,
-	/tmp/** rw,
+
+	owner /tmp/{,**} rwklm,
+	owner /run/user/*/gnupg/{,**} rwklm,
 }
