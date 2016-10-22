@@ -1,0 +1,22 @@
+#include <tunables/global>
+
+profile mutt /usr/bin/mutt {
+	#include <abstractions/base>
+	#include <abstractions/consoles>
+	#include <abstractions/nameservice>
+
+	#deny @{CONFIDENTIAL_EXCEPT_MUTT}/** rwx,
+	@{HOME}/.mutt/{,**} rwklm,
+	@{HOME}/.muttrc r,
+	@{HOME}/.aliases rw,
+	@{HOME}/.signature r,
+	@{HOME}/Downloads/{,**} rwklm,
+
+	/bin/bash rix,
+	/usr/bin/{,*} rpx,
+	/usr/share/ca-certificates/{,**} r,
+	/etc/mutt/{,**} r,
+	/etc/terminfo/{,**} r,
+
+	owner /tmp/{,**} rwklm,
+}
