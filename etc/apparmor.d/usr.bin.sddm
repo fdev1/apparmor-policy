@@ -18,7 +18,7 @@ profile sddm /usr/bin/sddm {
 	@{HOME}/.ssh/{,**} r,
 	@{HOME}/.ssh/agent* rwklm,
 	@{HOME}/.kde4/share/apps/kwallet/** rwklm,
-	@{HOME}/.local/share/kwalletd/** rwklm,
+	@{HOME}/.local/share/kwalletd/{,**} rwklm,
 
 	/usr/sbin/pmvarrun rpx,
 	/usr/bin/sddm rix,
@@ -53,6 +53,7 @@ profile sddm /usr/bin/sddm {
 	/var/log/tallylog rwk,
 	/var/log/lastlog rwk,
 	/var/log/wtmp rwk,
+	/var/lib/wallpapers/{,**} r,
 	/var/lib/sddm/{,**} rwklm,
 	/var/run/sddm/{,**} rwklm,
 	/var/log/sddm* rwklm,
