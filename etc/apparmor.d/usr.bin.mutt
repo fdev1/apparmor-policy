@@ -6,17 +6,21 @@ profile mutt /usr/bin/mutt {
 	#include <abstractions/nameservice>
 
 	#deny @{CONFIDENTIAL_EXCEPT_MUTT}/** rwx,
-	@{HOME}/.mutt/{,**} rwklm,
-	@{HOME}/.muttrc r,
-	@{HOME}/.aliases rw,
-	@{HOME}/.signature r,
-	@{HOME}/Downloads/{,**} rwklm,
+	owner @{HOME}/.mutt/{,**} rwklm,
+	owner @{HOME}/.muttrc r,
+	owner @{HOME}/.aliases rw,
+	owner @{HOME}/.signature r,
+	owner @{HOME}/.mutt*/{,**} rwklm,
+	owner @{HOME}/Downloads/{,**} rwklm,
+	owner @{HOME}/{,**} r,
 
 	/bin/bash rix,
 	/usr/bin/{,*} rpx,
 	/usr/share/ca-certificates/{,**} r,
 	/etc/mutt/{,**} r,
 	/etc/terminfo/{,**} r,
+	/etc/mime.types r,
+	/etc/mailcap r,
 
 	owner /tmp/{,**} rwklm,
 }
