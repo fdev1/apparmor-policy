@@ -13,6 +13,7 @@ profile dbus-daemon /usr/bin/dbus-daemon {
 	capability setuid,
 
 	/proc/*/cmdline r,
+	/proc/*/oom_score_adj rw,
 
 	/usr/bin/dbus-daemon rix,
 	/usr/bin/* rpx,
