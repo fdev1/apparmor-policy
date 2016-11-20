@@ -6,17 +6,27 @@ profile virtualbox /usr/lib*/virtualbox/* {
 	#include <abstractions/consoles>
 	#include <abstractions/X>
 	#include <abstractions/audio>
+	#include <abstractions/kde>
 	#include <abstractions/confidential-deny>
 
 	deny /usr/local/{,**} rwklm,
 
+	# for virtulbox 4.x with Qt4
+	/usr/lib*/kde4/{,**} rm,
+	/usr/lib64/kde4/libexec/klauncher rix,
+
+
 	capability sys_admin,
+	capability net_raw,
 
 	@{HOME}/** r,
 	@{HOME}/.config/VirtualBox/{,**} rwklm,
+	@{HOME}/.config/QtProject.conf rwkl,
+	@{HOME}/.config/VirtualBoxrc.lock rwkl,
 	owner @{HOME}/.cache/{,**} rwklm,
 	owner @{HOME}/.AMD/{,**} rwklm,
-	/var/vbox/{,**} rwklm,
+	owner @{HOME}/VirtualBox*/{,**} rwklm,
+	owner @{HOME}/{,**} rkm,
 	/var/cache/{,**} rwklm,
 
 	/dev/null rw,
@@ -26,6 +36,7 @@ profile virtualbox /usr/lib*/virtualbox/* {
 	/dev/vboxdrvu rwklm,
 	/dev/video* rwklm,
 	/dev/shm/{,**} rwklm,
+	/dev/{,**/} r,
 
 	/sys/devices/{,**} r,
 	/sys/block/{,**} r,
@@ -63,8 +74,12 @@ profile virtualbox /usr/lib*/virtualbox/* {
 	/usr/share/icons/{,**} r,
 	/usr/share/mime/{,**} r,
 	/etc/vbox/{,**} r,
+	/etc/udev/{,**} r,
+	/etc/xdg/{,**} r,
 	/etc/fonts/{,**} r,
 	/etc/machine-id r,
+	/run/udev/{,**} r,
 
 	owner /tmp/** rwklm,
+	owner /run/** rwklm,
 }
