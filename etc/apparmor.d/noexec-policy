@@ -10,9 +10,14 @@ profile noexec-policy /** {
 	# Only code installed by an administrator should be able
 	# to execute.
 	deny @{HOME}/** x,
-	deny /var/** x,
+	deny /var/tmp/** x,
 	deny /tmp/** x,
 	deny /run/** x,
+
+	deny /proc/*/mem wk,
+
+	# deny access to the tor control cookie
+	deny /run/tor/control-cookie rwx,
 
 	# prevent users and applications from running
 	# ksshaskpass. Applications that are allowed to
