@@ -8,6 +8,10 @@
 
 capability ipc_lock,
 
+deny /etc/fstab r,
+deny /home/ r,
+deny / r,
+
 /usr/bin/update-desktop-database rpx,
 /usr/bin/wine rix,
 /usr/bin/wine-preloader rix,
@@ -32,12 +36,12 @@ capability ipc_lock,
 /usr/local/share/{**,} r,
 /usr/share/** r,
 
-@{HOME}/.wine/{**,} rwlkm,
-@{HOME}/.Xauthority r,
-@{HOME}/.local/share/{**,} rwlkm,
-@{HOME}/.AMD/GLCache/{,**} rwmk,
-@{HOME}/{**,} r,
-@{HOME}/.config/pulse/cookie rk,
+owner @{HOME}/.wine/{**,} rwlkm,
+owner @{HOME}/.Xauthority r,
+owner @{HOME}/.local/share/{**,} rwlkm,
+owner @{HOME}/.AMD/GLCache/{,**} rwmk,
+owner @{HOME}/{**,} r,
+owner @{HOME}/.config/pulse/cookie rk,
 
 owner /tmp/** lk,
 owner /var/tmp/** lk,
