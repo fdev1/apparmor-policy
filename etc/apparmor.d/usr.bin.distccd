@@ -13,6 +13,7 @@ profile distccd /usr/bin/distccd {
 
 	/bin/bash rix,
 	/usr/bin/distccd mr,
+	/uae/bin/gcc-config rpx,
 	/usr/bin/{cc,gcc,g++,c++} rix,
 	/usr/bin/{*-gcc,*-cc,*-cpp,*-g++} rix,
 	/usr/*/gcc-bin/*/* rix,
@@ -21,6 +22,9 @@ profile distccd /usr/bin/distccd {
 	/usr/*-*-linux*/{,**} rix,
 	/usr/libexec/gcc/{,**} rix,
 	/usr/include/{,**} r,
+
+	/etc/env.d/** r,
+
 	owner /tmp/{,**} rwklm,
 	/tmp/{,**} rmlk,
 
