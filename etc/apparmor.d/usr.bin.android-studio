@@ -11,10 +11,15 @@ profile android-emulator /opt/android-sdk/tools/emulator* {
 
 	deny @{HOME}/ rwmlk,
 	@{HOME}/.android/{,**} rwmlk,
+	@{HOME}/Android/{,**} rwmlix,
 	@{HOME}/.AMD/{,**} rwmlk,
 	@{HOME}/.config/pulse/{,**} rwmlk,
 
+	/proc/sys/kernel/cap_last_cap r,
+
 	/bin/bash rmix,
+	/bin/false rix,
+	/bin/chmod rix,
 	/{usr/,}bin/grep rmix,
 	/{usr/,}bin/file rmix,
 
@@ -37,7 +42,7 @@ profile android-emulator /opt/android-sdk/tools/emulator* {
 	/proc/*/status r,
 	/sys/devices/{,**} r,
 
-	owner /tmp/android-*/{,**} rwmlk,
+	owner /tmp/{,**} rwmlk,
 	/tmp/android-*/{,**} rmlk,
 	/run/user/*/pulse/{,**} rwm,
 }
@@ -70,6 +75,7 @@ profile android-studio /usr/bin/android-studio {
 	# this needs to be looked at
 	@{HOME}/.gentoo/java-config-2/current-user-vm/bin/java rix,
 
+	@{HOME}/Android/{,**} rwmlix,
 	/opt/android-sdk/tools/emulator rpx,
 	/opt/android-sdk/** rwmix,
 
@@ -156,5 +162,5 @@ profile android-studio /usr/bin/android-studio {
 	/etc/lsb-release r,
 	/etc/timezone r,
 	
-	/tmp/** rkw,
+	/tmp/** rkwm,
 }
