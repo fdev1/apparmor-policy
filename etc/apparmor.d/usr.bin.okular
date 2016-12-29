@@ -17,7 +17,8 @@ profile okular /usr/bin/okular {
 	/{,**/} r,
 	/usr/bin/okular rmix,
 	/usr/bin/* rix,
-	/usr/lib{,32,64}/{,**} rm,
+	/usr/lib*/{,**} rm,
+	/usr/lib*/kde4/libexec/{,**} rmix,
 	/usr/share/** r,
 
 	/run/user/*/ksocket-*/* rwklm,
