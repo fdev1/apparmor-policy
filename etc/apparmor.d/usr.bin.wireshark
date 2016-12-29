@@ -53,11 +53,12 @@ profile wireshark /usr/bin/wireshark {
 	/run/user/*/pulse/ rw,
 	/run/user/*/dconf/user rw,
 
-	@{HOME}/.fonts.cache-* r,
-	@{HOME}/.wireshark/** rw,
-	@{HOME}/.config/gtk-*/** r,
-	@{HOME}/{,**} r,
-	@{HOME}/Documents/{,**} rw,
+	owner @{HOME}/.fonts.cache-* r,
+	owner @{HOME}/.wireshark/** rw,
+	owner @{HOME}/.config/gtk-*/** r,
+	owner @{HOME}/.config/wireshark rwkl,
+	owner @{HOME}/{,**} r,
+	owner @{HOME}/Documents/{,**} rw,
 
 	/proc/*/status r,
 	/proc/*/cmdline r,
