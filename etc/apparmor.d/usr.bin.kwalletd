@@ -15,10 +15,9 @@ profile kwalletd /usr/bin/{kwalletd,kwalletd5} {
 
 	# for kf5
 	/usr/bin/kdeinit4 rpx,
-	@{HOME}/.local/share/kwalletd/{,**} rwmlk,
-	@{HOME}/.config/kwalletrc rwmlk,
-	@{HOME}/.config/kwalletrc.lock rwkl,
-	@{HOME}/.cache/** rwklm,
+	@{HOME}/.config/{,**} rwklm,
+	@{HOME}/.local/{,**} rwklm,
+	@{HOME}/.cache/{,**} rwklm,
 
 	/proc/*/cmdline r,
 	/proc/*/status r,
