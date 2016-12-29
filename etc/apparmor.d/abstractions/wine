@@ -8,20 +8,24 @@
 
 capability ipc_lock,
 
+# Let wine programs list the whole filesystem
+/{,**/} r,
+
+# Dont let them read fstab
 deny /etc/fstab r,
-deny /home/ r,
-deny / r,
 
 /usr/bin/update-desktop-database rpx,
 /usr/bin/wine rix,
 /usr/bin/wine-preloader rix,
 /usr/bin/xdg-open rpx,
+/usr/bin/dosbox rix,
 
 /dev/ati/card* rw,
 /dev/snd/** rw,
 /dev/shm/ParseLock* rw,
 /dev/shm/sem.* rwl,
 /dev/shm/pulse-shm-* rw,
+/dev/sr* rwm,
 /sys/** r,
 /proc/** r,
 /etc/ati/** r,
@@ -36,12 +40,12 @@ deny / r,
 /usr/local/share/{**,} r,
 /usr/share/** r,
 
-owner @{HOME}/.wine/{**,} rwlkm,
-owner @{HOME}/.Xauthority r,
-owner @{HOME}/.local/share/{**,} rwlkm,
-owner @{HOME}/.AMD/GLCache/{,**} rwmk,
-owner @{HOME}/{**,} r,
-owner @{HOME}/.config/pulse/cookie rk,
+@{HOME}/.wine/{**,} rwlkm,
+@{HOME}/.Xauthority r,
+@{HOME}/.local/share/{**,} rwlkm,
+@{HOME}/.AMD/GLCache/{,**} rwmk,
+@{HOME}/{**,} r,
+@{HOME}/.config/pulse/cookie rk,
 
 owner /tmp/** lk,
 owner /var/tmp/** lk,
