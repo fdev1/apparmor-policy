@@ -20,13 +20,18 @@ profile pulseaudio /usr/bin/pulseaudio {
 	/proc/*/fd/ r,
 	/proc/*/stat r,
 	/sys/devices/{,**} r,
+	/sys/class/{,**} r,
+	/sys/bus/{,**} r,
 
 	/usr/bin/pulseaudio rix,
 	/usr/lib*/** rm,
 	/usr/share/applications/{,**} r,
+	/usr/share/pulseaudio/{,**} r,
 	/etc/pulse/{,**} r,
 	/etc/machine-id r,
+	/etc/udev/** r,
 
 	/run/user/*/{,**} rwklm,
 	/run/systemd/users/** rwklm,
+	/run/udev/{,**} r,
 }
