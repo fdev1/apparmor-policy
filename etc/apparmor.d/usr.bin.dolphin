@@ -24,7 +24,7 @@ profile dolphin /usr/bin/dolphin {
 
 	/{,**/} r,
 	/bin/bash rpx,
-	/usr/bin/dolphin mr,
+	/usr/bin/dolphin mrix,
 	/usr/bin/testparm rpx,
 	/usr/bin/net rpx,
 	/usr/bin/khelpcenter rpx,
