@@ -1,7 +1,7 @@
 # Last Modified: Mon Jul 27 15:49:00 2015
 #include <tunables/global>
 
-profile torbrowser /usr/lib64/torbrowser/torbrowser/torbrowser {
+profile torbrowser /usr/lib*/torbrowser*/torbrowser/torbrowser {
 	#include <abstractions/audio>
 	#include <abstractions/base>
 	#include <abstractions/X>
@@ -15,9 +15,9 @@ profile torbrowser /usr/lib64/torbrowser/torbrowser/torbrowser {
 	deny /usr/local/{,**} r,
 	deny /usr/share/applications/kde4/ r,
 	deny /usr/share/myspell/ r,
-	deny /usr/share/mime/{,**} r,
-	deny /usr/share/applications/ r,
-	deny /usr/share/applications/mimeinfo.cache r,
+	#deny /usr/share/mime/{,**} r,
+	#deny /usr/share/applications/ r,
+	#deny /usr/share/applications/mimeinfo.cache r,
 	deny /proc/*/cmdline r,
 	deny /proc/*/status r,
 	deny /proc/*/stat r,
@@ -42,27 +42,32 @@ profile torbrowser /usr/lib64/torbrowser/torbrowser/torbrowser {
 	@{HOME}/Encrypted/{,**} rw,
 
 	/run/user/*/pulse/ r,
-	/sys/devices/system/cpu/{,**} r,
+	/sys/devices/** r,
 	/dev/ati/card* rw,
 	/dev/shm/* rwl,
 
-	/usr/lib{,32,64}/{,**} rm,
-	/usr/lib{,32,64}/torbrowser/** rmix,
+	/usr/lib*/{,**} rm,
+	/usr/lib*/torbrowser*/** rmix,
 	/usr/share/fonts/{,**} r,
 	/usr/share/icons/{,**} r,
 	/usr/share/pixmaps/{,**} r,
 	/usr/share/themes/{,**} r,
+	/usr/share/** r,
 	/var/cache/fontconfig/{,**} rwklm,
 	/etc/ati/* r,
 	/etc/fonts/{,**} r,
 	/etc/ssl/openssl.cnf r,
 	/etc/vdpau_wrapper.cfg r,
 	/etc/asound.conf r,
+	/etc/udev/** r,
 	/tmp/ r,
 	/tmp/xauth* r,
 	/var/tmp/ r,
 
 	owner /tmp/** rwmlk,
 	owner /var/tmp/** rwmlk,
+	/run/NetworkManager/** r,
+	/run/tor/** r,
+	/run/udev/** r,
 	/run/user/*/** rwm,
 }
