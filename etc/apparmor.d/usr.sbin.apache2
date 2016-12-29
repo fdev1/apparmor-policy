@@ -47,6 +47,7 @@ profile apache2 /usr/sbin/apache2 {
 	/usr/lib{,32,64}/** mr,
 	/usr/sbin/apache2 mr,
 	/var/log/apache2/{,**} w,
+	/var/lib/eselect-php/** r,
 	/var/run/mysqld/mysqld.sock rwm,
 	
 	/tmp/{,**} rwklm,
