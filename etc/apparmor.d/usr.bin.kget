@@ -7,6 +7,8 @@ profile kget /usr/bin/kget {
 	#include <abstractions/nameservice>
 	#include <abstractions/X>
 	#include <abstractions/confidential-deny>
+	#include <abstractions/consoles>
+	#include <abstractions/kde>
 
 	/usr/bin/kde4-config rpx,
 
@@ -16,7 +18,7 @@ profile kget /usr/bin/kget {
 	@{HOME}/.kde4/share/config/kdeglobals rk,
 	@{HOME}/.kde4/share/config/kget* rw,
 
-	@{HOME}/Downloads/** ra,
+	@{HOME}/Downloads/{,**} rwlkm,
 	@{HOME}/crypto/** ra,
 	/mnt/shared/ebooks/** ra,
 	/mnt/shared/** r,
