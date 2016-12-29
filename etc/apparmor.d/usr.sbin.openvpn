@@ -13,7 +13,7 @@ profile openvpn /usr/sbin/openvpn {
 
 	/dev/net/{,**} rwklm,
 
-  /usr/sbin/openvpn mrix,
+  	/usr/sbin/openvpn mrix,
 	/bin/* rix,
 	/usr/bin/* rix,
 	/etc/openvpn/** r,
@@ -23,6 +23,7 @@ profile openvpn /usr/sbin/openvpn {
 
 	# client
 	@{HOME}/.openvpn/{,**} rwklm,
+	@{HOME}/.openvpnkeys/{,**} rwklm,
 	/run/NetworkManager/** rwklm,
 	/usr/libexec/nm-openvpn-service-openvpn-helper rix,
 }
