@@ -7,7 +7,5 @@ profile jnes /opt/jnes/jnes {
 
 	/bin/bash rmix,
 	/opt/jnes/{,**} rm,
-	/opt/jnes/browser.cache rw,
-	/etc/jnes.ini rw,
-	/mnt/shared/ROMs/** rm,
+	/var/lib/win32/jnes/{,**} rwklm,
 }
