@@ -31,18 +31,14 @@ profile firefox /usr/lib64/firefox{,-*}/firefox {
 
 	/usr/lib64/kde4/libexec/** rmix,
 
-	# Allow running python apps as protocol handlers
-	# ie. use electrum as bitcoin: protocol handler
-	/usr/lib*/python-exec/python-exec2 rpx,
-
 	/{,**/} r,
 	/usr/bin/okular rpx,
 	/usr/bin/ktorrent rpx,
 	/usr/bin/kget rpx,
 	/usr/bin/ksshaskpass rpx,
 	/usr/lib*/thunderbird/thunderbird rpx,
-	/bin/* rix,
-	/usr/bin/* rix,
+	/bin/* rpx,
+	/usr/bin/* rpx,
 	/usr/lib{,32,64}/libreoffice/program/* px,
 	/usr/bin/kmail rpx,
 	/usr/bin/kde4-config rix,
