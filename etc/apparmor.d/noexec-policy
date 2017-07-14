@@ -1,30 +1,26 @@
 #include <tunables/global>
 
 # prevent all executables not matched by other profiles from
-# executing programs in the user's home directory
+# executing programs in all world writable directories except
+# the user's home directories. Those can be set on a per-user
+# basis through mount options
 profile noexec-policy /** {
 	#include <noexec-policy.d/capsall>
 	#include <abstractions/confidential-deny>
 
-	# Deny execution of code from any writable directories.
-	# Only code installed by an administrator should be able
-	# to execute.
-	deny @{HOME}/** x,
-	deny /var/tmp/** x,
-	deny /tmp/** x,
-	deny /run/** x,
+	/** rwlkmpx,
+	/ rwlkm,
 
-	deny /proc/*/mem wk,
+	# deny execution in temp directories
+	deny /{var/,}tmp x,
 
-	# deny access to the tor control cookie
-	deny /run/tor/control-cookie rwx,
+	# prevent users from making changes
+	# to files in $HOME/.dropbox-dist since
+	# dropbox executes 
+	deny @{HOME}/.dropbox-dist/** w,
 
 	# prevent users and applications from running
 	# ksshaskpass. Applications that are allowed to
 	# use this should have their own profile
 	deny /usr/bin/ksshaskpass x,
-
-	# allow unrestricted access to the rest of the
-	# file system.
-	/{,**} rwlkmpx,
 }

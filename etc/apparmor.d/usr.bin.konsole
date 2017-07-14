@@ -24,6 +24,8 @@ profile konsole /usr/bin/konsole {
 	/run/utmp rwk,
 	/var/log/wtmp wk,
 
+	/dev/dri/{,**} rwklm,
+
 	/usr/lib64/misc/utempter/utempter ix,
 
 	/bin/bash mrpx,

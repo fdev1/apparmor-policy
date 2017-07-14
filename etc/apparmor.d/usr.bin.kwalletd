@@ -19,6 +19,8 @@ profile kwalletd /usr/bin/{kwalletd,kwalletd5} {
 	@{HOME}/.local/{,**} rwklm,
 	@{HOME}/.cache/{,**} rwklm,
 
+	/dev/dri/{,**} rwklm,
+
 	/proc/*/cmdline r,
 	/proc/*/status r,
 	/proc/modules r,

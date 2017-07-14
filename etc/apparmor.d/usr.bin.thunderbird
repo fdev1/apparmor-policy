@@ -21,8 +21,7 @@ profile thunderbird /usr/lib64/thunderbird/thunderbird {
 
 	/proc/** r,
 	/run/user/*/pulse/ r,
-	/sys/devices/system/** r,
-	/sys/devices/**/uevent r,
+	/sys/devices/** r,
 	/dev/{**,} r,
 	/dev/video* rw,
 	/dev/ati/card0 rw,

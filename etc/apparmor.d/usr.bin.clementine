@@ -30,7 +30,8 @@ profile clementine /usr/bin/clementine {
 	/usr/bin/testparm rix,
 	/usr/bin/kdeinit4 rpx,
 
-	/usr/lib{,32,64}/** mr,
+	/usr/lib*/** mr,
+	/usr/lib*/gstreamer-*/gst-plugin-scanner rix,
 	/usr/share/** rk,
 	/var/cache/fontconfig/** r,
 	/var/cache/samba/* r,

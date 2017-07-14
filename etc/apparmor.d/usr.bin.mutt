@@ -11,6 +11,7 @@ profile mutt /usr/bin/mutt {
 	owner @{HOME}/.aliases rw,
 	owner @{HOME}/.signature r,
 	owner @{HOME}/.mutt*/{,**} rwklm,
+	owner @{HOME}/.mutt_certificates rwklm,
 	owner @{HOME}/Downloads/{,**} rwklm,
 	owner @{HOME}/{,**} r,
 

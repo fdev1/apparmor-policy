@@ -1,7 +1,7 @@
 # Last Modified: Mon Jul 27 15:49:00 2015
 #include <tunables/global>
 
-profile torbrowser /usr/lib*/torbrowser*/torbrowser/torbrowser {
+profile torbrowser /usr/lib*/torbrowser*/** {
 	#include <abstractions/audio>
 	#include <abstractions/base>
 	#include <abstractions/X>
@@ -38,16 +38,21 @@ profile torbrowser /usr/lib*/torbrowser*/torbrowser/torbrowser {
 	@{HOME}/.mozilla/{,**} rwklm,
 	@{HOME}/.AMD/{,**} rwk,
 	@{HOME}/.cache/mozilla/torbrowser/{,**} rw,
+	@{HOME}/.cache/gstreamer-1.0/{,**} rwklm,
+	@{HOME}/.local/share/sddm/xorg-session.log rw,
 	@{HOME}/Temp/{,**} rw,
 	@{HOME}/Encrypted/{,**} rw,
 
 	/run/user/*/pulse/ r,
 	/sys/devices/** r,
 	/dev/ati/card* rw,
+	/dev/dri/{,**} rwklm,
 	/dev/shm/* rwl,
+	/proc/*/fd/{,**} r,
 
 	/usr/lib*/{,**} rm,
 	/usr/lib*/torbrowser*/** rmix,
+	/usr/lib*/gstreamer-1.0/* rix,
 	/usr/share/fonts/{,**} r,
 	/usr/share/icons/{,**} r,
 	/usr/share/pixmaps/{,**} r,
@@ -60,6 +65,7 @@ profile torbrowser /usr/lib*/torbrowser*/torbrowser/torbrowser {
 	/etc/vdpau_wrapper.cfg r,
 	/etc/asound.conf r,
 	/etc/udev/** r,
+	/etc/machine-id r,
 	/tmp/ r,
 	/tmp/xauth* r,
 	/var/tmp/ r,

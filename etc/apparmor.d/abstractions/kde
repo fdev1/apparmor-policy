@@ -95,6 +95,8 @@ deny @{HOME}/.kde4/share/config/oxygenrc r,
 /proc/*/status r,
 /proc/modules r,
 
+/proc/sys/kernel/core_pattern r,
+
 # phonon
 @{HOME}/.config/kde.org/libphonon.conf rk,
 

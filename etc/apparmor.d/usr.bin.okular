@@ -20,6 +20,7 @@ profile okular /usr/bin/okular {
 	/usr/lib*/{,**} rm,
 	/usr/lib*/kde4/libexec/{,**} rmix,
 	/usr/share/** r,
+	/etc/xdg/** r,
 
 	/run/user/*/ksocket-*/* rwklm,
 }

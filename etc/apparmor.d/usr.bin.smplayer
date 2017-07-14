@@ -10,10 +10,13 @@ profile smplayer /usr/bin/smplayer {
 	#include <abstractions/consoles>
 	#include <abstractions/confidential-deny>
 
+	capability sys_ptrace,
+
 	/{,**/,**} r,
 	@{HOME}/{,**} rwklm,
 
 	/usr/bin/ r,
+	/usr/bin/pacmd rix,
 	/usr/bin/mplayer mrpx,
 	/usr/bin/mpv mrpx,
 	/usr/bin/* rix,

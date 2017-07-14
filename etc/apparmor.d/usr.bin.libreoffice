@@ -44,6 +44,9 @@ profile libreoffice /usr/lib{,32,64}/libreoffice/{,**} {
 	/etc/udev/udev.conf r,
 	/etc/fstab r,
 	/etc/ati/** r,
+	/etc/machine-id r,
+	/etc/pulse/{,**} r,
+	/etc/gtk-3.0/{,**} r,
 
 	/var/tmp/kdecache-*/** rwmk,
 	/var/cache/fontconfig/{,**} rwmlk,
