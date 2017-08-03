@@ -14,6 +14,12 @@ profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
 	@{HOME}/.kde{,4}/share/config/bluedevil* rw,
 	@{HOME}/.kde{,4}/share/apps/RecentDocuments/{,**} rw,
 	@{HOME}/.icons/{,**} r,
+	@{HOME}/.local/share/sddm/xorg-session.log w,
+	@{HOME}/.cache/icon-cache.kcache rw,
+	@{HOME}/.config/breezerc r,
+
+	/dev/rfkill rw,
+	/dev/dri/{,**} rwm,
 
 	/usr/bin/kcmshell4 rix,
 	/usr/bin/bluedevil-wizard rix,
@@ -22,5 +28,6 @@ profile bluedevil /usr/bin/{bluedevil-monolithic,bluedevil-wizard} {
 	/usr/share/apps/bluedevil/** r,
 	/usr/share/apps/bluedevilwizard/** r,
 	/usr/share/cursors/** r,
+	/usr/share/bluedevilwizard/pin-code-database.xml r,
 	/var/tmp/kdecache-*/*.kcache rw,
 }
