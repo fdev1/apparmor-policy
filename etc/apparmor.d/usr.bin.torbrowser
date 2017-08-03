@@ -39,6 +39,7 @@ profile torbrowser /usr/lib*/torbrowser*/** {
 	@{HOME}/.AMD/{,**} rwk,
 	@{HOME}/.cache/mozilla/torbrowser/{,**} rw,
 	@{HOME}/.cache/gstreamer-1.0/{,**} rwklm,
+	@{HOME}/.cache/fontconfig/{,**} rw,
 	@{HOME}/.local/share/sddm/xorg-session.log rw,
 	@{HOME}/Temp/{,**} rw,
 	@{HOME}/Encrypted/{,**} rw,
