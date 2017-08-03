@@ -40,6 +40,7 @@ profile dolphin /usr/bin/dolphin {
 	/usr/share/konsole/{,**} r,
 	/usr/share/config/{,**} r,
 	/usr/share/templates/{,**} r,
+	/usr/share/media-player-info/{,**} r,
 	/etc/machine-id r,
 	/etc/xdg/{,**} r,
 
