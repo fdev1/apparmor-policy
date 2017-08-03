@@ -9,6 +9,11 @@ profile tor /usr/bin/tor {
 	capability setgid,
 	capability setuid,
 
+	@{HOME}/.config/tor/* r,
+	@{HOME}/.local/tor/{,**} rwklm,
+	@{HOME}/.tor.cookie* rwklm,
+	@{HOME}/.tor.pid rwkl,
+
 	/proc/sys/kernel/random/uuid r,
 	/sys/devices/system/cpu/ r,
 	
